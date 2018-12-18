@@ -1,0 +1,815 @@
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<style>
+  .custom-content-wrapper--{{ section.id }} .custom-content__section-header  {
+    color: {{ section.settings.heading_color }};
+  }
+
+
+
+  {% if section.settings.background_color != blank %}
+    .custom-content-wrapper--{{ section.id }} {
+      background-color: {{ section.settings.background_color }};
+    }
+  {% endif %}
+  .custom-content__section-header--{{ section.id }} {
+    width: 55%;
+    margin: 0 auto;
+    margin-bottom: 35px;
+  }
+  .custom-content-wrapper--bottom-margin {
+    padding-bottom: 10px
+  }
+  .custom-content-wrapper--{{ section.id }} {
+    padding-top: 5px;
+  }
+  .custom__item {
+    margin: 10px 0;
+  }
+
+</style>
+
+<div class="custom-content-wrapper custom-content-wrapper--{{ section.id }} {% if section.settings.top_margin %}custom-content-wrapper--top-margin{% endif %} {% if section.settings.bottom_margin %}custom-content-wrapper--bottom-margin{% endif %} one-whole" data-section-id="{{ section.id }}" data-section-type="custom-content">
+  <div class="page-width">
+    {% if section.settings.heading_text != blank %}
+      <h1 class="custom-content__section-header custom-content__section-header--{{ section.id }} text-center">{{ section.settings.heading_text | escape }}</h1>
+    {% endif %}
+
+    <div class="custom-content content--{{ section.id }} background--image" style="background-image: url({{ section.settings.image | img_url: 'master' }})">
+      {% for block in section.blocks %}
+        {% case block.settings.width %}
+          {% when '25%' %}
+            {%- assign block_width = 'medium-up--one-quarter' -%}
+          {% when '33%' %}
+            {%- assign block_width = 'medium-up--one-third' -%}
+          {% when '50%' %}
+            {%- assign block_width = 'medium-up--one-half' -%}
+          {% when '66%' %}
+            {%- assign block_width = 'medium-up--two-thirds' -%}
+          {% when '75%' %}
+            {%- assign block_width = 'medium-up--three-quarters' -%}
+          {% when '100%' %}
+            {%- assign block_width = 'one-whole' -%}
+        {% endcase %}
+        <div class="custom__item custom__item--{{ block.id }} small--whole {{ block_width }} {% if block.settings.alignment %}align--{{ block.settings.alignment }}{% endif %}" {{ block.shopify_attributes }}>
+          <div class="custom__item-inner custom__item-inner--{{ block.type }}">
+            {% case block.type %}
+
+              {% when 'text' %}
+
+                {% comment %}
+                  Custom Text Block
+                {% endcomment %}
+                <style>
+                  .custom-content-wrapper--{{ section.id }} .custom__item--{{ block.id }} .custom__block-heading-text {
+                    color: {{ block.settings.heading_color }};
+                  }
+
+                  .custom-content-wrapper--{{ section.id }} .custom__item--{{ block.id }} .custom__block-body-text {
+                    color: {{ block.settings.paragraph_color }};
+                    font-size: {{ block.settings.paragraph_size | append: 'em' }};
+                  }
+                  .custom__block-heading-text.custom__block-heading-text--{{ section.id }}.custom__item--{{ block.id }}{
+                    text-align: {{ block.settings.header_alignment }};
+                    margin-top : {{ block.settings.header_margin_top }}px;
+                    margin-right : {{ block.settings.header_margin_right }}px;
+                    margin-bottom : {{ block.settings.header_margin_bottom }}px;
+                    margin-left : {{ block.settings.header_margin_left }}px;
+                  }
+                  .custom__block-body-text.custom__block-body-text--{{ section.id }}.custom__item--{{ block.id }}  {
+                    text-align: {{ block.settings.body_alignment }};
+                    margin-top : {{ block.settings.body_margin_top }}px;
+                    margin-right : {{ block.settings.body_margin_right }}px;
+                    margin-bottom : {{ block.settings.body_margin_bottom }}px;
+                    margin-left : {{ block.settings.body_margin_left }}px;                    
+                  }
+                  .image_icon {
+                    vertical-align: middle;
+                    margin: 0 10px 0 0;
+                    width: 30px;
+                  }
+                  .image_icon_text {
+                    font-weight: 700;
+                  }
+                  .content--{{ section.id }} {
+                    background-color: #ffffff;
+                    padding-bottom: 60px;
+                  }
+                </style>
+
+
+                <div class="text-{{ block.settings.align_text }} text-{{ section.id}}">
+                  {% if block.settings.heading_text != blank %}
+                    <div class="custom__block-body-text custom__block-body-text--{{ section.id }} custom__item--{{ block.id }} rte-setting"><img src="{{ block.settings.image_icon | img_url: 'master' }}" alt="{{ block.settings.image_icon.alt | escape }}" class="image_icon"><span class="image_icon_text">{{ block.settings.heading_text }}</span></div>
+                  {% endif %}
+                </div>
+
+
+              {% when 'html' %}
+                {% if block.settings.code != blank %}
+                  {{ block.settings.code }}
+                {% endif %}
+            {% endcase %}
+          </div>
+        </div>
+
+      {% endfor %}
+    </div>
+
+
+</div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Wiivv PDP Footer",
+  "class": "index-section index-section--custom-content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading",
+      "default": "Custom content"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#3a3a3a"
+
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "checkbox",
+      "id": "top_margin",
+      "label": "Top margin",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_margin",
+      "label": "Bottom margin",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Heading"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_icon",
+          "label": "Icon Image"
+        },        
+        {
+          "type": "text",
+          "id": "heading_text",
+          "label": "Text",
+          "default": "Insert header text here"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Color",
+          "default": "#3a3a3a"
+        },
+        {
+          "type": "select",
+          "id": "heading_style",
+          "label": "Style",
+          "default": "h3",
+          "options": [
+            {
+              "value": "h1",
+              "label": "Heading 1"
+            },
+            {
+              "value": "h2",
+              "label": "Heading 2"
+            },
+            {
+              "value": "h3",
+              "label": "Heading 3"
+            },
+            {
+              "value": "h4",
+              "label": "Heading 4"
+            },
+            {
+              "value": "h5",
+              "label": "Heading 5"
+            },
+            {
+              "value": "h6",
+              "label": "Heading 6"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "header_alignment",
+          "label": "Alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+            "type":      "range",
+            "id":        "header_margin_top",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "px",
+            "label":     "Top margin",
+            "default":   0
+        },
+        {
+            "type":      "range",
+            "id":        "header_margin_right",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "px",
+            "label":     "Right margin",
+            "default":   0
+        },
+        {
+            "type":      "range",
+            "id":        "header_margin_bottom",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "px",
+            "label":     "Bottom margin",
+            "default":   0
+        },
+        {
+            "type":      "range",
+            "id":        "header_margin_left",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "px",
+            "label":     "Left margin",
+            "default":   35
+        },                                 
+        {
+          "type": "header",
+          "content": "Paragraph"
+        },
+        {
+          "type": "richtext",
+          "id": "paragraph_text",
+          "label": "Text",
+          "default": "<p>insert text here</p>"
+        },
+        {
+          "type": "color",
+          "id": "paragraph_color",
+          "label": "Color",
+          "default": "#4a4a4a"
+        },
+        {
+          "type": "select",
+          "id": "paragraph_size",
+          "label": "Size",
+          "default": "1",
+          "options": [
+            {
+              "value": "1",
+              "label": "Medium"
+            },
+            {
+              "value": "1.25",
+              "label": "Large"
+            },
+            {
+              "value": "1.5",
+              "label": "Extra large"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "body_alignment",
+          "label": "Alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+            "type":      "range",
+            "id":        "body_margin_top",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "px",
+            "label":     "Top margin",
+            "default":   0
+        },
+        {
+            "type":      "range",
+            "id":        "body_margin_right",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "px",
+            "label":     "Right margin",
+            "default":   0
+        },
+        {
+            "type":      "range",
+            "id":        "body_margin_bottom",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "px",
+            "label":     "Bottom margin",
+            "default":   0
+        },
+        {
+            "type":      "range",
+            "id":        "body_margin_left",
+            "min":       0,
+            "max":        100,
+            "step":       1,
+            "unit":       "px",
+            "label":     "Left margin",
+            "default":   20
+        },                
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Container width",
+          "default": "50%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Vertical alignment",
+          "info": "Position relative to other content blocks on the same row",
+          "default": "center",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Middle"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "align_text",
+          "label": "Horizontal alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Centered"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Accordion",
+      "name": "Accordion Section",
+      "settings": [
+            {
+              "type": "header",
+              "content": "Accordion Sections"
+            },
+            {
+              "type": "text",
+              "id": "accordion_heading_text",
+              "label": "Title text",
+              "default": "Insert title text here"
+            },            
+            {
+              "type": "html",
+              "id": "accordion_paragraph_text",
+              "label": "Body text",
+              "default": "<p>insert text here</p>"
+            }
+          ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Container width",
+          "default": "50%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Vertical alignment",
+          "info": "Position relative to other content blocks on the same row",
+          "default": "center",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Middle"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_spacing",
+          "label": "Enable image spacing"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Container width",
+          "default": "50%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Vertical alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top left"
+            },
+            {
+              "value": "top",
+              "label": "Top middle"
+            },
+            {
+              "value": "top-right",
+              "label": "Top right"
+            },
+            {
+              "value": "middle-left",
+              "label": "Middle left"
+            },
+            {
+              "value": "center",
+              "label": "Middle"
+            },
+            {
+              "value": "middle-right",
+              "label": "Middle right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom middle"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_shoe_01",
+          "label": "Shoe Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_shoe_02",
+          "label": "Shoe Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_shoe_03",
+          "label": "Shoe Image 3"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },       
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Container width",
+          "default": "50%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Vertical alignment",
+          "info": "Position relative to other content blocks on the same row",
+          "default": "center",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Middle"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "html",
+          "id": "code",
+          "label": "HTML",
+          "default": "<div><p>Write your own custom HTML content.</p></div>"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Container width",
+          "default": "50%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Vertical alignment",
+          "info": "Position relative to other content blocks on the same row",
+          "default": "center",
+          "options": [
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Middle"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom content",
+      "category": "Advanced layout",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

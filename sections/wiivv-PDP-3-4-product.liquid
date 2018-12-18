@@ -1,0 +1,1102 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+<form action="/cart/add" method="post" enctype="multipart/form-data" class="product-single_form" id="AddToCartForm">
+<div class="wiivv-row wiivv-row-countable">
+  <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable one active">
+    <span class="wiivv-item-countable-line one"></span>
+    <div class="progress-caption">Design</div>
+  </div>
+  <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable two">
+    <span class="wiivv-item-countable-line two"></span>
+    <div class="progress-caption">Order</div>
+  </div>
+  <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable three ">
+    <span class="wiivv-item-countable-line three"></span>
+    <div class="progress-caption two">Measure in app</div>
+  </div>
+  <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable four ">
+    <span class="wiivv-item-countable-line four"></span>
+    <div class="progress-caption">Receive</div>
+  </div>
+</div>
+<div class="product-mobile-image-area" style="display: none;">
+  <div class="mobile-carousel">
+    <!-- You can have as many slides as you want using the simple structure below per section -->
+    <div class="item one">
+      <div class="carousel-image">
+        <img src="{{ current_variant.featured_image.src | img_url : 'master' }}">
+      </div>
+    </div>
+
+    <div class="item two">
+      <div class="carousel-image">
+        <img src="{{ current_variant.featured_image.src | img_url : 'master' }}">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="product-area">
+  <div class="product-image-area">
+    <div class="product-image-container">
+      <img class="product-image" src="{{ current_variant.featured_image | img_url : '1024x1024' }}" data-image-id="{{ current_variant.featured_image.id }}">
+    </div>
+    <ul class="product-single__thumbnails product-image-thumbnails" id="ProductThumbs">
+      {% for image in product.images %}
+        {% if product.variants.size > 1 %}
+          <li style="display: none;" class="product-image-thumbnail">
+        {% else %}
+          <li style="display: block;" class="product-image-thumbnail">
+        {% endif %}
+          <a data-image-id="{{ image.id }}"
+             href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail{% if forloop.first %} selected{% endif %}">
+            <img class="gallery-thumbs product-single__thumb" src="{{ image.src | img_url: 'small' }}" alt="{{ image.alt | escape }}" >
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="product-shop-area">
+    <select name="id" id="product_select">
+      {% for variant in product.variants %}
+        <option value="{{ variant.id }}" {% if variant == current_variant %} selected="selected" {% endif %}>
+          {{ variant.title }} - {{ variant.price | money_with_currency }}
+        </option>
+      {% endfor %}
+    </select>
+    <h3 class="product-title" style="margin-bottom: 20px;">{{ product.title }}</h3>
+    <h5 class="prodcut-price" style="margin-bottom: 20px;">{{ product.price | money_without_trailing_zeros }} USD</h5>
+    <div class="product-description" style="margin-bottom: 20px;">Inserts made exclusively for you and the way you move, made with your phone!</div>
+    <div class="product-detail-options" style="margin-bottom: 20px;">
+      {% if current_variant.option1 == 'YWF' %}
+        {% assign top_pattern_name = 'Yellow Fractal' %}
+        {% assign top_pattern_image_name = 'G.png' %}
+      {% elsif current_variant.option1 == 'YHG' %}
+        {% assign top_pattern_name = 'Yellow Hexagon' %}
+        {% assign top_pattern_image_name = 'S.png' %}
+      {% elsif current_variant.option1 == 'BLP' %}
+        {% assign top_pattern_name = 'Blue Dress' %}
+        {% assign top_pattern_image_name = 'M.png' %}
+      {% elsif current_variant.option1 == 'GNO' %}
+        {% assign top_pattern_name = 'Gnomes' %}
+        {% assign top_pattern_image_name = 'J.png' %}
+      {% elsif current_variant.option1 == 'FLO' %}
+        {% assign top_pattern_name = 'Floral' %}
+        {% assign top_pattern_image_name = 'K.png' %}
+      {% elsif current_variant.option1 == 'BAE' %}
+        {% assign top_pattern_name = 'Bacon and Eggs' %}
+        {% assign top_pattern_image_name = 'I.png' %}
+      {% elsif current_variant.option1 == 'BHG' %}
+        {% assign top_pattern_name = 'Blue Hexagon' %}
+        {% assign top_pattern_image_name = 'T.png' %}
+      {% elsif current_variant.option1 == 'TRL' %}
+        {% assign top_pattern_name = 'Trail' %}
+        {% assign top_pattern_image_name = 'Q.png' %}
+      {% elsif current_variant.option1 == 'CKG' %}
+        {% assign top_pattern_name = 'Blue Keepgoing' %}
+        {% assign top_pattern_image_name = 'P.png' %}
+      {% endif %}
+
+      {% if current_variant.option2 == 'TL' %}
+        {% assign bottom_color_name = 'Teal' %}
+        {% assign bottom_color_hex = '#3BBCB0' %}
+      {% elsif current_variant.option2 == 'GY' %}
+        {% assign bottom_color_name = 'Grey' %}
+        {% assign bottom_color_hex = 'lightgrey' %}
+      {% elsif current_variant.option2 == 'CL' %}
+        {% assign bottom_color_name = 'Coral' %}
+        {% assign bottom_color_hex = '#F48884' %}
+      {% elsif current_variant.option2 == 'RD' %}
+        {% assign bottom_color_name = 'Red' %}
+        {% assign bottom_color_hex = '#B52326' %}
+      {% elsif current_variant.option2 == 'BK' %}
+        {% assign bottom_color_name = 'Black' %}
+        {% assign bottom_color_hex = '#333' %}
+      {% endif %}
+
+      {% for option in product.options_with_values %}
+        {% if option.name == 'Top Layer' %}
+          <div class="top-pattern-area">
+            <p class="formLabel">Top pattern</p>
+            <div class="top-pattern-dropdown">
+
+              <img class="top-pattern-image" src="{{ top_pattern_image_name | asset_url }}">
+              <div class="top-pattern-name">{{ top_pattern_name }}</div>
+              <img class="up-down-image" src="{{ 'form-down-icon.png' | asset_url }}">
+            </div>
+            <ul class="product-option-dropdown" id="top_pattern_dropdown" style="display: none;">
+              {% for value in option.values %}
+                {% if value == 'YWF' %}
+                  <li class="dark active" data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'G.png' | asset_url }}">
+                    <div class="top-pattern-name">Yellow Fractal</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}" checked>
+                  </li>
+                {% elsif value == 'YHG' %}
+                  <li data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'S.png' | asset_url }}">
+                    <div class="top-pattern-name">Yellow Hexagon</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'BLP' %}
+                  <li class="dark" data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'M.png' | asset_url }}">
+                    <div class="top-pattern-name">Blue Dress</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'GNO' %}
+                  <li data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'J.png' | asset_url }}">
+                    <div class="top-pattern-name">Gnomes</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'FLO' %}
+                  <li class="dark" data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'K.png' | asset_url }}">
+                    <div class="top-pattern-name">Floral</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'BAE' %}
+                  <li data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'I.png' | asset_url }}">
+                    <div class="top-pattern-name">Bacon and Eggs</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'CKG' %}
+                  <li data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'P.png' | asset_url }}">
+                    <div class="top-pattern-name">Blue Keepgoing</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'TRL' %}
+                  <li data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'Q.png' | asset_url }}">
+                    <div class="top-pattern-name">Trail</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'BHG' %}
+                  <li data-option="{{ value }}">
+                    <img class="top-pattern-image" src="{{ 'T.png' | asset_url }}">
+                    <div class="top-pattern-name">Blue Hexagon</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% else %}
+          <div class="bottom-color-area">
+            <p class="formLabel">Bottom color</p>
+            <div class="bottom-color-dropdown">
+              <div class="bottom-color-circle" style="background: {{ bottom_color_hex }};"></div>
+              <div class="bottom-color-name">{{ bottom_color_name }}</div>
+              <img class="up-down-image" src="{{ 'form-down-icon.png' | asset_url }}">
+            </div>
+            <ul class="product-option-dropdown" id="bottom_color_dropdown" style="display: none;">
+              {% for value in option.values %}
+
+                {% if value == 'TL' %}
+                  <li class="dark active" data-option="{{ value }}">
+                    <div class="bottom-color-circle" style="background: #3BBCB0;"></div>
+                    <div class="bottom-color-name">Teal</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}" checked>
+                  </li>
+                {% elsif value == 'GY' %}
+                  <li data-option="{{ value }}">
+                    <div class="bottom-color-circle" style="background: lightgrey;"></div>
+                    <div class="bottom-color-name">Grey</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'CL' %}
+                  <li class="dark" data-option="{{ value }}">
+                    <div class="bottom-color-circle" style="background: #F48884;"></div>
+                    <div class="bottom-color-name">Coral</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'RD' %}
+                  <li data-option="{{ value }}">
+                    <div class="bottom-color-circle" style="background: #B52326;"></div>
+                    <div class="bottom-color-name">Red</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% elsif value == 'BK' %}
+                  <li class="dark" data-option="{{ value }}">
+                    <div class="bottom-color-circle" style="background: #333333;"></div>
+                    <div class="bottom-color-name">Black</div>
+                    <input type="radio" name="{{ option.name }}" value="{{ value | escape }}">
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="product-quantity" style="margin-bottom: 20px;">
+      <div class="quantity-area">
+      	<p class="formLabel">Quantity</p>
+      <div class="product-quantity-box">
+        <img class="quantity-minus" src="{{ 'form-minus-icon.png' | asset_url }}">
+        <div class="quantity-amount">
+          <input type="text" min="1" value="1" name="quantity" id="Quantity">
+          <div class="quantity-text"> pair</div>
+        </div>
+        <img class="quantity-plus" src="{{ 'form-plus-icon.png' | asset_url }}">
+        <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+      </div>
+      </div>
+    </div>
+    <div class="button-container not-mobile" data-fancybox data-options='{"src": "#add_to_cart_modal", "touch": false, "smallBtn" : false}' style="margin-bottom: 10px;">
+      <button class="add-to-cart primary-button">
+        ADD TO CART
+      </button>
+    </div>
+    <div class="product-sub-caption">30-day money-back guarantee</div>
+  </div>
+</div>
+</form>
+
+<div class="hidden" id="add_to_cart_modal" style="display: none;">
+  <h3>You're on step closer to comfort!</h3>
+  <div class="wiivv-row wiivv-row-countable">
+    <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable one completed">
+      <span class="wiivv-item-countable-line one"></span>
+      <div class="progress-caption">Design</div>
+    </div>
+    <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable two active">
+      <span class="wiivv-item-countable-line two"></span>
+      <div class="progress-caption">Order</div>
+    </div>
+    <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable three ">
+      <span class="wiivv-item-countable-line three"></span>
+      <div class="progress-caption two">Measure in app</div>
+    </div>
+    <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable four ">
+      <span class="wiivv-item-countable-line four"></span>
+      <div class="progress-caption">Receive</div>
+    </div>
+  </div>
+  <div class="button-container">
+    <button class="primary-button">GO TO CART</button>
+  </div>
+  <div class="continue-shopping">
+    <a data-fancybox-close href="javascript;">CONTINUE SHOPPING</a>
+  </div>
+</div>
+<style>
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    padding-top: 80px;
+  }
+
+  #add_to_cart_modal {
+    border-radius: 4px;
+    padding: 30px;
+  }
+
+  #add_to_cart_modal h3 {
+    text-align: center;
+  }
+
+  #add_to_cart_modal .wiivv-item-countable-line.one::after {
+    border-color: #FFC805;
+  }
+
+  #add_to_cart_modal .wiivv-item-countable-line.two::before {
+    border-color: #FFC805;
+  }
+
+  #add_to_cart_modal .button-container {
+    text-align: center;
+  }
+
+  #add_to_cart_modal .button-container .primary-button {
+    width: 240px;
+  }
+
+  #add_to_cart_modal .continue-shopping {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  #add_to_cart_modal .continue-shopping a {
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Poppins;
+    color: #004A97;
+  }
+
+  .site-header__wrapper {
+    background-color: white;
+  }
+
+  .wiivv-row-countable {
+    counter-reset: item;
+  }
+  .wiivv-row {
+    position: relative;
+    overflow: hidden;
+    width: 645px;
+    margin: 0 auto;
+    height: 100px;
+    padding-top: 45px;
+    margin-bottom: 50px;
+  }
+
+  .wiivv-text-center {
+    text-align: center;
+  }
+
+  .wiivv-sm-4 {
+    width: 33.33333333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+  }
+
+  .wiivv-sm-4.one, .wiivv-sm-4.four {
+    width: 25%;
+  }
+
+  .wiivv-sm-4.two, .wiivv-sm-4.three {
+    width: 25%;
+  }
+
+  .wiivv-item-countable::before {
+    color: #ea4640;
+    border-color: #ea4640;
+    background-color: #fff;
+  }
+  .wiivv-item-countable::before {
+    content: '';
+    width: 28px;
+    height: 28px;
+    display: block;
+    margin: auto;
+    border: 5px solid #BBBBBB;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .wiivv-item-countable.completed::before {
+    border-color: #FFC805;
+    background-color: #FFC805;
+  }
+
+  .wiivv-item-countable.active::before {
+    border-color: #FFC805;
+  }
+
+  .wiivv-item-countable-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 38%;
+    top: 14px;
+    border-top: 1px solid;
+    border-color: #BBBBBB;
+  }
+
+  .wiivv-item-countable-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 38%;
+    top: 14px;
+    border-top: 1px solid;
+    border-color: #BBBBBB;
+  }
+
+  .wiivv-item-countable-line.one::before {
+    content: none;
+  }
+
+  .wiivv-item-countable-line.four::after {
+    content: none;
+  }
+
+  .progress-caption {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .product-area {
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-end;
+    height: 460px;
+  }
+
+  .product-image-area {
+    padding-right: 100px;
+    width: 100%;
+  }
+
+  .product-image-thumbnails {
+    float: left;
+  }
+
+  .product-image-thumbnail {
+    width: 72px;
+    height: 72px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    list-style: none;
+  }
+
+  .product-image-thumbnail.active {
+    background-color: #F5F5F5;
+  }
+
+  .product-image {
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: right;
+    max-width: 500px;
+    max-height: 460px;
+  }
+
+  .product-shop-area {
+    flex: 0 0 350px;
+  }
+
+  .product-shop-area input[type="radio"]{
+    display: none;
+  }
+
+  #product_select {
+    display: none;
+  }
+
+  .button-container button.primary-button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    color: #ffffff;
+    border: none !important;
+    border-radius: 4px;
+    width: 350px;
+    height: 50px;
+    background: #004A97;
+    text-align: center;
+    font-weight: 600;
+    font-family: Poppins;
+    letter-spacing: 0px;
+    line-height: 50px;
+    transition: background .3s ease-out;
+  }
+
+  .button-container button.primary-button:hover {
+    background: #6993C1;
+  }
+
+  .site-header__wrapper.pdp-header {
+    background: white !important;
+    border-bottom: 1px solid rgb(243,243,243) !important;
+    height: 85px;
+  }
+
+  .site-header__wrapper.pdp-header a .white-icon {
+    display: none !important;
+  }
+
+  .site-header__wrapper.pdp-header a .blue-icon {
+    display: block !important;
+  }
+
+  .site-header__wrapper.pdp-header .site-header__logo-image {
+    max-width: none;
+  }
+
+  .site-header__section--title .menu-itmes a:after {
+    background: #004A97;
+  }
+
+  .product-detail-options {
+    height: 60px;
+  }
+
+  .formLabel {
+    margin: 0 0 5px 0 !important;
+    font-size: 10px !important;
+  }
+
+
+  .top-pattern-area {
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .top-pattern-dropdown, .bottom-color-dropdown {
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    width: 165px;
+    height: 40px;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .top-pattern-image, .bottom-color-circle{
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-right: 10px;
+  }
+
+  .bottom-color-circle {
+    border-radius: 50%;
+  }
+
+  .top-pattern-name, .bottom-color-name {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .up-down-image {
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin-top: -18px;
+  }
+
+  .product-option-dropdown {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: 165px;
+    overflow: hidden;
+  }
+
+  .product-option-dropdown li {
+    width: 165px;
+    height: 40px;
+    padding: 8px;
+    cursor: pointer;
+    background: white;
+  }
+
+  .product-option-dropdown li.dark {
+    background: #F3F3F3;
+  }
+
+  .product-option-dropdown li.active {
+    background: #DDD;
+  }
+
+  .product-option-dropdown li:hover {
+    background: #DDD;
+  }
+
+  .bottom-color-area {
+    float: left;
+  }
+
+  .product-quantity-box {
+    width: 130px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #BBB;
+    border-radius: 4px;
+  }
+
+  .quantity-minus {
+    width: 20px;
+    height: 20px;
+    float: left;
+    cursor: pointer;
+  }
+
+  .quantity-plus {
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin-top: -20px;
+    cursor: pointer;
+  }
+
+  .quantity-amount {
+    width: 70px;
+    height: 20px;
+    float: left;
+    padding-left: 15px;
+  }
+
+  .quantity-amount input[type="text"] {
+    float: left;
+    padding: 0;
+    width: 15px;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: -1px;
+  }
+
+  .quantity-amount .quantity-text {
+    float: left;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .quantity-area {
+    width: 130px;
+  }
+
+  @media only screen and (min-width: 1025px) and (max-width: 1277px) {
+    .product-image-area {
+      padding-right: 40px;
+      position: relative;
+      width: 410px;
+    }
+
+    .product-image-thumbnails {
+      float: none;
+      padding: 0 32px;
+      padding-left: 64px;
+      display: flex;
+      position: absolute;
+      top: 370px;
+      right: 180px;
+    }
+
+    .product-image {
+      float: none;
+      width: 380px;
+      position: absolute;
+      top: 0;
+      right: 95px;
+      /* max-height: 245px; */
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #sidebar-main-trigger img.blue-icon {
+      display: block !important;
+    }
+
+    #sidebar-main-trigger img.white-icon {
+      display: none !important;
+    }
+
+    .product-area {
+      padding: 0 45px;
+      justify-content: center;
+      max-height: 440px;
+    }
+
+    .product-shop-area {
+      width: 320px;
+    }
+
+    .top-pattern-dropdown {
+      width: 140px;
+    }
+
+    .bottom-color-dropdown {
+      width: 140px;
+    }
+
+    .top-pattern-dropdown .top-pattern-name {
+      width: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #top_pattern_dropdown {
+      width: 140px;
+    }
+
+    #bottom_color_dropdown {
+      width: 140px;
+    }
+
+    .button-container a.primary-button {
+      width: 320px;
+    }
+
+    .product-image-area {
+      padding-right: 40px;
+      position: relative;
+      width: 360px;
+    }
+
+    .product-image-thumbnails {
+      float: none;
+      padding: 0 32px;
+      padding-left: 64px;
+      display: flex;
+      position: absolute;
+      top: 320px;
+    }
+
+    .product-image {
+      float: none;
+      width: 320px;
+      position: absolute;
+      top: 0;
+      /* max-height: 245px; */
+    }
+
+    .product-image-thumbnail {
+      margin-right: 20px;
+    }
+
+    .product-image-thumbnail:last-child {
+      margin-right: 0;
+    }
+
+    .site-header__logo-image {
+      height: auto;
+      width: 75px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      padding-top: 59px;
+    }
+
+    .product-sub-caption {
+      display: none;
+    }
+
+    .wiivv-row {
+      display: none;
+    }
+
+    #add_to_cart_modal {
+      width: 310px;
+    }
+
+    #add_to_cart_modal .wiivv-row {
+      display: block;
+      width: 256px;
+      padding-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    #add_to_cart_modal .wiivv-row .progress-caption {
+/*       display: none; */
+      font-size: 10px;
+
+    }
+
+    #add_to_cart_modal .wiivv-row .wiivv-item-countable-line::after,
+    #add_to_cart_modal .wiivv-row .wiivv-item-countable-line::before {
+      width: 30%;
+    }
+
+    #add_to_cart_modal .button-container {
+      display: block;
+    }
+
+    .site-header__logo-image {
+      width: 75px;
+    }
+
+    #sidebar-main-trigger img.white-icon {
+      display: none !important;
+    }
+
+    #sidebar-main-trigger img.blue-icon {
+      display: block !important;
+    }
+
+    .product-title {
+      margin: 0 auto;
+    }
+
+    .product-area {
+      display: block;
+      padding: 0;
+      margin: 0 20px;
+      padding-top: 20px;
+      height: auto;
+      text-align: center;
+    }
+
+    .product-image-area {
+      display: none;
+    }
+
+    .product-detail-options, .product-quantity {
+   	  display: flex;
+      justify-content: center;
+      text-align: left;
+    }
+
+    #ProductThumbs {
+      display: none;
+    }
+
+    .prodcut-price {
+      text-align: center;
+    }
+
+    .top-pattern-area {
+      margin-right: 20px;
+    }
+
+    .top-pattern-dropdown .top-pattern-name {
+      width: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .top-pattern-dropdown, .bottom-color-dropdown {
+      width: 140px;
+    }
+
+    .product-option-dropdown {
+      width: 140px;
+    }
+
+    .product-sub-caption {
+      text-align: center;
+    }
+
+    .product-mobile-image-area {
+      background: #F5F5F5;
+      display: block !important;
+    }
+
+    .mobile-carousel {
+      width: 310px;
+      margin: 0 auto;
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+
+    .slick-dots {
+      position: relative;
+      bottom: 0;
+      margin-top: 20px;
+    }
+
+    .slick-dots li button:before {
+      font-size: 10px;
+    }
+
+    .button-container {
+      display: none;
+    }
+
+    .button-container.mobile {
+      display: block !important;
+    }
+
+    .button-container.mobile button.primary-button {
+      width: 100%;
+      border-radius: 0px;
+      position: fixed;
+      bottom: 0;
+      z-index: 8;
+    }
+  }
+</style>
+
+<script>
+  var variants = {{ product.variants | json }};
+  var images = {{ product.images | json }};
+  var product = {{ product | json }};
+  var current_variant = {{ current_variant | json }};
+
+  $(document).ready(function() {
+    $('#shop_btn').click(function() {
+      $('.button-container.not-mobile button').trigger('click');
+    });
+
+    $('#add_to_cart_modal .button-container .primary-button').click(function() {
+      var variant_id = $('#product_select').val();
+      var quantity = $('#Quantity').val();
+      $.post('/cart/add.js', {quantity: quantity, id: variant_id}, function() {
+        location.href = '/cart';
+      });
+    });
+
+    var sku = current_variant.sku.substring(0, 4);
+    var i = 0;
+    $('.product-image-thumbnail a').each(function() {
+      if ($(this).find('img').prop('src').search(sku) != -1) {
+        if (i == 0) {
+          $('.item.one .carousel-image img').prop('src', $(this).prop('href'));
+        }
+        else {
+          $('.item.two .carousel-image img').prop('src', $(this).prop('href'));
+        }
+        i ++;
+      }
+    });
+    $('.mobile-carousel').slick({
+      dots: true,
+      arrows: false,
+      infinite: true
+    });
+
+    var i = 0;
+    $('.menu-item').each(function() {
+      if (product.title.search('3/4') != -1) {
+        if (i == 1) {
+          $(this).addClass('active');
+        }
+      }
+      else if (product.title.search('Full') != -1) {
+        if (i == 0) {
+          $(this).addClass('active');
+        }
+      }
+      i ++;
+    });
+
+    $('.product-image-thumbnail a').each(function() {
+      if ($('.product-image').data('image-id') == $(this).data('image-id')) {
+        $(this).parent().addClass('active');
+      }
+    });
+
+    $(document).click(function() {
+      $('#top_pattern_dropdown').slideUp('100');
+      $('#bottom_color_dropdown').slideUp('100');
+    });
+    $('.site-header__wrapper').addClass('pdp-header');
+
+    $('.top-pattern-dropdown').click(function(event) {
+      event.stopPropagation();
+      $('#top_pattern_dropdown').slideToggle('100');
+      $('#bottom_color_dropdown').slideUp('100');
+    });
+
+    $('.bottom-color-dropdown').click(function(event) {
+      event.stopPropagation();
+      $('#bottom_color_dropdown').slideToggle('100');
+      $('#top_pattern_dropdown').slideUp('100');
+    });
+
+    $('#top_pattern_dropdown li').click(function() {
+      $('#top_pattern_dropdown li').removeClass('active');
+      $(this).addClass('active');
+
+      var image_src = $(this).find('img').prop('src');
+      $('.top-pattern-dropdown .top-pattern-image').prop('src', image_src);
+
+      var top_pattern_name = $(this).find('.top-pattern-name').text();
+      $('.top-pattern-dropdown .top-pattern-name').text(top_pattern_name);
+
+      $(this).find('input[type="radio"]').prop('checked', true);
+      $('#top_pattern_dropdown').hide();
+
+      show_product_images();
+    });
+
+    $('#bottom_color_dropdown li').click(function() {
+      $('#bottom_color_dropdown li').removeClass('active');
+      $(this).addClass('active');
+
+      var background_color = $(this).find('.bottom-color-circle').css('backgroundColor');
+      $('.bottom-color-dropdown .bottom-color-circle').remove();
+      $('.bottom-color-dropdown .bottom-color-name').before('<div class="bottom-color-circle" style="background: ' + background_color + '"></div>');
+
+      var bottom_color_name = $(this).find('.bottom-color-name').text();
+      $('.bottom-color-dropdown .bottom-color-name').text(bottom_color_name);
+
+      $(this).find('input[type="radio"]').prop('checked', true);
+
+      $('#bottom_color_dropdown').hide();
+      show_product_images();
+    });
+
+    $('.product-image-thumbnail a').click(function(e) {
+      e.preventDefault();
+      $('.product-image').prop('src', $(this).prop('href'));
+      $('.product-image-thumbnail').removeClass('active');
+      $(this).parent().addClass('active');
+    });
+
+    $('.quantity-minus').click(function() {
+      var current_quantity = parseInt($('#Quantity').val());
+      current_quantity --;
+      if (current_quantity == 1) {
+        $('.quantity-text').text('pair');
+      }
+      if (current_quantity < 1) {
+        $('#Quantity').val(1);
+        $('#Quantity').attr('value', 1);
+      }
+      else {
+        $('#Quantity').val(current_quantity);
+        $('#Quantity').attr('value', current_quantity);
+      }
+    });
+
+    $('.quantity-plus').click(function() {
+      var current_quantity = $('#Quantity').val();
+      current_quantity ++;
+      $('#Quantity').val(current_quantity);
+      $('#Quantity').attr('value', current_quantity);
+      $('.quantity-text').text('pairs');
+    });
+  });
+
+  function show_product_images() {
+    var option1 = $('#top_pattern_dropdown li.active').data('option');
+    var option2 = $('#bottom_color_dropdown li.active').data('option');
+
+    for (var i = 0; i < variants.length; i ++) {
+      if (variants[i].option1 == option1 && variants[i].option2 == option2) {
+        var image_src = variants[i].featured_image.src;
+        $('.product-image').prop('src', image_src);
+        $('.product-image').data('image-id', variants[i].featured_image.id);
+        $('#product_select').val(variants[i].id);
+        var j = 0;
+        $('.product-image-thumbnail a').each(function() {
+          if ($('.product-image').data('image-id') == $(this).data('image-id')) {
+            $(this).parent().addClass('active');
+          }
+          else {
+            $(this).parent().removeClass('active');
+          }
+
+          var sku = variants[i].sku.substring(0, 4);
+          if ($(this).find('img').prop('src').search(sku) != -1) {
+            if (j == 0) {
+              $('.item.one .carousel-image img').prop('src', $(this).prop('href'));
+            }
+            else {
+              $('.item.two .carousel-image img').prop('src', $(this).prop('href'));
+            }
+            j ++;
+          }
+        });
+      }
+
+    }
+  }
+</script>
+{% schema %}
+{
+    "name": "Product",
+    "class": "index-section index-section--featured-product",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_quantity_selector",
+        "label": "Show quantity selector",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product",
+        "category": "Product"
+      }
+    ]
+  }
+{% endschema %}

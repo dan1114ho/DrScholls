@@ -1,0 +1,143 @@
+<div class="custom-guarantee margin-top--large margin-bottom--large margin-wrapper">
+  <h2 class="guarantee-heading section-heading">{{ section.settings.guaranteeHeading }}</h2>
+  <div class="best-for-title text-center">Best for:</div>
+  <div class="guarantee-best-for-icons">
+    <div class="guarantee-best-for-images">
+      <img class="" src="{{ section.settings.best_for1 | img_url: 'master' }}">
+      <div class="best-for-image-captions">{{ section.settings.best_for_caption1 }}</div>
+    </div>
+    <div class="guarantee-best-for-images">
+      <img class="" src="{{ section.settings.best_for2 | img_url: 'master' }}">
+      <div class="best-for-image-captions">{{ section.settings.best_for_caption2 }}</div>
+    </div>
+    <div class="guarantee-best-for-images">
+      <img class="" src="{{ section.settings.best_for3 | img_url: 'master' }}">
+      <div class="best-for-image-captions">{{ section.settings.best_for_caption3 }}</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-guarantee {
+/*     padding: 100px 0 100px 0; */
+  }
+
+  .margin-wrapper {
+  	margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .guarantee-heading {
+    max-width: 750px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 50px;
+  }
+
+  .best-for-title {
+    font-size: 22px;
+    font-family: Poppins;
+    font-weight: 500;
+  }
+
+  .guarantee-best-for-icons {
+/*     width: 475px; */
+    height: 125px;;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .guarantee-best-for-images {
+    width: 125px;
+    height: 125px;
+/*     margin-right: 50px; */
+/*     float: left; */
+    text-align: center;
+  }
+
+  .guarantee-best-for-images:last-child {
+    margin-right: 0;
+  }
+
+  .guarantee-best-for-images img {
+    width: 100px;
+/*     height: 100px; */
+  }
+
+  .guarantee-best-for-images .best-for-image-captions {
+    font-family: Poppins;
+    line-height: unset;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .guarantee-heading {
+      max-width: 550px;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .guarantee-heading {
+      max-width: 550px;
+    }
+    
+    
+  }
+</style>
+{% schema %}
+{
+  "name": "Custom Full Guarantee",
+  "class": "index-section index-section--image-with-text-overlay",
+  "settings": [
+    {
+      "type": "text",
+      "id": "guaranteeHeading",
+      "label": "Heading",
+      "default": "Talk about your brand"
+    },
+    {
+      "type": "header",
+      "content": "Best For Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "best_for1",
+      "label": "Best For1"
+    },
+    {
+      "type": "text",
+      "id": "best_for_caption1",
+      "label": "Best For Caption1",
+      "default": "View"
+    },
+    {
+      "type": "image_picker",
+      "id": "best_for2",
+      "label": "Best For2"
+    },
+    {
+      "type": "text",
+      "id": "best_for_caption2",
+      "label": "Best For Caption2",
+      "default": "View"
+    },
+    {
+      "type": "image_picker",
+      "id": "best_for3",
+      "label": "Best For3"
+    },
+    {
+      "type": "text",
+      "id": "best_for_caption3",
+      "label": "Best For Caption3",
+      "default": "View"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Full Guarantee",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

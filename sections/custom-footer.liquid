@@ -1,0 +1,93 @@
+<style>
+  .footer-area {
+    padding: 100px;
+  }
+
+  .footer-menu-items {
+    padding: 0;
+    margin: 0;
+    float: left;
+  }
+
+  .footer-menu-items a.menu-item {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+
+  .footer-menu-items li {
+    list-style: none;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .footer-area {
+      padding: 100px 45px 80px 45px;
+    }
+
+    .site-header__logo {
+      width: 75px;
+    }
+
+    .site-header__logo-image {
+      height: auto;
+    }
+  }
+  
+  @media only screen and (min-width: 200px) and (max-width: 600px) {
+    .footer-area {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .footer-area > .site-header__logo {
+      width: 75px;
+      margin-top: 20px;
+    }
+  }
+</style>
+
+<div class="footer-area clearfix">
+  <ul class="footer-menu-items">
+    {% for link in linklists[section.settings.custom_footer_menu].links %}
+      <li>
+        <a class="menu-item" href="{{link.links}}">{{link.title}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="/" itemprop="url" class="site-header__logo" style="float: right;">
+    <img class="site-header__logo-image" src="{{ section.settings.logo_image | img_url: 'master' }}">
+  </a>
+</div>
+{% schema %}
+{
+  "name": "Custom Footer",
+  "class": "custom-footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "link_list",
+      "id": "custom_footer_menu",
+      "label": "Custom Footer Menu",
+      "default": "footer",
+      "info": "This menu won't show dropdown items"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

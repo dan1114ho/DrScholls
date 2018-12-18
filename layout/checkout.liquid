@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Poppins:300,400,600,700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <!-- OWL CAROUSEL  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/assets/owl.theme.default.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.3/owl.carousel.min.js"></script>
+
+    <!-- Slick Carousel -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.4.1/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.4.1/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.4.1/slick-theme.css"/>
+
+    <!-- Simple Sidebar -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    {{ 'jquery.simpler-sidebar.js' | asset_url | script_tag }}
+
+    <!-- Fancybox -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css">
+    <link href="{{ 'checkout.scss' | asset_url }}" rel="stylesheet">
+
+    <title>{{ shop.name }} - {{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+  </head>
+  <body>
+    {% section 'header' %}
+    <div class="main-area">
+      {% if checkout.order.order_status_url contains 'http' %}
+      <div class="thank-you-section">
+        <div class="order-number">
+          Order#{{ checkout.order_number }}
+        </div>
+        <h2 class="signup-title not-for-payment-method thank-you">Thank you! Now, we need your feet.</h2>
+        <div class="signup-description">Download our free mobile app and get measured in minutes.</div>
+        <div class="wiivv-row wiivv-row-countable thank-you">
+          <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable one completed">
+            <span class="wiivv-item-countable-line one"></span>
+            <div class="progress-caption">Design</div>
+          </div>
+          <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable two completed">
+            <span class="wiivv-item-countable-line two"></span>
+            <div class="progress-caption">Order</div>
+          </div>
+          <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable three active">
+            <span class="wiivv-item-countable-line three"></span>
+            <div class="progress-caption two">Measure in app</div>
+          </div>
+          <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable four ">
+            <span class="wiivv-item-countable-line four"></span>
+            <div class="progress-caption">Receive</div>
+          </div>
+        </div>
+        <div class="thank-form-area">
+          <p class="heading-description">We'll text you a link to our app.</p>
+          <input type="text" name="phone-number" class="phone-number" placeholder="Enter your phone number">
+          <div class="button-container">
+            <a href="javascript;" class="primary-button">TEXT ME THE LINK</a>
+          </div>
+          <p class="sub-description">
+            Standard text messaging rates apply.
+          </p>
+        </div>
+      </div>
+      <div class="thank-you-right-section" style="background: url('{{ 'checkout_bg.png' | asset_url }}')">
+
+      </div>
+      {% else %}
+      <div class="wiivv-row wiivv-row-countable mobile" style="display: none;">
+        <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable one completed">
+          <span class="wiivv-item-countable-line one"></span>
+          <div class="progress-caption">Design</div>
+        </div>
+        <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable two active">
+          <span class="wiivv-item-countable-line two"></span>
+          <div class="progress-caption">Order</div>
+        </div>
+        <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable three ">
+          <span class="wiivv-item-countable-line three"></span>
+          <div class="progress-caption two">Measure in app</div>
+        </div>
+        <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable four ">
+          <span class="wiivv-item-countable-line four"></span>
+          <div class="progress-caption">Receive</div>
+        </div>
+      </div>
+      <div class="mobile-total">
+        <div class="mobile-total-heading">Total</div>
+        <div class="mobile-total-price">{{ checkout.total_price | money_without_trailing_zeros }} USD</div>
+      </div>
+      <div class="main" role="main">
+        <div class="wiivv-row wiivv-row-countable not-mobile">
+          <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable one completed">
+            <span class="wiivv-item-countable-line one"></span>
+            <div class="progress-caption">Design</div>
+          </div>
+          <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable two active">
+            <span class="wiivv-item-countable-line two"></span>
+            <div class="progress-caption">Order</div>
+          </div>
+          <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable three ">
+            <span class="wiivv-item-countable-line three"></span>
+            <div class="progress-caption two">Measure in app</div>
+          </div>
+          <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable four ">
+            <span class="wiivv-item-countable-line four"></span>
+            <div class="progress-caption">Receive</div>
+          </div>
+        </div>
+
+        {{ breadcrumb }}
+        <h3 class="signup-title not-for-payment-method" style="display: none;">Where do you want your Dr. Scholl's shipped?</h3>
+        <h3 class="signup-title for-payment-method" style="display: none;">How do you want to pay?</h3>
+        <div class="main__content">
+          {{ content_for_layout }}
+        </div>
+      </div>
+      <div class="your-cart-area closed">
+        <h3 class="cart-title">Your Cart</h3>
+        <div class="mobile-collapse closed" style="display: none;">
+          <div class="mobile-cart-title">Your cart</div>
+          <i class="fa fa-caret-down dropdown-icons"></i>
+          <i class="fa fa-caret-up dropdown-icons" style="display: none;"></i>
+        </div>
+        {{ content_for_order_summary }}
+      </div>
+      {% endif %}
+    </div>
+    {{ tracking_code }}
+  </body>
+
+  <script>
+    $(document).ready(function() {
+      $('.site-header__wrapper').addClass('cart-header');
+      if (Shopify.Checkout.step != undefined) {
+        if (Shopify.Checkout.step == 'thank_you') {
+          $('.main-area').addClass('thank-you');
+        }
+        else {
+          $('.main-area').addClass(Shopify.Checkout.step);
+        }
+      }
+      else {
+        $('.main-area').addClass('thank-you');
+      }
+
+      if ($('.main-area').hasClass('thank-you')) {
+        $('body').css('height', '100%');
+      }
+      else {
+        $('body').css('height', 'auto');
+      }
+      $('.mobile-collapse').click(function() {
+        $('.order-summary--is-collapsed').slideToggle('300');
+        $('.mobile-total').toggle();
+        $('.dropdown-icons').toggle();
+        $('.your-cart-area').toggleClass('closed');
+      });
+
+      if ($('.main-area').hasClass('payment_method')) {
+        $('.signup-title.not-for-payment-method').hide();
+        $('.signup-title.for-payment-method').show();
+      }
+      else {
+        $('.signup-title.not-for-payment-method').show();
+        $('.signup-title.for-payment-method').hide();
+      }
+
+      $('.field').each(function() {
+        if ($(this).hasClass('field--half')) {
+          $(this).removeClass('field--half')
+        }
+        if ($(this).hasClass('field--quarter')) {
+          $(this).removeClass('field--quarter').addClass('field--half');
+        }
+      });
+      setTimeout(function() {
+        $('.product__description').each(function() {
+          var product_description = $(this);
+          var quantity = $(this).parent().find('td:first-child .product-thumbnail__quantity').text();
+          if (parseInt(quantity) > 1) {
+            var quantity_text = 'pairs';
+          }
+          else {
+            var quantity_text = 'pair'
+          }
+          var html_str = '<span class="item-quantity">' + quantity + ' ' + quantity_text + '</span>';
+          product_description.append(html_str);
+        });
+      }, 1500);
+    });
+  </script>
+</html>

@@ -1,0 +1,458 @@
+<style>
+  #VideoSection--{{ section.id }} .video-section__cover-background {
+    background-color: {{ section.settings.background_color }};
+    background-position: {{ section.settings.cover_image_position }};
+  }
+
+  #VideoSection--{{ section.id }} .video-section__cover-text {
+    color: {{ section.settings.cover_text_color }}
+  }
+
+  #VideoSection--{{ section.id }} .video-section__load-player-button-triangle {
+    border-left-color: {{ section.settings.cover_text_color }}
+  }
+
+  #VideoSection--{{ section.id }} .video-section__load-player-button-circle {
+    border-color: {{ section.settings.cover_text_color }}
+  }
+</style>
+
+{% if section.settings.show_overlay %}
+  <style>
+    #VideoSection--{{ section.id }} .video-section__cover-text {
+      color: {{ section.settings.overlay_text }};
+    }
+
+    #VideoSection--{{ section.id }} .video-section__load-player-button-triangle {
+      border-left-color: {{ section.settings.overlay_text }};
+    }
+
+    #VideoSection--{{ section.id }} .video-section__load-player-button.animated .video-section__load-player-button-circle,
+    #VideoSection--{{ section.id }} .video-section__load-player-button-circle {
+      border-color: {{ section.settings.overlay_text }};
+    }
+
+    #VideoSection--{{ section.id }} .video-section__cover-overlay {
+      background-color: {{ section.settings.overlay_color }};
+      opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    }
+
+    .help-icons {
+      width: 1240px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .help-icons .help-icon {
+      width: 33.33%;
+      text-align: center;
+      float: left;
+    }
+
+    .help-icons .help-icon .help-icon-body {
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .help-icons .help-icon .help-icon-body .sliderIcon {
+      width: 150px;
+      height: 150px;
+      margin-top: -75px;
+    }
+
+    .help-icons .help-icon .help-icon-body .sliderIcon img {
+      width: 75px !important;
+      height: 75px !important;
+      margin-top: 37.5px;
+      padding-top: 0;
+    }
+
+    .help-icons .help-icon .help-icon-body .sliderText {
+      margin: 0;
+      margin-top: 10px;
+    }
+
+    .help-icons .help-icon .help-icon-body .sliderText h4 {
+      margin-bottom: 10px;
+    }
+
+    .sliderIcon {
+      width: 90px;
+      height: 90px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 100%;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05), 0 6px 6px rgba(0,0,0,0.15);
+      margin-top: -45px;
+      background-color: #ffffff;
+    }
+
+    .sliderIcon > img {
+      width: 40px!important;
+      margin: auto;
+      padding-top: 25px;
+    }
+
+    .sliderText {
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-top: 30px;
+    }
+
+    .sliderHeader {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      height: 180px;
+    }
+
+    .wiivv-grey {
+    	color: #D6D6D6;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .video-section {
+        height: 300px;
+        background-size: cover;
+        background-position: center center;
+      }
+
+      .help-icon-container {
+        padding: 0 45px;
+      }
+
+      .help-icons .help-icon {
+        width: 18.1%;
+      }
+    }
+    
+    
+/* Styling for custom video modal */    
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .video-modal-button {
+    display: block;
+    margin: auto;
+  }
+
+  .video-overlay {
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    height: 100vh;
+    margin: -50px 0 0 0;
+    position: fixed;
+    width: 100%;
+    z-index: 9999999999;
+  }
+
+  .video-modal {
+    background-color: transparent;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+  }
+
+  .video-modal iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 500px;
+  }
+
+  .video-outer-modal {
+    height: auto;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+  }
+
+  .video-close {
+    display: block;
+    position: absolute;
+    right: -25px;
+    top: -25px;
+    background-color: transparent;
+    border: none;
+  }
+
+  iframe {
+    border-width: 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+    
+/* End of custom video modal CSS */
+  </style>
+{% endif %}
+
+<div class="video-overlay" style="opacity: 0; display: none;">
+  <div class="video-outer-modal"> 
+    <button class="video-close">
+        <span>{{ 'sidebar-close-icon.png' | asset_url | img_tag }}</span>
+      </button>
+    <div class="video-modal">
+    </div>
+  </div>
+</div>
+
+<div id="VideoSection--{{ section.id }}" class="video-section lazyload" data-section-id="{{ section.id }}" data-section-type="video-section" data-video-id="{{ section.settings.video_url.id }}" data-video-type="{{ section.settings.video_url.type }}" data-bgset="{% include 'bgset', image: section.settings.cover_image %}">
+<!--   <div class="video-section__body-overlay"></div>
+  <button class="btn btn--clear btn--square video-section__player-close">
+    <span class="visually-hidden">{{ 'video.close' | t }}</span>
+    {% include 'icon-close' %}
+  </button>
+  <div class="video-section__player"></div> -->
+  <div class="video-section__cover">
+    <div class="video-section__cover-background">
+      {% if section.settings.cover_image == blank %}
+        {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+        {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+    <div class="video-section__cover-content">
+      <button class="video-modal-button btn btn--clear video-section__load-player-button" videoURL="{{ section.settings.video_url }}">
+        <span class="visually-hidden">{{ 'video.play' | t }}</span>
+        <div class="video-section__load-player-button-triangle"></div>
+        <div class="video-section__load-player-button-circle"></div>
+      </button>
+      {% if section.settings.cover_text != blank %}
+        <h2 class="video-section__cover-text">{{ section.settings.cover_text }}</h2>
+      {% endif %}
+      <p class="video-section__error"></p>
+    </div>
+  </div>
+</div>
+<div class="help-icon-container" style="background: white; height: 400px;">
+  <div class="help-icons">
+    <div class="help-icon">
+      <div class="help-icon-body">
+        <div class="sliderIcon">
+          <img src="{{ section.settings.cardOneIcon | img_url : 'master' }}">
+        </div>
+
+        <div class="sliderText">
+          <h4>{{ section.settings.cardOneHeader }}</h4>
+          {{ section.settings.cardOneBody }}
+        </div>
+      </div>
+    </div>
+    <div class="help-icon">
+      <div class="help-icon-body">
+        <div class="sliderIcon">
+          <img src="{{ section.settings.cardTwoIcon | img_url : 'master' }}">
+        </div>
+
+        <div class="sliderText">
+          <h4>{{ section.settings.cardTwoHeader }}</h4>
+          {{ section.settings.cardTwoBody }}
+        </div>
+      </div>
+    </div>
+    <div class="help-icon">
+      <div class="help-icon-body">
+        <div class="sliderIcon">
+          <img src="{{ section.settings.cardThreeIcon | img_url : 'master' }}">
+        </div>
+
+        <div class="sliderText">
+          <h4>{{ section.settings.cardThreeHeader }}</h4>
+          {{ section.settings.cardThreeBody }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- JS FOR VIDEO MODAL  -->
+<script>
+$(document).ready(function() {
+  
+  $(".video-modal-button").click(function() {
+    console.log("working");
+    var videoLink = $(this).attr("videoURL");
+    $(".video-overlay").fadeTo("fast", 1);
+    $(".video-modal").html("<iframe src=" +"'"+ videoLink +"'"+ "frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>");
+    //$("html, body").css({overflow: 'hidden', height: '100%'});
+  });
+  
+  $(".video-close, .video-overlay").click(function() {
+    $(".video-overlay").fadeTo("fast", 0, function() {
+      // console.log("Done!");
+      //$("html, body").css({overflow: 'auto', height: 'auto'});
+      $(".video-overlay").hide();
+      $(".video-modal").html(" ");      
+    });
+  });
+
+})
+</script>
+
+
+{% schema %}
+{
+  "name": "Video",
+  "class": "index-section index-section--video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cover_text",
+      "label": "Heading"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video link"
+    },
+    {
+      "type": "header",
+      "content": "Cover"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "cover_image_position",
+      "label": "Image position",
+      "default": "center center",
+      "options": [
+        {
+          "label": "Top left",
+          "value": "top left"
+        },
+        {
+          "label": "Top center",
+          "value": "top center"
+        },
+        {
+          "label": "Top right",
+          "value": "top right"
+        },
+        {
+          "label": "Middle left",
+          "value": "center left"
+        },
+        {
+          "label": "Middle center",
+          "value": "center center"
+        },
+        {
+          "label": "Middle right",
+          "value": "center right"
+        },
+        {
+          "label": "Bottom left",
+          "value": "bottom left"
+        },
+        {
+          "label": "Bottom center",
+          "value": "bottom center"
+        },
+        {
+          "label": "Bottom right",
+          "value": "bottom right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show overlay",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "overlay_text",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 30
+    },
+    {
+      "type": "image_picker",
+      "id": "cardOneIcon",
+      "label": "Card One Icon"
+    },
+    {
+      "type": "text",
+      "id": "cardOneHeader",
+      "label": "Card One Header",
+      "default": "Type a header in here"
+    },
+    {
+      "type": "html",
+      "id": "cardOneBody",
+      "label": "Card One Body",
+      "default": "<p>Type body copy here.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "cardTwoIcon",
+      "label": "Card Two Icon"
+    },
+    {
+      "type": "text",
+      "id": "cardTwoHeader",
+      "label": "Card Two Header",
+      "default": "Type a header in here"
+    },
+    {
+      "type": "html",
+      "id": "cardTwoBody",
+      "label": "Card Two Body",
+      "default": "<p>Type body copy here.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "cardThreeIcon",
+      "label": "Card Three Icon"
+    },
+    {
+      "type": "text",
+      "id": "cardThreeHeader",
+      "label": "Card Three Header",
+      "default": "Type a header in here"
+    },
+    {
+      "type": "html",
+      "id": "cardThreeBody",
+      "label": "Card Three Body",
+      "default": "<p>Type body copy here.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video",
+      "category": "Video"
+    }
+  ]
+}
+{% endschema %}

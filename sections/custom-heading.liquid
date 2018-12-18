@@ -1,0 +1,27 @@
+<h2 style="padding: 100px 0 0 0; margin-bottom: 50px; text-align: center;">{{ section.settings.customHeading }}</h1>
+
+<style>
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+  }
+</style>
+{% schema %}
+{
+  "name": "Custom Heading",
+  "class": "index-section index-section--image-with-text-overlay",
+  "settings": [
+    {
+      "type": "text",
+      "id": "customHeading",
+      "label": "Caption Heading",
+      "default": "Talk about your brand"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Heading",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

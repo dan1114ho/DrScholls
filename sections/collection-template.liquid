@@ -1,0 +1,278 @@
+{%- assign limit = section.settings.products | times: section.settings.rows -%}
+{%- assign totalProducts = collection.products.size -%}
+
+<div class="collection-template" data-section-id="{{ section.id }}" data-section-type="collection-template">
+  <header class="section-header select-filter-spacing">
+        <div class="negHeader"></div>
+        <div state="closed" class="filterBar">
+          <h6 class="filterBar-text">Browse by <em>all shoe types</em> {{ 'filter-down.png' | asset_url | img_tag }}</h6>
+          <div class="filterCard" style="display: none;">
+            <div class="filterCard-item" filter="casual">{{ 'shoe-casual.png' | asset_url | img_tag }}<p class="filter-text">Casual Sneakers</p></div>
+            <div class="filterCard-item" filter="athletic">{{ 'shoe-athletic.png' | asset_url | img_tag }}<p class="filter-text">Athletic Shoes</p></div>
+            <div class="filterCard-item" filter="dress">{{ 'shoe-dress.png' | asset_url | img_tag }}<p class="filter-text">Dress Shoes</p></div>
+            <div class="filterCard-item" filter="narrow">{{ 'shoe-narrow.png' | asset_url | img_tag }}<p class="filter-text">Narrow Toe</p></div>
+            <div class="filterCard-item" filter="work">{{ 'shoe-work.png' | asset_url | img_tag }}<p class="filter-text">Work Boots</p></div>
+          </div>
+        </div>
+        </header>
+  {% paginate collection.products by limit %}
+
+  {% if section.settings.collection_hero_image and collection.image %}
+    <div class="section-header-image-wrapper">
+      <div class="section-header-image{% if section.settings.collection_hero_image_parallax %} section-header-image--parallax{% endif %} lazyload" data-bgset="{% include 'bgset', image: collection.image %}"></div>
+
+      <noscript>
+        <div class="section-header-image" style="background-image: {{ collection.image | img_url: 'master' }}"></div>
+      </noscript>
+    </div>
+  {% endif %}
+
+  <div class="page-width">
+
+
+    {%- assign desktopColumns = section.settings.products -%}
+    {%- assign mobileColumns = '1' -%}
+
+    {%- capture gridClasses -%}
+      {% if desktopColumns == '3' and totalProducts > 2 %}medium-up--one-third {% else %}medium-up--one-half {% endif %}
+      {% if mobileColumns == '2' %}small--one-half {% endif %}
+    {%- endcapture -%}
+
+    <div class="card-list grid" data-desktop-columns="{{ desktopColumns }}" data-mobile-columns="{{ mobileColumns }}" data-grid-style="{{ section.settings.grid_style }}">
+      <div class="card-list__column{% if totalProducts == 1 %} card-list__column--center{% endif %} grid grid__item {{ gridClasses }}">
+        {% for product in collection.products %}
+          {% include 'product-card', product: product, grid_style: section.settings.grid_style, button_text: section.settings.button_text %}
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if collection.products.size == 0 %}
+      <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+    {% endif %}
+
+    {% if paginate.pages > 1 %}
+      <div class="card-list__sub-actions">
+        {% include 'pagination' %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% endpaginate %}
+</div>
+
+
+<script type="text/javascript">
+ $( document ).ready(function() {
+
+
+   $(".filterCard-item").click(function() {
+ 				var filter = $(this).attr("filter");
+ 				var scrolled = false;
+ 				var filterClose = '{{ 'filter-x.png' | asset_url }}';
+ 				$(".filterBar-text").html("Browsing by <em>" + $(this).children().text() + "</em> " + "<img src=" + filterClose + ">");
+ 				$(".filterCard").slideUp(100, function() {
+ 						$(".filterBar").attr("state", "selection");
+ 				});
+ 				$(".productCard").each(function(index) {
+ 						var filterList = $(this).attr("filter").split(" ");
+
+ 						if ($.inArray(filter, filterList) == -1) {
+ 								$(this).fadeTo("fast", 0.25);
+ 						} else {
+ 								if (!scrolled) {
+ 										$('html, body').animate({
+ 												scrollTop: ($(this).offset().top - 50)
+ 										}, 500);
+
+ 										scrolled = true;
+ 								}
+ 						}
+ 				});
+ 		});
+ 		$(".filterBar").click(function() {
+ 				var state = $(".filterBar").attr("state");
+ 				var filterDown = '{{ 'filter-down.png' | asset_url }}';
+ 				if (state == "selection") {
+ 						$(".productCard").fadeTo("fast", 1);
+ 						$(".filterBar").attr("state", "closed");
+ 						$(".filterBar-text").html("Browse by <em>all shoe types</em> " + "<img src=" + filterDown + ">");
+ 				}
+ 				if (state == "closed") {
+ 						$(".filterCard").slideDown(100);
+ 						$(".filterBar").attr("state", "open");
+ 						// $(".filterBar-text").html("Browse by <em>all shoe types</em> <img src='img/filter-up.png'>");
+ 				}
+ 				if (state == "open") {
+ 						$(".filterCard").slideUp(100);
+ 						$(".filterBar").attr("state", "closed");
+ 						// $(".filterBar-text").html("Browse by <em>all shoe types</em> <img src='img/filter-down.png'>");
+ 				}
+ 		});
+
+
+ 		$("#shop_btn").click(function() {
+ 				var state = $(".filterBar").attr("state");
+ 				$(".filterCard").slideUp(100);
+ 				if (state == "open") {
+ 					$(".filterBar").attr("state", "closed");
+ 				}
+ 		});
+
+ 		// Put as many as you want, separated by commas
+ 		$(".product__select-insert, .productCard").click(function () {
+ 				resetPage();
+ 		});
+
+ 		function resetPage() {
+ 				// This is in a timeout function so that it does not do anything while the app pushes to the next view
+ 				setTimeout(function() {
+ 						$(".filterCard").slideUp(100);
+ 						$(".filterBar").attr("state", "closed");
+ 						$(".productCard").fadeTo("fast", 1);
+
+ 						var filterDown = '{{ 'filter-down.png' | asset_url }}';
+ 						$(".filterBar-text").html("Browse by <em>all shoe types</em> " + "<img src=" + filterDown + ">");
+ 						$('#drawer').addClass('closed');
+ 						$("#shop_btn").removeAttr("disabled").fadeTo('fast', 1);
+ 						$('.shopify-section').not('.drawer-section').fadeTo('fast', 1);
+ 						$('html, body').animate({
+ 								scrollTop: (0)
+ 						}, 10);
+ 				}, 600);
+ 		}
+
+ 		$(window).scroll(function() {
+ 				if ($(window).scrollTop() > $('#shopify-section-wiivv-row').height() - 50) {
+ 						$('.filterBar').addClass('filterBar-fixed-app');
+ 						$('#shopify-section-collection-template').css("padding-top", "50px");
+
+ 						var state = $(".filterBar").attr("state");
+ 						$(".filterCard").slideUp(100);
+ 						if (state == "open") {
+ 							$(".filterBar").attr("state", "closed");
+ 						}
+ 						//$(".negHeader").finish().fadeTo('fast',0);
+ 				}
+ 				if ($(window).scrollTop() < $('#shopify-section-wiivv-row').height()) {
+ 						$('.filterBar').removeClass('filterBar-fixed-app');
+ 						$('#shopify-section-collection-template').css("padding-top", "0");
+ 						//$(".negHeader").finish().fadeTo('fast',0);
+ 				}
+ 		});
+});
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop - "
+    },
+    {
+      "type": "select",
+      "id": "products",
+      "label": "Products per row",
+      "default": "2",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "rows",
+      "label": "Rows per page",
+      "default": "4",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "product_tags_enable",
+      "label": "Enable tag filtering"
+    },
+    {
+      "type": "checkbox",
+      "id": "product_sorting_enable",
+      "label": "Enable collection sorting"
+    },
+    {
+      "type": "header",
+      "content": "Collection image"
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_hero_image",
+      "label": "Show collection image"
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_hero_image_parallax",
+      "label": "Show collection image parallax animation"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "select",
+      "id": "grid_style",
+      "label": "Grid style",
+      "default": "collage",
+      "options": [
+        {
+          "value": "collage",
+          "label": "Collage"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_spacing",
+      "label": "Enable image spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show product vendor",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

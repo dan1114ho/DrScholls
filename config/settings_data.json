@@ -1,0 +1,2568 @@
+{
+  "current": {
+    "color_primary": "#005087",
+    "color_header_text": "#004a97",
+    "color_primary_heading_text": "#4a4a4a",
+    "color_primary_body_text": "#4a4a4a",
+    "color_footer_text": "#4a4a4a",
+    "color_button_text": "#ffffff",
+    "color_header_bg": "#fff",
+    "color_footer_bg": "rgba(0,0,0,0)",
+    "color_main_bg": "#f3f3f3",
+    "color_secondary_bg": "#f4f1ec",
+    "color_product_cards": "#fff",
+    "color_form_elements": "#fff",
+    "color_cart_flag": "#eb4f47",
+    "type_base_size": "62.5%",
+    "type_header_family": "'Poppins', sans-serif",
+    "type_bold_titles": false,
+    "type_base_family": "'Muli', sans-serif",
+    "show_cart_drawer": true,
+    "show_cart_note": false,
+    "share_image": "",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_facebook_link": "",
+    "social_twitter_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/DrScholls.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#1990c6",
+    "checkout_button_color": "#1990c6",
+    "checkout_error_color": "#ff6d6d",
+    "logo_max_height": "15",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "shopping_cart_icon": "shopify:\/\/shop_images\/cart-white-icon.png",
+          "shopping_cart_icon_blue": "shopify:\/\/shop_images\/cart-blue-icon_df108026-51be-421a-86f2-17178e28c814.png",
+          "logo": "shopify:\/\/shop_images\/DrScholls.png",
+          "logo_max_height": "",
+          "enable_transparent": false,
+          "transparent_logo": "",
+          "transparent_text_color": "#ffffff",
+          "primary_navigation": "main-menu",
+          "secondary_navigation": "footer",
+          "show_social_icons": false,
+          "show_announcement": false,
+          "home_page_only": true,
+          "announcement_text": "Announce something here",
+          "announcement_link": "",
+          "announcement_icon": "checkmark",
+          "announcement_color_bg": "#7796a8",
+          "announcement_color_text": "#fff"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1486649858082": {
+            "type": "menu",
+            "settings": {
+              "link_list": "footer"
+            }
+          }
+        },
+        "block_order": [
+          "1486649858082"
+        ],
+        "settings": {
+          "show_social_icons": true,
+          "show_payment_icons": true,
+          "enable_parallax": true,
+          "show_newsletter": true,
+          "newsletter_heading": "Sign up for updates",
+          "newsletter_button": "Ok"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "button_text": "SHOP -",
+          "products": "2",
+          "rows": "6",
+          "product_tags_enable": true,
+          "product_sorting_enable": false,
+          "collection_hero_image": false,
+          "collection_hero_image_parallax": false,
+          "grid_style": "collage",
+          "show_spacing": true,
+          "show_vendor": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "hide_variant_images": true,
+          "show_share_buttons": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "grid_style": "collage",
+          "articles": "2",
+          "rows": "4",
+          "blog_show_date": true
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "1486649146314": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "Tell your story",
+              "button": "Slide title",
+              "cta_link": ""
+            }
+          },
+          "1486649185448": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "Tell your story",
+              "button": "Slide title",
+              "cta_link": ""
+            }
+          },
+          "1486649208703": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "Tell your story",
+              "button": "Slide title",
+              "cta_link": ""
+            }
+          },
+          "1486649267624": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "Tell your story",
+              "button": "Slide title",
+              "cta_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1486649146314",
+          "1486649185448",
+          "1486649208703",
+          "1486649267624"
+        ],
+        "settings": {
+          "cta": "view more",
+          "show_overlay": true,
+          "overlay_color": "#313131",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.3"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "image_parallax": true,
+          "show_date": true,
+          "show_author": false,
+          "show_share_buttons": true
+        }
+      },
+      "wiivv-row": {
+        "type": "wiivv-row",
+        "settings": {
+          "title1": "<span style=\"font-weight: 500;\">Find your<\/span> SOLEMATE",
+          "title2": "",
+          "text": "<p>Dr. Scholl's Custom 3D Inserts&nbsp;made exclusively for you and the way you move.<\/p>",
+          "image": "shopify:\/\/shop_images\/blueBG.png",
+          "image_crop": "none",
+          "alignment": "top center",
+          "background_color": "#faf9f6",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "desktop_layout": "right",
+          "size": "medium",
+          "mobile_layout": "top"
+        }
+      },
+      "featured-slider": {
+        "type": "featured-slider",
+        "settings": {
+          "use_second_button": false,
+          "text_color": "#4a4a4a",
+          "cover_image": "",
+          "cover_title": "",
+          "cover_title_desktop_position": "left",
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0"
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/website-howitworks-bg_49539568-4414-4125-b3d2-9ee09067b1c4.jpg",
+          "alignment": "center center",
+          "title": "Science and technology"
+        }
+      },
+      "wiivv-feature-01": {
+        "type": "wiivv-feature-01",
+        "settings": {
+          "image": "",
+          "title": "Custom arch support",
+          "text": "<p>Firm, yet flexible inserts to support your range of motion.<\/p>",
+          "hero_size": "x-large",
+          "alignment": "top center",
+          "text_size": "medium",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "show_overlay": false,
+          "overlay_color": "#ffffff",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.2"
+        }
+      },
+      "wiivv-feature-02": {
+        "type": "wiivv-feature-02",
+        "settings": {
+          "image": "",
+          "title": "Deep stabilizing heel cup",
+          "text": "<p>Stabilizing support reduces muscle fatigue and limits excess motion that can lead to injuries.<\/p>",
+          "hero_size": "x-large",
+          "alignment": "top center",
+          "text_size": "medium",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "show_overlay": false,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.5"
+        }
+      },
+      "wiivv-feature-03": {
+        "type": "wiivv-feature-03",
+        "settings": {
+          "image": "",
+          "title": "High-performance foam",
+          "text": "<p>Moisture-wicking foam tested to 150,000 cycles and personalized to your style.<\/p>",
+          "hero_size": "x-large",
+          "alignment": "top left",
+          "text_size": "medium",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "show_overlay": false,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.5"
+        }
+      },
+      "custom-content": {
+        "type": "custom-content",
+        "blocks": {
+          "1522346994396": {
+            "type": "collection",
+            "settings": {
+              "collection": "",
+              "width": "50%",
+              "alignment": "center"
+            }
+          },
+          "1522348117683": {
+            "type": "collection",
+            "settings": {
+              "collection": "",
+              "width": "50%",
+              "alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1522346994396",
+          "1522348117683"
+        ],
+        "settings": {
+          "heading_text": "Choose based on your shoe",
+          "heading_color": "#3a3a3a",
+          "background_color": "",
+          "top_margin": true,
+          "bottom_margin": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "grid_style": "collage",
+          "products": "2",
+          "sort": "alphabetical",
+          "show_spacing": false,
+          "show_description": true
+        }
+      },
+      "wiivv-custom-content": {
+        "type": "wiivv-custom-content",
+        "blocks": {
+          "1522360453360": {
+            "type": "text",
+            "settings": {
+              "heading_text": "Build",
+              "heading_color": "#3a3a3a",
+              "heading_style": "h2",
+              "header_alignment": "left",
+              "header_margin_top": -25,
+              "header_margin_right": 0,
+              "header_margin_bottom": 0,
+              "header_margin_left": 15,
+              "paragraph_text": "<p>With advanced foot scanning technology, we map the contours of your feet at over 400 points, building your Custom 3D Inserts with support unique to you.<\/p>",
+              "paragraph_color": "#4a4a4a",
+              "paragraph_size": "1",
+              "body_alignment": "left",
+              "body_margin_top": 5,
+              "body_margin_right": 0,
+              "body_margin_bottom": 0,
+              "body_margin_left": 15,
+              "width": "50%",
+              "alignment": "center",
+              "align_text": "center"
+            }
+          },
+          "1522361157178": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "width": "50%",
+              "alignment": "center"
+            }
+          },
+          "1522444424923": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "width": "50%",
+              "alignment": "center"
+            }
+          },
+          "1522444693110": {
+            "type": "text",
+            "settings": {
+              "heading_text": "Customize",
+              "heading_color": "#3a3a3a",
+              "heading_style": "h2",
+              "header_alignment": "left",
+              "header_margin_top": -25,
+              "header_margin_right": 0,
+              "header_margin_bottom": 0,
+              "header_margin_left": 0,
+              "paragraph_text": "<p>Select the 3D Inserts based on the shoes you'd like to put them in. Then personalize the look by choosing from a wide variety of designs and colors.&nbsp;<\/p>",
+              "paragraph_color": "#4a4a4a",
+              "paragraph_size": "1",
+              "body_alignment": "left",
+              "body_margin_top": 5,
+              "body_margin_right": 15,
+              "body_margin_bottom": 0,
+              "body_margin_left": 0,
+              "width": "50%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          },
+          "1522447958841": {
+            "type": "text",
+            "settings": {
+              "heading_text": "Receive",
+              "heading_color": "#3a3a3a",
+              "heading_style": "h2",
+              "header_alignment": "left",
+              "header_margin_top": 20,
+              "header_margin_right": 0,
+              "header_margin_bottom": 0,
+              "header_margin_left": 15,
+              "paragraph_text": "<p>After checkout, your Custom 3D Inserts are 3D printed and shipped to your doorstep within 14 days and a 30-day, money-back guarantee.<\/p>",
+              "paragraph_color": "#4a4a4a",
+              "paragraph_size": "1",
+              "body_alignment": "left",
+              "body_margin_top": 5,
+              "body_margin_right": 0,
+              "body_margin_bottom": 0,
+              "body_margin_left": 15,
+              "width": "100%",
+              "alignment": "top",
+              "align_text": "left"
+            }
+          },
+          "1522447254040": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "width": "50%",
+              "alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1522360453360",
+          "1522361157178",
+          "1522444424923",
+          "1522444693110",
+          "1522447958841",
+          "1522447254040"
+        ],
+        "settings": {
+          "heading_text": "Easy, seamless process",
+          "heading_color": "#3a3a3a",
+          "background_color": "#f3f3f3",
+          "top_margin": true,
+          "bottom_margin": true
+        }
+      },
+      "wiivv-custom-collections": {
+        "type": "wiivv-custom-collections",
+        "blocks": {
+          "1522360297433": {
+            "type": "collection",
+            "settings": {
+              "collection": "full-length-inserts",
+              "image_shoe_01": "shopify:\/\/shop_images\/icon-shoe-casual.png",
+              "image_shoe_02": "shopify:\/\/shop_images\/icon-shoe-athletic.png",
+              "image_shoe_03": "shopify:\/\/shop_images\/icon-shoe-workBoot.png",
+              "width": "50%",
+              "alignment": "center"
+            }
+          },
+          "1522737171180": {
+            "type": "collection",
+            "settings": {
+              "collection": "3-4-length-inserts",
+              "image_shoe_01": "shopify:\/\/shop_images\/icon-shoe-casual.png",
+              "image_shoe_02": "shopify:\/\/shop_images\/icon-shoe-dress.png",
+              "image_shoe_03": "shopify:\/\/shop_images\/icon-shoe-narrowBoot.png",
+              "width": "50%",
+              "alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "1522360297433",
+          "1522737171180"
+        ],
+        "settings": {
+          "heading_text": "Choose based on your shoe",
+          "heading_color": "#3a3a3a",
+          "background_color": "#ffffff",
+          "top_margin": true,
+          "bottom_margin": true
+        }
+      },
+      "wiivv-image-overlay": {
+        "type": "wiivv-image-overlay",
+        "settings": {
+          "image": "",
+          "text": "When you tap into what makes you unique you can move and feel your best.",
+          "title1": "",
+          "title2": "",
+          "image_crop": "none",
+          "alignment": "center center",
+          "button_label": "",
+          "button_link": "",
+          "button_label1": "",
+          "button_link1": "",
+          "desktop_layout": "right",
+          "size": "medium",
+          "mobile_layout": "top"
+        }
+      },
+      "wiivv-product-slideshow": {
+        "type": "wiivv-product-slideshow",
+        "blocks": {
+          "1522604281942": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "",
+              "button": "",
+              "cta_link": ""
+            }
+          },
+          "1522604238032": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "",
+              "button": "",
+              "cta_link": ""
+            }
+          },
+          "1522689520503": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "",
+              "button": "",
+              "cta_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1522604281942",
+          "1522604238032",
+          "1522689520503"
+        ],
+        "settings": {
+          "cta": "Featured Link",
+          "show_overlay": false,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.3"
+        }
+      },
+      "wiivv-feature-slideshow": {
+        "type": "wiivv-feature-slideshow",
+        "blocks": {
+          "1522700657919": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "",
+              "button": "",
+              "cta_link": ""
+            }
+          },
+          "1522700829663": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "",
+              "button": "",
+              "cta_link": ""
+            }
+          },
+          "1522700847888": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "alignment": "center center",
+              "title": "",
+              "button": "",
+              "cta_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1522700657919",
+          "1522700829663",
+          "1522700847888"
+        ],
+        "settings": {
+          "cta": "Featured Link",
+          "show_overlay": false,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.3"
+        }
+      },
+      "wiivv-product-image-overlay": {
+        "type": "wiivv-product-image-overlay",
+        "settings": {
+          "image": "",
+          "title1": "When you tap into what makes you unique you can move and feel your best.",
+          "title2": "",
+          "text": "",
+          "image_crop": "none",
+          "alignment": "center center",
+          "background_color": "#ffffff",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "desktop_layout": "right",
+          "size": "medium",
+          "mobile_layout": "top"
+        }
+      },
+      "wiivv-PDP-footer": {
+        "type": "wiivv-PDP-footer",
+        "blocks": {
+          "1522741388773": {
+            "type": "text",
+            "settings": {
+              "image_icon": "",
+              "heading_text": "Delivered in 14 days or less",
+              "heading_color": "#ffffff",
+              "heading_style": "h3",
+              "header_alignment": "left",
+              "header_margin_top": 0,
+              "header_margin_right": 0,
+              "header_margin_bottom": 0,
+              "header_margin_left": 0,
+              "paragraph_text": "",
+              "paragraph_color": "#ffffff",
+              "paragraph_size": "1",
+              "body_alignment": "left",
+              "body_margin_top": 0,
+              "body_margin_right": 30,
+              "body_margin_bottom": 0,
+              "body_margin_left": 30,
+              "width": "50%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          },
+          "1522776457611": {
+            "type": "text",
+            "settings": {
+              "image_icon": "",
+              "heading_text": "30-day money-back guarantee",
+              "heading_color": "#3a3a3a",
+              "heading_style": "h3",
+              "header_alignment": "left",
+              "header_margin_top": 0,
+              "header_margin_right": 0,
+              "header_margin_bottom": 0,
+              "header_margin_left": 0,
+              "paragraph_text": "",
+              "paragraph_color": "#ffffff",
+              "paragraph_size": "1",
+              "body_alignment": "left",
+              "body_margin_top": 0,
+              "body_margin_right": 30,
+              "body_margin_bottom": 0,
+              "body_margin_left": 30,
+              "width": "50%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          },
+          "1522776522244": {
+            "type": "text",
+            "settings": {
+              "image_icon": "",
+              "heading_text": "1 year manufacturers warrantee",
+              "heading_color": "#3a3a3a",
+              "heading_style": "h3",
+              "header_alignment": "left",
+              "header_margin_top": 0,
+              "header_margin_right": 0,
+              "header_margin_bottom": 0,
+              "header_margin_left": 0,
+              "paragraph_text": "",
+              "paragraph_color": "#ffffff",
+              "paragraph_size": "1",
+              "body_alignment": "left",
+              "body_margin_top": 0,
+              "body_margin_right": 30,
+              "body_margin_bottom": 0,
+              "body_margin_left": 30,
+              "width": "50%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          }
+        },
+        "block_order": [
+          "1522741388773",
+          "1522776457611",
+          "1522776522244"
+        ],
+        "settings": {
+          "heading_text": "",
+          "heading_color": "#ffffff",
+          "background_color": "",
+          "top_margin": false,
+          "bottom_margin": false,
+          "image": ""
+        }
+      },
+      "wiivv-drawer": {
+        "type": "wiivv-drawer",
+        "blocks": {
+          "1522887184943": {
+            "type": "product",
+            "settings": {
+              "product": "full-length-custom-3d-inserts-app"
+            }
+          },
+          "1522887177236": {
+            "type": "product",
+            "settings": {
+              "product": "3-4-length-custom-3d-inserts-app"
+            }
+          },
+          "1523255845100": {
+            "type": "product",
+            "settings": {
+              "product": ""
+            }
+          }
+        },
+        "block_order": [
+          "1522887184943",
+          "1522887177236",
+          "1523255845100"
+        ],
+        "settings": {
+          "heading_text": "30-day money-back guarantee",
+          "button_text": "SHOP NOW"
+        }
+      },
+      "wiivv-PDP-product-extended": {
+        "type": "wiivv-PDP-product-extended",
+        "blocks": {
+          "1523342927497": {
+            "type": "best_for",
+            "settings": {
+              "product_best_for": "",
+              "best_for1": "",
+              "best_for2": "",
+              "best_for3": ""
+            }
+          },
+          "1523344269995": {
+            "type": "best_for",
+            "settings": {
+              "product_best_for": "",
+              "best_for1": "",
+              "best_for2": "",
+              "best_for3": ""
+            }
+          }
+        },
+        "block_order": [
+          "1523342927497",
+          "1523344269995"
+        ],
+        "settings": {
+          "heading_text": "Choose based on your shoe",
+          "heading_color": "#3a3a3a",
+          "background_color": "",
+          "top_margin": true,
+          "bottom_margin": true
+        }
+      },
+      "wiivv-PDP-slideshow": {
+        "type": "wiivv-PDP-slideshow",
+        "settings": {
+          "subtitle": "Inserts made exclusively for you and the way you move, made with your phone!",
+          "cta": "Featured Link",
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.3"
+        }
+      },
+      "wiivv-custom-content-fullwidth": {
+        "type": "wiivv-custom-content-fullwidth",
+        "settings": {
+          "heading_text": "",
+          "heading_color": "#3a3a3a",
+          "background_color": "",
+          "top_margin": false,
+          "bottom_margin": false
+        }
+      },
+      "wiivv-PLP-footer": {
+        "type": "wiivv-PLP-footer",
+        "blocks": {
+          "1523494798224": {
+            "type": "text",
+            "settings": {
+              "image_icon": "",
+              "heading_text": "",
+              "heading_color": "#3a3a3a",
+              "heading_style": "h6",
+              "paragraph_text": "<p>Delivered in 14 days or less<\/p>",
+              "paragraph_color": "#4a4a4a",
+              "paragraph_size": "1",
+              "width": "50%",
+              "alignment": "center",
+              "align_text": "left"
+            }
+          }
+        },
+        "block_order": [
+          "1523494798224"
+        ],
+        "settings": {
+          "heading_text": "",
+          "heading_color": "#3a3a3a",
+          "background_color": "",
+          "top_margin": true,
+          "bottom_margin": true
+        }
+      },
+      "wiivv-PDP-guarantee": {
+        "type": "wiivv-PDP-guarantee",
+        "settings": {
+          "heading_text": "30 day money-back guarantee"
+        }
+      },
+      "wiivv-3-4-feature-01": {
+        "type": "wiivv-3-4-feature-01",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/feature01-PDP.jpg",
+          "title": "Custom arch support",
+          "text": "<p>Firm, yet flexible inserts to support your range of motion.<\/p>",
+          "hero_size": "x-large",
+          "alignment": "center center",
+          "text_size": "medium",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "show_overlay": false,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.5"
+        }
+      },
+      "wiivv-3-4-feature-02": {
+        "type": "wiivv-3-4-feature-02",
+        "settings": {
+          "image": "",
+          "title": "Deep stabilizing heel cup",
+          "hero_size": "x-large",
+          "alignment": "center center",
+          "text_size": "medium",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "show_overlay": false,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.5"
+        }
+      },
+      "wiivv-3-4-feature-03": {
+        "type": "wiivv-3-4-feature-03",
+        "settings": {
+          "image": "",
+          "title": "High-performance foam",
+          "text": "<p>Moisture-wicking foam tested to 150,000 cycles and personalized to your style.<\/p>",
+          "hero_size": "x-large",
+          "alignment": "center center",
+          "text_size": "medium",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "show_overlay": false,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.5"
+        }
+      },
+      "full-length-specs": {
+        "type": "full-length-specs",
+        "blocks": {
+          "1523861561072": {
+            "type": "Accordion",
+            "settings": {
+              "accordion_heading_text": "Shoe Types",
+              "accordion_paragraph_text": "<p>Full Length 3D Printed Inserts replace factory-made insoles that come in your shoes.<\/p>"
+            }
+          },
+          "1523862836366": {
+            "type": "Accordion",
+            "settings": {
+              "accordion_heading_text": "Features",
+              "accordion_paragraph_text": "<ul>\n          <li>Deep stabilizing heel cup and custom arch support based on your unique foot characteristics.<\/li>\n          <li>Firm, yet flexible inserts support your range of motion.<\/li>\n          <li>Stabilizing support reduces muscle fatigue and limits excess motion that can lead to injuries.<\/li>\n          <li>High-performance, customized fit, one of a kind inserts - all from the comfort of your home.<\/li>\n      <\/ul>"
+            }
+          }
+        },
+        "block_order": [
+          "1523861561072",
+          "1523862836366"
+        ],
+        "settings": {}
+      },
+      "3-4-length-specs": {
+        "type": "3-4-length-specs",
+        "blocks": {
+          "1523863327235": {
+            "type": "Accordion",
+            "settings": {
+              "accordion_heading_text": "Shoe types",
+              "accordion_paragraph_text": "<p>3\/4 Length 3D Printed Inserts sit on top of the factory-made insoles that come in your shoes and are well suited for casual and everyday pursuits.<\/p>"
+            }
+          },
+          "1523863376987": {
+            "type": "Accordion",
+            "settings": {
+              "accordion_heading_text": "Features",
+              "accordion_paragraph_text": "<ul>\n          <li>Deep stabilizing heel cup and custom arch support based on your unique foot characteristics.<\/li>\n          <li>Firm, yet flexible inserts support your range of motion.<\/li>\n          <li>Stabilizing support reduces muscle fatigue and limits excess motion that can lead to injuries.<\/li>\n          <li>High-performance, customized fit, one of a kind inserts - all from the comfort of your home.<\/li>\n      <\/ul>"
+            }
+          }
+        },
+        "block_order": [
+          "1523863327235",
+          "1523863376987"
+        ],
+        "settings": {}
+      },
+      "DRS-placeholder-home": {
+        "type": "DRS-placeholder-home",
+        "settings": {
+          "header_text": "<span style=\"font-weight: 500;\">Find your<\/span> SOLEMATE",
+          "para_text": "Maximize comfort and support with Dr. Scholl's Custom 3D Inserts, made just for you.",
+          "image": "shopify:\/\/shop_images\/hero-dim.jpg",
+          "color_bg": "#d3c57c",
+          "button_cta": "CREATE MINE",
+          "bottom_arrow": "shopify:\/\/shop_images\/white-down-icon.png",
+          "button01": "",
+          "link01": "",
+          "button02": "",
+          "link02": "",
+          "button_text": "Shop -",
+          "products": "2",
+          "rows": "4",
+          "product_tags_enable": false,
+          "product_sorting_enable": false,
+          "collection_hero_image": false,
+          "collection_hero_image_parallax": false,
+          "grid_style": "collage",
+          "show_spacing": false,
+          "show_vendor": true
+        }
+      },
+      "DRS-pdp-slider": {
+        "type": "DRS-pdp-slider",
+        "settings": {
+          "cardOneBackground": "shopify:\/\/shop_images\/feature01-slider-copy_b547e332-ee06-443e-a462-6b4a9423aba9.png",
+          "mobile_cardOneBackground": "shopify:\/\/shop_images\/mobile-feature01.png",
+          "cardOneIcon": "shopify:\/\/shop_images\/featurethumb01.png",
+          "cardOneHeader": "Custom arch support",
+          "cardOneBody": "Firm, yet flexible inserts to support your range of motion.",
+          "cardTwoBackground": "shopify:\/\/shop_images\/feature02-slider-copy.png",
+          "mobile_cardTwoBackground": "shopify:\/\/shop_images\/mobile-feature02.png",
+          "cardTwoIcon": "shopify:\/\/shop_images\/featurethumb02.png",
+          "cardTwoHeader": "Deep stabilizing heel cup",
+          "cardTwoBody": "Firm, yet flexible inserts to support your range of motion.",
+          "cardThreeBackground": "shopify:\/\/shop_images\/feature03-slider-copy.png",
+          "mobile_cardThreeBackground": "shopify:\/\/shop_images\/mobile-feature03.png",
+          "cardThreeIcon": "shopify:\/\/shop_images\/featurethumb03.png",
+          "cardThreeHeader": "High-performance foam",
+          "cardThreeBody": "Firm, yet flexible inserts to support your range of motion.",
+          "arrowLeft": "",
+          "arrowRight": ""
+        }
+      },
+      "1524699153676": {
+        "type": "featured-collection",
+        "settings": {
+          "collection": "custom-3d-inserts",
+          "show_spacing": false,
+          "title": "Featured collection",
+          "show_vendor": false,
+          "show_view_all": false,
+          "use_second_button": false,
+          "grid_style": "collage",
+          "products": 2,
+          "rows": 1,
+          "large_blurb": "The secret to long - lasting comfort in all of your shoes? It's support that's designed for you."
+        }
+      },
+      "1524827619722": {
+        "type": "highlight",
+        "settings": {
+          "featured_product": "full-length-bayer",
+          "border_color": "#cbc8c1",
+          "content_alignment": "middle",
+          "image": "shopify:\/\/shop_images\/website-runningshoe-DRS_469a23fd-606c-4f80-821f-3bfd52edd808.png",
+          "image_position": "back",
+          "best_for1": "shopify:\/\/shop_images\/icon-shoe-casual_6fb88a71-9494-4fc8-b000-943c866ddef9.png",
+          "best_for_caption1": "Casual shoes",
+          "best_for2": "shopify:\/\/shop_images\/icon-shoe-athletic_9563a954-5c2e-4257-b753-77ab0471cece.png",
+          "best_for_caption2": "Athletic shoes",
+          "best_for3": "shopify:\/\/shop_images\/icon-shoe-workBoot_6acfe80e-f4c1-48db-90fb-cd8b7ad90271.png",
+          "best_for_caption3": "Work boots\/shoes",
+          "heading": "Gift card",
+          "text": "Looking for something for someone special? A gift card to our store is the perfect idea!",
+          "use_second_button": false,
+          "button_text": "View",
+          "button_link": ""
+        }
+      },
+      "1524865360348": {
+        "type": "DRS-pdp-slider",
+        "settings": {
+          "cardOneBackground": "shopify:\/\/shop_images\/feature01-slider-copy_b547e332-ee06-443e-a462-6b4a9423aba9.png",
+          "mobile_cardOneBackground": "shopify:\/\/shop_images\/mobile-feature01.png",
+          "cardOneIcon": "shopify:\/\/shop_images\/featurethumb01.png",
+          "cardOneHeader": "Custom arch support",
+          "cardOneBody": "Firm, yet flexible inserts to support your range of motion.",
+          "cardTwoBackground": "shopify:\/\/shop_images\/feature02-slider-copy.png",
+          "mobile_cardTwoBackground": "shopify:\/\/shop_images\/mobile-feature02.png",
+          "cardTwoIcon": "shopify:\/\/shop_images\/featurethumb02.png",
+          "cardTwoHeader": "Deep stabilizing heel cup",
+          "cardTwoBody": "Firm, yet flexible inserts to support your range of motion.",
+          "cardThreeBackground": "shopify:\/\/shop_images\/feature03-slider-copy.png",
+          "mobile_cardThreeBackground": "shopify:\/\/shop_images\/mobile-feature03.png",
+          "cardThreeIcon": "shopify:\/\/shop_images\/featurethumb03.png",
+          "cardThreeHeader": "High-performance foam",
+          "cardThreeBody": "Firm, yet flexible inserts to support your range of motion.",
+          "arrowLeft": "",
+          "arrowRight": ""
+        }
+      },
+      "1524874764170": {
+        "type": "highlight1",
+        "settings": {
+          "featured_product": "3-4-length-bayer",
+          "border_color": "#cbc8c1",
+          "content_alignment": "middle",
+          "image": "shopify:\/\/shop_images\/website-dressshoe-male-DRS_bd6e21ed-e195-4a8a-ab0f-f4a1f2528a7b.png",
+          "image_position": "back",
+          "best_for1": "shopify:\/\/shop_images\/icon-shoe-casual_6fb88a71-9494-4fc8-b000-943c866ddef9.png",
+          "best_for_caption1": "Casual shoes",
+          "best_for2": "shopify:\/\/shop_images\/icon-shoe-dress_1e729cf8-3bfa-42db-930a-ab6531ca67e5.png",
+          "best_for_caption2": "Dress shoes",
+          "best_for3": "shopify:\/\/shop_images\/icon-shoe-narrowBoot_2955d71c-4f79-4aae-aae2-956b5a5a1357.png",
+          "best_for_caption3": "Narrow boots",
+          "heading": "Gift card",
+          "text": "Looking for something for someone special? A gift card to our store is the perfect idea!",
+          "use_second_button": false,
+          "button_text": "View",
+          "button_link": ""
+        }
+      },
+      "1524879273555": {
+        "type": "wiivv-image-overlay",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/jumpingbg.png",
+          "text": "Healthier, happier feet are just a step away",
+          "title1": "Line 1",
+          "title2": "Line 2",
+          "image_crop": "none",
+          "alignment": "center center",
+          "button_label": "SHOP FULL LENGTH",
+          "button_link": "",
+          "button_label1": "SHOP 3\/4 LENGTH",
+          "button_link1": "",
+          "desktop_layout": "right",
+          "size": "medium",
+          "mobile_layout": "top"
+        }
+      },
+      "1525106522127": {
+        "type": "video",
+        "settings": {
+          "cover_text": "Easy, seamless process",
+          "video_url": "https:\/\/www.youtube.com\/embed\/C77xs-lXSpo??rel=0&autoplay=1",
+          "cover_image": "shopify:\/\/shop_images\/website-howitworks-bg.jpg",
+          "cover_image_position": "center center",
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": 30,
+          "cardOneIcon": "shopify:\/\/shop_images\/icon-design.png",
+          "cardOneHeader": "Design and purchase",
+          "cardOneBody": "<p>Select the 3D Inserts based on the shoes you'd like to put them in. Then personalize the look by choosing from a wide variety of designs and colors.<\/p>",
+          "cardTwoIcon": "shopify:\/\/shop_images\/icon-phone.png",
+          "cardTwoHeader": "Download app and build",
+          "cardTwoBody": "<p>With advanced foot scanning technology, we map the contours of your feet at over 400 points, building your 3D Inserts with support unique to you.<\/p>",
+          "cardThreeIcon": "shopify:\/\/shop_images\/icon-footinsole.png",
+          "cardThreeHeader": "Receive and wear",
+          "cardThreeBody": "<p>After checkout, your 3D Inserts are 3D printed and shipped to your doorstep within 14days and a 30-day, money-back guarantee.<\/p>"
+        }
+      },
+      "1525120688457": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/website-lifestylefam-bg.jpg",
+          "alignment": "center right",
+          "title": "When you tap into what makes you unique you can move  and feel your best."
+        }
+      },
+      "1525123995659": {
+        "type": "footer-content",
+        "settings": {
+          "full_width": false,
+          "background_color": "#004a97",
+          "contentImageOne": "shopify:\/\/shop_images\/footerIcon01.png",
+          "captionOne": "Received in 14 days or less",
+          "contentImageTwo": "shopify:\/\/shop_images\/footerIcon02.png",
+          "captionTwo": "Money Back Guarantee",
+          "contentImageThree": "shopify:\/\/shop_images\/footerIcon03.png",
+          "captionThree": "Manufacturers warrantee"
+        }
+      },
+      "1525210113810": {
+        "type": "custom-footer",
+        "settings": {
+          "logo_image": "shopify:\/\/shop_images\/DrScholls.png",
+          "custom_footer_menu": "footer"
+        }
+      },
+      "test-video": {
+        "type": "test-video",
+        "settings": {
+          "cover_text": "",
+          "video_url": "https:\/\/www.youtube.com\/embed\/C77xs-lXSpo??rel=0&autoplay=1",
+          "cover_image": "",
+          "cover_image_position": "center center",
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": 30,
+          "cardOneIcon": "",
+          "cardOneHeader": "Type a header in here",
+          "cardOneBody": "<p>Type body copy here.<\/p>",
+          "cardTwoIcon": "",
+          "cardTwoHeader": "Type a header in here",
+          "cardTwoBody": "<p>Type body copy here.<\/p>",
+          "cardThreeIcon": "",
+          "cardThreeHeader": "Type a header in here",
+          "cardThreeBody": "<p>Type body copy here.<\/p>"
+        }
+      },
+      "wiivv-PDP-3-4-feature-01": {
+        "type": "wiivv-PDP-3-4-feature-01",
+        "settings": {
+          "featureImageOne": "shopify:\/\/shop_images\/feature01-PDP.jpg",
+          "featureImageOneMobile": "shopify:\/\/shop_images\/mobile-feature01.png",
+          "captionHeadingOne": "Custom arch support",
+          "captionBodyOne": "Firm, yet flexible inserts to support your range of motion."
+        }
+      },
+      "wiivv-PDP-3-4-feature-02": {
+        "type": "wiivv-PDP-3-4-feature-02",
+        "settings": {
+          "featureImageTwo": "shopify:\/\/shop_images\/feature02-PDP.jpg",
+          "featureImageTwoMobile": "shopify:\/\/shop_images\/mobile-feature02.png",
+          "captionHeadingTwo": "Deep stabilizing heel cup",
+          "captionBodyTwo": "Stabilizing support reduces muscle fatigue and limits excess motion that can lead to injuries."
+        }
+      },
+      "wiivv-PDP-3-4-feature-03": {
+        "type": "wiivv-PDP-3-4-feature-03",
+        "settings": {
+          "featureImageThree": "shopify:\/\/shop_images\/feature03-PDP.jpg",
+          "featureImageThreeMobile": "shopify:\/\/shop_images\/mobile-feature03.png",
+          "captionHeadingThree": "High-performance foam",
+          "captionBodyThree": "Moisture-wicking foam tested to 150,000 cycles and personalized to your style."
+        }
+      },
+      "video": {
+        "type": "video",
+        "settings": {
+          "cover_text": "Easy, seamless process",
+          "video_url": "https:\/\/www.youtube.com\/embed\/C77xs-lXSpo??rel=0&autoplay=1",
+          "cover_image": "shopify:\/\/shop_images\/website-howitworks-bg_02af7297-67d4-4221-890a-5675b4cb9705.jpg",
+          "cover_image_position": "center center",
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": 30,
+          "cardOneIcon": "shopify:\/\/shop_images\/icon-design.png",
+          "cardOneHeader": "Design and purchase",
+          "cardOneBody": "<p>Select the 3D Inserts based on the shoes you'd like to put them in. Then personalize the look by choosing from a wide variety of designs and colors.<\/p>",
+          "cardTwoIcon": "shopify:\/\/shop_images\/icon-phone.png",
+          "cardTwoHeader": "Download app and build",
+          "cardTwoBody": "<p>With advanced foot scanning technology, we map the contours of your feet at over 400 points, building your 3D Inserts with support unique to you.<\/p>",
+          "cardThreeIcon": "shopify:\/\/shop_images\/icon-footinsole.png",
+          "cardThreeHeader": "Receive and wear",
+          "cardThreeBody": "<p>After checkout, your 3D Inserts are 3D printed and shipped to your doorstep within 14 days and a 30-day, money-back guarantee.<\/p>"
+        }
+      },
+      "footer-content": {
+        "type": "footer-content",
+        "settings": {
+          "full_width": false,
+          "background_color": "#004a97",
+          "contentImageOne": "shopify:\/\/shop_images\/footerIcon01.png",
+          "captionOne": "Received in 14 days or less",
+          "contentImageTwo": "shopify:\/\/shop_images\/footerIcon02.png",
+          "captionTwo": "Money Back Guarantee",
+          "contentImageThree": "shopify:\/\/shop_images\/footerIcon03.png",
+          "captionThree": "Manufacturers warrantee"
+        }
+      },
+      "custom-footer": {
+        "type": "custom-footer",
+        "settings": {
+          "logo_image": "shopify:\/\/shop_images\/drScholls_86d04433-efa5-46bb-afee-a89114acb856.png",
+          "custom_footer_menu": "footer"
+        }
+      },
+      "custom-heading": {
+        "type": "custom-heading",
+        "settings": {
+          "customHeading": "Easy, seamless process"
+        }
+      },
+      "custom-heading1": {
+        "type": "custom-heading1",
+        "settings": {
+          "customHeadingOne": "Custom created for your unique feet with Wiivv Fit Technology"
+        }
+      },
+      "wiivv-PDP-technology": {
+        "type": "wiivv-PDP-technology",
+        "settings": {
+          "cover_image": "shopify:\/\/shop_images\/website-process-bg.jpg",
+          "cover_image_position": "center center",
+          "cardOneIcon": "shopify:\/\/shop_images\/icon-foot.png",
+          "cardOneHeader": "Unique-to-you",
+          "cardOneBody": "<p>No two feet are the same, that's why we created custom inserts with individualized support to help you move with optimum comfort and less fatigue.<\/p>",
+          "cardTwoIcon": "shopify:\/\/shop_images\/icon-phone_600e447d-268c-45f9-a1f8-4db62497a593.png",
+          "cardTwoHeader": "Mobile Scanning Technology",
+          "cardTwoBody": "<p>We rely on advanced technology that maps the contours of your unique feet at over 400 points to custom create inserts with the support you need.<\/p>",
+          "cardThreeIcon": "shopify:\/\/shop_images\/icon-check.png",
+          "cardThreeHeader": "3D printed and expert checked",
+          "cardThreeBody": "<p>Your foot scans are approved by biomechanics experts then converted into a 3D model, generating unique foot contours.<\/p>"
+        }
+      },
+      "wiivv-PDP-3-4-product": {
+        "type": "wiivv-PDP-3-4-product",
+        "settings": {
+          "show_quantity_selector": true
+        }
+      },
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "collection": "mobile-app-products",
+          "show_spacing": false,
+          "title": "Featured collection",
+          "show_vendor": false,
+          "show_view_all": false,
+          "use_second_button": false,
+          "grid_style": "collage",
+          "products": 3,
+          "rows": 2,
+          "large_blurb": "The secret to long - lasting comfort in all of your shoes? It's support that's designed for you."
+        }
+      },
+      "mobile-collection-template": {
+        "type": "mobile-collection-template",
+        "settings": {
+          "collection": "mobile-app-products",
+          "show_spacing": false,
+          "title": "Featured collection",
+          "show_vendor": false,
+          "show_view_all": false,
+          "use_second_button": false,
+          "grid_style": "collage",
+          "products": 3,
+          "rows": 2,
+          "large_blurb": "The secret to long - lasting comfort in all of your shoes? It's support that's designed for you."
+        }
+      },
+      "highlight": {
+        "type": "highlight",
+        "settings": {
+          "featured_product": "full-length-bayer",
+          "border_color": "#cbc8c1",
+          "content_alignment": "middle",
+          "image": "shopify:\/\/shop_images\/website-runningshoe-DRS_469a23fd-606c-4f80-821f-3bfd52edd808.png",
+          "image_position": "back",
+          "best_for1": "shopify:\/\/shop_images\/icon-shoe-casual_6fb88a71-9494-4fc8-b000-943c866ddef9.png",
+          "best_for_caption1": "Casual shoes",
+          "best_for2": "shopify:\/\/shop_images\/icon-shoe-athletic.png",
+          "best_for_caption2": "Athletic shoes",
+          "best_for3": "shopify:\/\/shop_images\/icon-shoe-workBoot_6acfe80e-f4c1-48db-90fb-cd8b7ad90271.png",
+          "best_for_caption3": "Work boots\/shoes",
+          "heading": "Gift card",
+          "text": "Looking for something for someone special? A gift card to our store is the perfect idea!",
+          "use_second_button": false,
+          "button_text": "View",
+          "button_link": ""
+        }
+      },
+      "highlight1": {
+        "type": "highlight1",
+        "settings": {
+          "featured_product": "3-4-length-bayer",
+          "border_color": "#cbc8c1",
+          "content_alignment": "middle",
+          "image": "shopify:\/\/shop_images\/website-dressshoe-male-DRS_bd6e21ed-e195-4a8a-ab0f-f4a1f2528a7b.png",
+          "image_position": "back",
+          "best_for1": "shopify:\/\/shop_images\/icon-shoe-casual_6fb88a71-9494-4fc8-b000-943c866ddef9.png",
+          "best_for_caption1": "Casual shoes",
+          "best_for2": "shopify:\/\/shop_images\/icon-shoe-dress.png",
+          "best_for_caption2": "Dress shoes",
+          "best_for3": "shopify:\/\/shop_images\/icon-shoe-narrowBoot.png",
+          "best_for_caption3": "Narrow boots",
+          "heading": "Gift card",
+          "text": "Looking for something for someone special? A gift card to our store is the perfect idea!",
+          "use_second_button": false,
+          "button_text": "View",
+          "button_link": ""
+        }
+      },
+      "wiivv-PDP-3-4-custom-guarantee": {
+        "type": "wiivv-PDP-3-4-custom-guarantee",
+        "settings": {
+          "guaranteeHeading": "From work to play, get the support you need to move your best.",
+          "best_for1": "shopify:\/\/shop_images\/icon-shoe-casual_6fb88a71-9494-4fc8-b000-943c866ddef9.png",
+          "best_for_caption1": "Casual shoes",
+          "best_for2": "shopify:\/\/shop_images\/icon-shoe-dress_1e729cf8-3bfa-42db-930a-ab6531ca67e5.png",
+          "best_for_caption2": "Dress shoes",
+          "best_for3": "shopify:\/\/shop_images\/icon-shoe-narrowBoot_2955d71c-4f79-4aae-aae2-956b5a5a1357.png",
+          "best_for_caption3": "Narrow boots"
+        }
+      },
+      "process-app": {
+        "type": "process-app",
+        "settings": {
+          "cover_text": "Watch how it works",
+          "video_url": "https:\/\/www.youtube.com\/embed\/C77xs-lXSpo??rel=0&autoplay=1",
+          "cover_image": "shopify:\/\/shop_images\/website-howitworks-bg_02af7297-67d4-4221-890a-5675b4cb9705.jpg",
+          "cover_image_position": "center center",
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": 30,
+          "cardOneIcon": "shopify:\/\/shop_images\/icon-phone_600e447d-268c-45f9-a1f8-4db62497a593.png",
+          "cardOneHeader": "Build",
+          "cardOneBody": "<p>With advanced foot scanning technology, we map the contours of your feet at over 400 points, building your 3D Inserts with support unique to you.<\/p>",
+          "cardTwoIcon": "shopify:\/\/shop_images\/icon-design.png",
+          "cardTwoHeader": "Order",
+          "cardTwoBody": "<p>Select the 3D Inserts based on the shoes you'd like to put them in. Then personalize the look by choosing from a wide variety of designs and colors.<\/p>",
+          "cardThreeIcon": "shopify:\/\/shop_images\/icon-footinsole.png",
+          "cardThreeHeader": "Receive",
+          "cardThreeBody": "<p>After checkout, your 3D Inserts are 3D printed and shipped to your doorstep within 14 days and a 30-day, money-back guarantee.<\/p>"
+        }
+      },
+      "wiivv-PDP-full-custom-guarantee": {
+        "type": "wiivv-PDP-full-custom-guarantee",
+        "settings": {
+          "guaranteeHeading": "From work to play, get the support you need to move your best.",
+          "best_for1": "shopify:\/\/shop_images\/icon-shoe-casual_6fb88a71-9494-4fc8-b000-943c866ddef9.png",
+          "best_for_caption1": "Casual shoes",
+          "best_for2": "shopify:\/\/shop_images\/icon-shoe-athletic_9563a954-5c2e-4257-b753-77ab0471cece.png",
+          "best_for_caption2": "Athletic shoes",
+          "best_for3": "shopify:\/\/shop_images\/icon-shoe-workBoot_6acfe80e-f4c1-48db-90fb-cd8b7ad90271.png",
+          "best_for_caption3": "Work boots\/shoes"
+        }
+      },
+      "about-full": {
+        "type": "about-full",
+        "settings": {
+          "aboutHeading": "About Full Length Custom 3D Inserts",
+          "specHeading_01": "Guarantee and Warranty",
+          "specBody_01": "<p><b>30 Day Happiness Guarantee<\/b>\n<br>\nIf you aren't 100% satisfied with your Custom 3D Inserts, return them in 30 days for a full refund.\n<br><br>\n<b>Manufacturer Warranty<\/b>\n<br>\nWe guarantee our insoles will last at least 1 year or we'll replace them with a brand new pair.<\/p>",
+          "specHeading_02": "Shoe Types",
+          "specBody_02": "<p>Full Length 3D Printed Inserts replace factory-made insoles that come in your shoes.<\/p>",
+          "specHeading_03": "Features",
+          "specBody_03": "<ul>\n<p>\n<\/p>\n<li>Deep stabilizing heel cup and custom arch support based on your unique foot characteristics.<\/li>\n<br>\n<li>Firm, yet flexible inserts support your range of motion.<\/li>\n<br>\n<li>Stabilizing support reduces muscle fatigue and limits excess motion that can lead to injuries.<\/li>\n<br>\n<li>High-performance, customized fit, one of a kind inserts - all from the comfort of your home.<\/li>\n<p><\/p>\n<\/ul>"
+        }
+      },
+      "about-3-4": {
+        "type": "about-3-4",
+        "settings": {
+          "aboutHeading": "About 3\/4 Length Custom 3D Inserts",
+          "specHeading_01": "Guarantee and Warranty",
+          "specBody_01": "<p><b>30 Day Happiness Guarantee<\/b>\n<br>\nIf you aren't 100% satisfied with your Custom 3D Inserts, return them in 30 days for a full refund.\n<br><br>\n<b>Manufacturer Warranty<\/b>\n<br>\nWe guarantee our insoles will last at least 1 year or we'll replace them with a brand new pair.<\/p>",
+          "specHeading_02": "Shoe Types",
+          "specBody_02": "<p>Three quarter length insoles sit on top of the factory-made insoles that come in your shoes and are well suited for casual and everyday pursuits.<\/p>",
+          "specHeading_03": "Features",
+          "specBody_03": "<ul>\n<p>\n<\/p>\n<li>Deep stabilizing heel cup and custom arch support based on your unique foot characteristics.<\/li>\n<br>\n<li>Firm, yet flexible inserts support your range of motion.<\/li>\n<br>\n<li>Stabilizing support reduces muscle fatigue and limits excess motion that can lead to injuries.<\/li>\n<br>\n<li>High-performance, customized fit, one of a kind inserts - all from the comfort of your home.<\/li>\n<p><\/p>\n<\/ul>"
+        }
+      },
+      "wiivv-feature": {
+        "type": "wiivv-feature",
+        "settings": {
+          "hero_size": "medium",
+          "image": "shopify:\/\/shop_images\/website-lifestylefam-bg.jpg",
+          "alignment": "center center",
+          "title": "Talk about your brand",
+          "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+          "text_size": "medium",
+          "use_second_button": false,
+          "button_label": "",
+          "button_link": "",
+          "show_overlay": false,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": "0.5"
+        }
+      },
+      "DRS-home-fullwidth-text": {
+        "type": "DRS-home-fullwidth-text",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/website-lifestylefam-bg.jpg",
+          "alignment": "center center",
+          "title": "When you tap into what makes you unique you can move and feel your best."
+        }
+      },
+      "wiivv-PDP-3-4-feature-04": {
+        "type": "wiivv-PDP-3-4-feature-04",
+        "settings": {
+          "featureImageFour": "shopify:\/\/shop_images\/feature04-PDP.jpg",
+          "featureImageFourMobile": "shopify:\/\/shop_images\/mobile-feature03_bc39a049-6a97-40fc-b6d7-605c01352fa5.png",
+          "captionHeadingFour": "High-performance foam",
+          "captionBodyFour": "3\/4 length for added room in the toe box for you narrow shoes."
+        }
+      },
+      "pdp-mobile-cta": {
+        "type": "pdp-mobile-cta",
+        "settings": {
+          "heading_text": "30-day money-back guarantee",
+          "button_text": "ADD TO CART"
+        }
+      },
+      "highlight-app": {
+        "type": "highlight-app",
+        "settings": {
+          "featured_product": "full-length-custom-3d-inserts-app",
+          "border_color": "#cbc8c1",
+          "content_alignment": "middle",
+          "image": "shopify:\/\/shop_images\/website-runningshoe-DRS_469a23fd-606c-4f80-821f-3bfd52edd808.png",
+          "image_position": "back",
+          "best_for1": "shopify:\/\/shop_images\/icon-shoe-casual_6fb88a71-9494-4fc8-b000-943c866ddef9.png",
+          "best_for_caption1": "Casual shoes",
+          "best_for2": "shopify:\/\/shop_images\/icon-shoe-athletic_9563a954-5c2e-4257-b753-77ab0471cece.png",
+          "best_for_caption2": "Athletic shoes",
+          "best_for3": "shopify:\/\/shop_images\/icon-shoe-workBoot_6acfe80e-f4c1-48db-90fb-cd8b7ad90271.png",
+          "best_for_caption3": "Work boots\/shoes",
+          "heading": "Gift card",
+          "text": "Looking for something for someone special? A gift card to our store is the perfect idea!",
+          "use_second_button": false,
+          "button_text": "View",
+          "button_link": ""
+        }
+      },
+      "highlight1-app": {
+        "type": "highlight1-app",
+        "settings": {
+          "featured_product": "3-4-length-custom-3d-inserts-app",
+          "border_color": "#cbc8c1",
+          "content_alignment": "middle",
+          "image": "shopify:\/\/shop_images\/website-dressshoe-male-DRS_bd6e21ed-e195-4a8a-ab0f-f4a1f2528a7b.png",
+          "image_position": "back",
+          "best_for1": "shopify:\/\/shop_images\/icon-shoe-casual_6fb88a71-9494-4fc8-b000-943c866ddef9.png",
+          "best_for_caption1": "Casual shoes",
+          "best_for2": "shopify:\/\/shop_images\/icon-shoe-dress_1e729cf8-3bfa-42db-930a-ab6531ca67e5.png",
+          "best_for_caption2": "Dress shoes",
+          "best_for3": "shopify:\/\/shop_images\/icon-shoe-narrowBoot_2955d71c-4f79-4aae-aae2-956b5a5a1357.png",
+          "best_for_caption3": "Narrow boots",
+          "heading": "Gift card",
+          "text": "Looking for something for someone special? A gift card to our store is the perfect idea!",
+          "use_second_button": false,
+          "button_text": "View",
+          "button_link": ""
+        }
+      },
+      "how-it-works-top": {
+        "type": "how-it-works-top",
+        "settings": {
+          "cover_text": "Custom support from your phone",
+          "video_url": "",
+          "cover_image": "shopify:\/\/shop_images\/insolesFlatLaybg.jpg",
+          "cover_image_position": "center center",
+          "show_overlay": true,
+          "overlay_color": "#000000",
+          "overlay_text": "#ffffff",
+          "overlay_opacity": 30
+        }
+      },
+      "right-image": {
+        "type": "right-image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/feature01.png",
+          "alignment": "center center",
+          "title": "Design",
+          "description": "With advanced foot scanning technology, we map the contours of your feet at over 400 points, building your inserts with support unique to you."
+        }
+      },
+      "right-image1": {
+        "type": "right-image1",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/website-howitworks-bg_49539568-4414-4125-b3d2-9ee09067b1c4.jpg",
+          "alignment": "center center",
+          "title": "Measure in app",
+          "description": "With advanced foot scanning technology, we map the contours of your feet at over 400 points, building your inserts with support unique to you."
+        }
+      },
+      "left-image": {
+        "type": "left-image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/feature03-PDP.jpg",
+          "alignment": "center center",
+          "title": "Order",
+          "description": "With advanced foot scanning technology, we map the contours of your feet at over 400 points, building your inserts with support unique to you."
+        }
+      },
+      "left-image1": {
+        "type": "left-image1",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/website-process-bg.jpg",
+          "alignment": "center center",
+          "title": "Receive",
+          "description": "After checkout, your Custom Contour inserts are 3d printed and shipped to your doorstep within 14 days and a 30-day, money-back guarantee."
+        }
+      }
+    },
+    "content_for_index": [
+      "1524699153676",
+      "1524865360348",
+      "1524827619722",
+      "1524874764170",
+      "1524879273555",
+      "1525106522127",
+      "1525120688457",
+      "1525123995659",
+      "1525210113810"
+    ]
+  },
+  "presets": {
+    "Warm": {
+      "color_primary": "#eb4f47",
+      "color_header_text": "#e1c9b4",
+      "color_primary_heading_text": "#4a4a4a",
+      "color_primary_body_text": "#4a4a4a",
+      "color_footer_text": "#4a4a4a",
+      "color_button_text": "#ffffff",
+      "color_header_bg": "#fff",
+      "color_footer_bg": "#eae7e0",
+      "color_main_bg": "#faf9f6",
+      "color_secondary_bg": "#f4f1ec",
+      "color_product_cards": "#fff",
+      "color_form_elements": "#fff",
+      "color_cart_flag": "#eb4f47",
+      "type_base_size": "62.5%",
+      "type_header_family": "Baskerville MT, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif",
+      "type_bold_titles": false,
+      "type_base_family": "'Avenir', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+      "show_cart_drawer": true,
+      "show_cart_note": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d",
+      "logo_max_height": "15",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "icon": "bag",
+            "logo_max_height": "15",
+            "enable_transparent": true,
+            "transparent_text_color": "#ffffff",
+            "primary_navigation": "main-menu",
+            "secondary_navigation": "footer",
+            "show_social_icons": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1486649858082": {
+              "type": "menu",
+              "settings": {
+                "link_list": "footer"
+              }
+            }
+          },
+          "block_order": [
+            "1486649858082"
+          ],
+          "settings": {
+            "show_social_icons": true,
+            "show_payment_icons": true,
+            "enable_parallax": true,
+            "show_newsletter": true
+          }
+        },
+        "1476381402840": {
+          "type": "video",
+          "settings": {}
+        },
+        "1476381658595": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "image": "",
+            "alignment": "top left",
+            "text_size": "medium",
+            "use_second_button": false,
+            "button_label": "",
+            "button_link": "",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_text": "#3a3a3a",
+            "overlay_opacity": "0.5"
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "products": "2",
+            "rows": "6",
+            "product_tags_enable": false,
+            "product_sorting_enable": false,
+            "collection_hero_image": false,
+            "collection_hero_image_parallax": false,
+            "show_spacing": false,
+            "show_vendor": true
+          }
+        },
+        "1478026923193": {
+          "type": "feature-row",
+          "settings": {
+            "size": "large",
+            "background_color": "#faf9f6",
+            "image_crop": "circle",
+            "alignment": "top left",
+            "use_second_button": false,
+            "button_label": "",
+            "button_link": "",
+            "desktop_layout": "left",
+            "mobile_layout": "top"
+          }
+        },
+        "1478027260401": {
+          "type": "quotes",
+          "blocks": {
+            "1478027260401-0": {
+              "type": "quote",
+              "settings": {}
+            },
+            "1478027389453": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1478027260401-0",
+            "1478027389453"
+          ],
+          "settings": {
+            "color_bg": "#000000",
+            "color_text": "#ffffff",
+            "autoplay_speed": "6000"
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "hide_variant_images": true,
+            "show_share_buttons": true
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_date": true
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "1486649146314": {
+              "type": "image",
+              "settings": {}
+            },
+            "1486649185448": {
+              "type": "image",
+              "settings": {}
+            },
+            "1486649208703": {
+              "type": "image",
+              "settings": {}
+            },
+            "1486649267624": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1486649146314",
+            "1486649185448",
+            "1486649208703",
+            "1486649267624"
+          ],
+          "settings": {
+            "cta": "view more",
+            "show_overlay": true,
+            "overlay_color": "#313131",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.3"
+          }
+        },
+        "1486649413883": {
+          "type": "gallery",
+          "blocks": {
+            "1486649413883-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "1486649413883-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1486649413883-0",
+            "1486649413883-1"
+          ],
+          "settings": {
+            "section_height": "medium",
+            "show_overlay": true,
+            "overlay_color": "#3b3b3b",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.4"
+          }
+        },
+        "1486649522802": {
+          "type": "highlight",
+          "settings": {
+            "border_color": "#cbc8c1",
+            "content_alignment": "middle",
+            "image_position": "back",
+            "use_second_button": false
+          }
+        },
+        "1486649604878": {
+          "type": "featured-slider",
+          "blocks": {
+            "1486649604878-0": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#9d988b"
+              }
+            },
+            "1486649604878-1": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#cdcdcd"
+              }
+            },
+            "1486649604878-2": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#a7a59e"
+              }
+            },
+            "1486649769533": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#383a3c"
+              }
+            }
+          },
+          "block_order": [
+            "1486649604878-0",
+            "1486649604878-1",
+            "1486649604878-2",
+            "1486649769533"
+          ],
+          "settings": {
+            "use_second_button": false,
+            "text_color": "#ffffff",
+            "cover_title_desktop_position": "center",
+            "show_overlay": true,
+            "overlay_color": "#404040",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.2"
+          }
+        },
+        "1486649811524": {
+          "type": "featured-product",
+          "settings": {
+            "layout": "square",
+            "image_size": "cover",
+            "background_color": "transparent",
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "show_share_buttons": true
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "image_parallax": true,
+            "show_date": true,
+            "show_author": false,
+            "show_share_buttons": true
+          }
+        },
+        "1492806970384": {
+          "type": "custom-content",
+          "blocks": {
+            "1492806970384-0": {
+              "type": "text",
+              "settings": {
+                "heading_text": "",
+                "heading_color": "#3a3a3a",
+                "heading_style": "h4",
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492806970384-0"
+          ],
+          "settings": {
+            "heading_text": "",
+            "heading_color": "#3a3a3a",
+            "background_color": "",
+            "top_margin": true,
+            "bottom_margin": false
+          }
+        }
+      },
+      "content_for_index": [
+        "1478026923193",
+        "1476381402840",
+        "1476381658595",
+        "1486649413883",
+        "1478027260401",
+        "1492806970384",
+        "1486649522802",
+        "1486649604878",
+        "1486649811524"
+      ]
+    },
+    "Light": {
+      "color_primary": "#dfa160",
+      "color_header_text": "#dfa160",
+      "color_primary_heading_text": "#000000",
+      "color_primary_body_text": "#4a4a4a",
+      "color_footer_text": "#ffffff",
+      "color_button_text": "#ffffff",
+      "color_header_bg": "#fff",
+      "color_footer_bg": "#dfa160",
+      "color_main_bg": "#ffffff",
+      "color_secondary_bg": "#f7f7f7",
+      "color_product_cards": "#ebebeb",
+      "color_form_elements": "#f1f1f1",
+      "color_cart_flag": "#b76b50",
+      "type_base_size": "62.5%",
+      "type_header_family": "Google_Open+Sans_400_sans",
+      "type_bold_titles": true,
+      "type_base_family": "Google_Open+Sans_400_sans",
+      "show_cart_drawer": true,
+      "show_cart_note": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d",
+      "transparent_logo": "",
+      "logo_max_height": "15",
+      "sections": {
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "1486583739899": {
+              "type": "video",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1486583739899"
+          ],
+          "settings": {
+            "cta": "Shop now",
+            "show_overlay": true,
+            "overlay_color": "#ffffff",
+            "overlay_text": "#000000",
+            "overlay_opacity": "0.5"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "icon": "bag",
+            "logo_max_height": "18",
+            "enable_transparent": true,
+            "transparent_text_color": "#dfa160",
+            "primary_navigation": "main-menu",
+            "secondary_navigation": "footer",
+            "show_social_icons": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1486586799558": {
+              "type": "menu",
+              "settings": {
+                "link_list": "footer"
+              }
+            }
+          },
+          "block_order": [
+            "1486586799558"
+          ],
+          "settings": {
+            "show_social_icons": true,
+            "show_payment_icons": true,
+            "enable_parallax": true,
+            "show_newsletter": true
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {
+            "size": "large",
+            "background_color": "#fafafa",
+            "image_crop": "square",
+            "alignment": "center center",
+            "use_second_button": false,
+            "button_label": "",
+            "button_link": "",
+            "desktop_layout": "left",
+            "mobile_layout": "top"
+          }
+        },
+        "gallery": {
+          "type": "gallery",
+          "blocks": {
+            "1486502632685-0": {
+              "type": "image",
+              "settings": {
+                "alignment": "center center",
+                "icon": "checkmark",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "1486502632685-0"
+          ],
+          "settings": {
+            "section_height": "medium",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.5"
+          }
+        },
+        "featured-slider": {
+          "type": "featured-slider",
+          "blocks": {
+            "1486503036275-0": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#ebebeb",
+                "show_image": true,
+                "slide_button_text": "",
+                "slide_button_url": ""
+              }
+            },
+            "1486503036275-2": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#ebebeb",
+                "show_image": true,
+                "slide_button_text": "",
+                "slide_button_url": ""
+              }
+            },
+            "1486503036275-1": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#ebebeb",
+                "show_image": true,
+                "slide_button_text": "",
+                "slide_button_url": ""
+              }
+            },
+            "1487016418120": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#ebebeb",
+                "show_image": false,
+                "slide_image": "",
+                "slide_title": ""
+              }
+            }
+          },
+          "block_order": [
+            "1486503036275-0",
+            "1486503036275-2",
+            "1486503036275-1",
+            "1487016418120"
+          ],
+          "settings": {
+            "use_second_button": true,
+            "text_color": "#000000",
+            "cover_title_desktop_position": "center",
+            "show_overlay": true,
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_text": "#000000",
+            "overlay_opacity": "0.5"
+          }
+        },
+        "1486583009346": {
+          "type": "feature-row",
+          "settings": {
+            "size": "large",
+            "background_color": "#ffffff",
+            "image_crop": "none",
+            "alignment": "top left",
+            "use_second_button": false,
+            "button_label": "About us",
+            "desktop_layout": "right",
+            "mobile_layout": "bottom"
+          }
+        },
+        "1486584613697": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "alignment": "center center",
+            "text": "",
+            "text_size": "medium",
+            "use_second_button": false,
+            "button_label": "",
+            "button_link": "",
+            "show_overlay": true,
+            "overlay_color": "#ffffff",
+            "overlay_text": "#3a3a3a",
+            "overlay_opacity": "0"
+          }
+        },
+        "1486584983006": {
+          "type": "highlight",
+          "settings": {
+            "border_color": "#dfa160",
+            "content_alignment": "middle",
+            "image_position": "back",
+            "use_second_button": false,
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "products": "2",
+            "rows": "6",
+            "product_tags_enable": false,
+            "product_sorting_enable": true,
+            "collection_hero_image": true,
+            "collection_hero_image_parallax": true,
+            "show_spacing": false,
+            "show_vendor": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": true,
+            "hide_variant_images": true,
+            "show_share_buttons": true
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_date": true
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "image_parallax": true,
+            "show_date": true,
+            "show_author": false,
+            "show_share_buttons": true
+          }
+        },
+        "1492008725684": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "x-large",
+            "alignment": "top center",
+            "title": "",
+            "text": "",
+            "text_size": "medium",
+            "use_second_button": false,
+            "button_label": "Read our blog",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_text": "#3a3a3a",
+            "overlay_opacity": "0.5"
+          }
+        },
+        "1492807242211": {
+          "type": "custom-content",
+          "blocks": {
+            "1492807242211-0": {
+              "type": "text",
+              "settings": {
+                "heading_text": "",
+                "heading_color": "#3a3a3a",
+                "heading_style": "h3",
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492807242211-0"
+          ],
+          "settings": {
+            "heading_text": "",
+            "heading_color": "#3a3a3a",
+            "background_color": "",
+            "top_margin": true,
+            "bottom_margin": false
+          }
+        }
+      },
+      "content_for_index": [
+        "feature-row",
+        "1486584613697",
+        "1486583009346",
+        "gallery",
+        "1492807242211",
+        "1486584983006",
+        "featured-slider",
+        "1492008725684"
+      ]
+    },
+    "Cold": {
+      "color_primary": "#00b490",
+      "color_header_text": "#00b490",
+      "color_primary_heading_text": "#ffffff",
+      "color_primary_body_text": "#a9a9a9",
+      "color_footer_text": "#000000",
+      "color_button_text": "#000000",
+      "color_header_bg": "#191c1b",
+      "color_footer_bg": "#00b490",
+      "color_main_bg": "#000000",
+      "color_secondary_bg": "#191c1b",
+      "color_product_cards": "#191c1b",
+      "color_form_elements": "#292c2b",
+      "color_cart_flag": "#ffffff",
+      "type_base_size": "62.5%",
+      "type_header_family": "Google_Titillium+Web_400_sans",
+      "type_bold_titles": true,
+      "type_base_family": "Google_Lato_400_sans",
+      "show_cart_drawer": true,
+      "show_cart_note": false,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d",
+      "transparent_logo": "",
+      "logo_max_height": "15",
+      "sections": {
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "1486663529263": {
+              "type": "video",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1486663529263"
+          ],
+          "settings": {
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.6"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "icon": "cart",
+            "logo_max_height": "16",
+            "enable_transparent": true,
+            "transparent_text_color": "#00b490",
+            "primary_navigation": "main-menu",
+            "secondary_navigation": "footer",
+            "show_social_icons": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "1486664283354": {
+              "type": "menu",
+              "settings": {
+                "link_list": "footer"
+              }
+            }
+          },
+          "block_order": [
+            "1486664283354"
+          ],
+          "settings": {
+            "show_social_icons": true,
+            "show_payment_icons": true,
+            "enable_parallax": true,
+            "show_newsletter": true,
+            "newsletter_heading": "Sign up for updates",
+            "newsletter_button": "Ok"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {
+            "size": "large",
+            "background_color": "#191c1b",
+            "image_crop": "circle",
+            "alignment": "center center",
+            "use_second_button": false,
+            "desktop_layout": "left",
+            "mobile_layout": "top"
+          }
+        },
+        "gallery": {
+          "type": "gallery",
+          "blocks": {
+            "1486502632685-0": {
+              "type": "image",
+              "settings": {
+                "icon": "checkmark"
+              }
+            },
+            "1486502639654": {
+              "type": "image",
+              "settings": {
+                "icon": "checkmark"
+              }
+            },
+            "1486502643820": {
+              "type": "image",
+              "settings": {
+                "icon": "checkmark"
+              }
+            }
+          },
+          "block_order": [
+            "1486502632685-0",
+            "1486502639654",
+            "1486502643820"
+          ],
+          "settings": {
+            "section_height": "medium",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.5"
+          }
+        },
+        "featured-slider": {
+          "type": "featured-slider",
+          "blocks": {
+            "1486503036275-0": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#464f4e",
+                "show_image": true,
+                "slide_button_text": "View"
+              }
+            },
+            "1486503036275-1": {
+              "type": "slide",
+              "settings": {
+                "background_color": "#464f4e",
+                "show_image": true,
+                "slide_button_text": "View"
+              }
+            }
+          },
+          "block_order": [
+            "1486503036275-0",
+            "1486503036275-1"
+          ],
+          "settings": {
+            "use_second_button": true,
+            "text_color": "#ffffff",
+            "cover_title_desktop_position": "center",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.5"
+          }
+        },
+        "featured-collection": {
+          "type": "featured-collection",
+          "settings": {
+            "show_view_all": true
+          }
+        },
+        "1486664864970": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "alignment": "top center",
+            "use_second_button": false,
+            "button_label": "",
+            "button_link": "",
+            "show_overlay": true,
+            "overlay_color": "#00b490",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0"
+          }
+        },
+        "1486665151632": {
+          "type": "highlight",
+          "settings": {
+            "border_color": "#00b490",
+            "content_alignment": "middle",
+            "image_position": "back",
+            "use_second_button": true
+          }
+        },
+        "1486665428106": {
+          "type": "feature-row",
+          "settings": {
+            "size": "large",
+            "background_color": "",
+            "image_crop": "none",
+            "alignment": "top left",
+            "use_second_button": false,
+            "button_label": "",
+            "button_link": "",
+            "desktop_layout": "right",
+            "mobile_layout": "bottom"
+          }
+        },
+        "1486665657092": {
+          "type": "gallery",
+          "blocks": {
+            "1486665657092-0": {
+              "type": "image",
+              "settings": {
+                "alignment": "center center",
+                "icon": "none",
+                "cta_label": "",
+                "link": ""
+              }
+            },
+            "1486665657092-1": {
+              "type": "image",
+              "settings": {
+                "alignment": "center center",
+                "icon": "none",
+                "cta_label": "",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "1486665657092-0",
+            "1486665657092-1"
+          ],
+          "settings": {
+            "section_height": "medium",
+            "show_overlay": false,
+            "overlay_color": "#000000",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.3"
+          }
+        },
+        "1486665735205": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "medium",
+            "alignment": "center center",
+            "title": "",
+            "text_size": "large",
+            "use_second_button": true,
+            "button_label": "about us",
+            "show_overlay": true,
+            "overlay_color": "#000000",
+            "overlay_text": "#ffffff",
+            "overlay_opacity": "0.5"
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": true,
+            "hide_variant_images": true,
+            "show_share_buttons": true
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "products": "2",
+            "rows": "4",
+            "product_tags_enable": false,
+            "product_sorting_enable": false,
+            "collection_hero_image": false,
+            "collection_hero_image_parallax": false,
+            "show_spacing": false,
+            "show_vendor": true
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_date": true
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "image_parallax": false,
+            "show_date": true,
+            "show_author": false,
+            "show_share_buttons": true
+          }
+        },
+        "1492804742195": {
+          "type": "custom-content",
+          "blocks": {
+            "1492804742195-0": {
+              "type": "text",
+              "settings": {
+                "heading_text": "",
+                "heading_color": "#3a3a3a",
+                "heading_style": "h3",
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492804742195-0"
+          ],
+          "settings": {
+            "heading_text": "",
+            "heading_color": "#3a3a3a",
+            "background_color": "#00b490",
+            "top_margin": true,
+            "bottom_margin": true
+          }
+        },
+        "1492805123317": {
+          "type": "custom-content",
+          "blocks": {
+            "1492805123317-0": {
+              "type": "text",
+              "settings": {
+                "heading_text": "",
+                "heading_color": "#ffffff",
+                "heading_style": "h3",
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492805123317-0"
+          ],
+          "settings": {
+            "heading_text": "",
+            "heading_color": "#3a3a3a",
+            "background_color": "",
+            "top_margin": true,
+            "bottom_margin": false
+          }
+        }
+      },
+      "content_for_index": [
+        "feature-row",
+        "1492804742195",
+        "1486664864970",
+        "gallery",
+        "1492805123317",
+        "1486665151632",
+        "1486665428106",
+        "1486665657092",
+        "1486665735205",
+        "featured-slider",
+        "featured-collection"
+      ]
+    }
+  }
+}

@@ -1,0 +1,383 @@
+{%- assign limit = section.settings.products | times: section.settings.rows -%}
+{%- assign featuredCollection = collections[section.settings.collection] -%}
+{%- assign totalProducts = featuredCollection.products.size -%}
+
+<header class="section-header select-filter-spacing">
+      <div class="negHeader"></div>
+      <div state="closed" class="filterBar">
+        <h6 class="filterBar-text">Browse by:&nbsp;&nbsp;&nbsp;<em>All shoe types</em> {{ 'filter-down.png' | asset_url | img_tag }}</h6>
+        <div class="filterCard" style="display: none;">
+          <div class="filterCard-item" filter="casual">{{ 'shoe-casual.png' | asset_url | img_tag }}<p class="filter-text">Casual Sneakers</p></div>
+          <div class="filterCard-item" filter="athletic">{{ 'shoe-athletic.png' | asset_url | img_tag }}<p class="filter-text">Athletic Shoes</p></div>
+          <div class="filterCard-item" filter="dress">{{ 'shoe-dress.png' | asset_url | img_tag }}<p class="filter-text">Dress Shoes</p></div>
+          <div class="filterCard-item" filter="narrow">{{ 'shoe-narrow.png' | asset_url | img_tag }}<p class="filter-text">Narrow Toe</p></div>
+          <div class="filterCard-item" filter="work">{{ 'shoe-work.png' | asset_url | img_tag }}<p class="filter-text">Work Boots</p></div>
+        </div>
+      </div>
+ </header> 
+<div class="featured-collection collection-template" data-section-id="{{ section.id }}" data-section-type="collection-template">
+ 
+  <div class="featured-container" style="margin-left: 150px; margin-right: 150px; max-width: auto;">
+
+    {%- assign desktopColumns = section.settings.products -%}
+    {%- assign mobileColumns = '1' -%}
+
+    {%- capture gridClasses -%}
+      {% if desktopColumns == 4 %}
+        medium-up--one-quarter
+      {% elsif desktopColumns == 3 %}
+        medium-up--one-half
+      {% elsif desktopColumns == 2 %}
+        medium-up--one-half
+      {% else %}
+        medium-up--one-half
+      {% endif %}
+      {% if mobileColumns == '2' %}small--one-half {% endif %}
+    {%- endcapture -%}
+
+    <div class="card-list grid" data-desktop-columns="{{ desktopColumns }}" data-mobile-columns="{{ mobileColumns }}" data-grid-style="{{ section.settings.grid_style }}">
+      <div class="card-list__column{% if totalProducts == 1 %} card-list__column--center{% endif %} grid grid__item {{ gridClasses }}">
+        {% unless featuredCollection == blank %}
+          {% for product in featuredCollection.products limit: limit %}
+            {% include 'product-card', product: product, grid_style: section.settings.grid_style %}
+          {% endfor %}
+        {% else %}
+          {% for i in (1..limit) %}
+            <div class="card" data-animate>
+              <a href="{{ product.url | within: collection }}" class="card__wrapper{% if section.settings.show_spacing %} card__wrapper--padding{% endif %} text-center">
+                <div class="card__image-wrapper{% if settings.product_image_spacing %} card__image-wrapper--padding{% endif %}">
+                  {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+
+                  <div class="card__info">
+                    {% if section.settings.show_vendor %}
+                      <div class="card__brand">{{ 'homepage.onboarding.product_vendor' | t }}</div>
+                    {% endif %}
+
+                    <div class="card__name h4">{{ 'homepage.onboarding.product_title' | t }}</div>
+                    <div class="card__price">{{ 1999 | money }}</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% endunless %}
+      </div>
+    </div>
+
+    {% unless section.settings.collection == blank %}
+      {% if totalProducts == 0 %}
+        <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      {% endif %}
+    {% endunless %}
+
+
+    {% if section.settings.show_view_all %}
+      <div class="featured-collection__view-all">
+        <a href="{{ featuredCollection.url }}" class="btn{% if section.settings.use_second_button %} btn--secondary{% endif %}">
+          {{ 'collections.general.view_all' | t }}
+        </a>
+      </div>
+    {% endif %}
+    <h2 class="text-center section-heading" style="margin: 0 auto; max-width: 700px;">
+      {{ section.settings.large_blurb }}
+    </h2>
+  </div>
+</div>
+
+<style>
+  .featured-collection .collection-template {
+    padding: 100px 0 0 0;
+  }
+  
+  @media only screen and (min-width: 300px) and (max-width: 767px) {
+    .featured-collection {
+      padding: 20px 20px 50px 20px !important;
+      background-color: #F3F3F3;
+    }
+    
+    .card-list {
+      margin-bottom: 50px !important;
+      text-align: center;
+    }
+    
+    .featured-collection .collection-template {
+      padding: 0 !important;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .featured-collection {
+      padding: 20px 20px 100px 20px !important;
+      background-color: #F3F3F3;
+    }
+    
+    .card-list {
+      margin-bottom: 120px;
+      text-align: center;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 300px) and (max-width: 1024px) {
+    .featured-collection.scroll-down {
+      padding-top: 70px !important;
+    }
+
+    .featured-container {
+      margin: 0 !important;
+    }
+
+    .card h5 {
+      display: none;
+    }
+
+    .card {
+      background: white;
+      width: 310px;
+      padding: 20px 0 0 0;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    .card:last-child {
+      margin-left: 20px;
+    }
+
+    .card__wrapper {
+      max-width: 300px;
+      padding-bottom: 20px;
+    }
+
+    .card__image-wrapper {
+      height: 170px;
+      padding: 0 12.5px;
+    }
+
+    .card__image {
+      width: 275px;
+      height: 170px;
+      position: relative;
+    }
+
+    .card__info {
+      margin-bottom: -45px;
+    }
+
+
+    .grid__item {
+      display: inline-block;
+      width: auto;
+      float: none;
+    }
+
+    .featured-container h2 {
+      max-width: 550px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 320px) {
+  	.grid__item {
+      padding-left: 5px;
+    }
+  }
+</style>
+
+
+<script type="text/javascript">
+ $( document ).ready(function() {
+
+
+   $(".filterCard-item").click(function() {
+ 				var filter = $(this).attr("filter");
+ 				var scrolled = false;
+ 				var filterClose = '{{ 'filter-x.png' | asset_url }}';
+ 				$(".filterBar-text").html("Browsing by <em>" + $(this).children().text() + "</em> " + "<img src=" + filterClose + ">");
+ 				$(".filterCard").slideUp(100, function() {
+ 						$(".filterBar").attr("state", "selection");
+ 				});
+ 				$(".productCard").each(function(index) {
+ 						var filterList = $(this).attr("filter").split(" ");
+
+ 						if ($.inArray(filter, filterList) == -1) {
+ 								$(this).fadeTo("fast", 0.25);
+ 						} else {
+ 								if (!scrolled) {
+ 										$('html, body').animate({
+ 												scrollTop: ($(this).offset().top - 50)
+ 										}, 500);
+
+ 										scrolled = true;
+ 								}
+ 						}
+ 				});
+ 		});
+ 		$(".filterBar").click(function() {
+ 				var state = $(".filterBar").attr("state");
+ 				var filterDown = '{{ 'filter-down.png' | asset_url }}';
+ 				if (state == "selection") {
+ 						$(".productCard").fadeTo("fast", 1);
+ 						$(".filterBar").attr("state", "closed");
+ 						$(".filterBar-text").html("Browse by <em>all shoe types</em> " + "<img src=" + filterDown + ">");
+ 				}
+ 				if (state == "closed") {
+ 						$(".filterCard").slideDown(100);
+ 						$(".filterBar").attr("state", "open");
+ 						// $(".filterBar-text").html("Browse by <em>all shoe types</em> <img src='img/filter-up.png'>");
+ 				}
+ 				if (state == "open") {
+ 						$(".filterCard").slideUp(100);
+ 						$(".filterBar").attr("state", "closed");
+ 						// $(".filterBar-text").html("Browse by <em>all shoe types</em> <img src='img/filter-down.png'>");
+ 				}
+ 		});
+
+
+ 		$("#shop_btn").click(function() {
+ 				var state = $(".filterBar").attr("state");
+ 				$(".filterCard").slideUp(100);
+ 				if (state == "open") {
+ 					$(".filterBar").attr("state", "closed");
+ 				}
+ 		});
+
+ 		// Put as many as you want, separated by commas
+ 		$(".product__select-insert, .productCard").click(function () {
+ 				resetPage();
+ 		});
+
+ 		function resetPage() {
+ 				// This is in a timeout function so that it does not do anything while the app pushes to the next view
+ 				setTimeout(function() {
+ 						$(".filterCard").slideUp(100);
+ 						$(".filterBar").attr("state", "closed");
+ 						$(".productCard").fadeTo("fast", 1);
+
+ 						var filterDown = '{{ 'filter-down.png' | asset_url }}';
+ 						$(".filterBar-text").html("Browse by <em>all shoe types</em> " + "<img src=" + filterDown + ">");
+ 						$('#drawer').addClass('closed');
+ 						$("#shop_btn").removeAttr("disabled").fadeTo('fast', 1);
+ 						$('.shopify-section').not('.drawer-section').fadeTo('fast', 1);
+ 						$('html, body').animate({
+ 								scrollTop: (0)
+ 						}, 10);
+ 				}, 600);
+ 		}
+
+ 		$(window).scroll(function() {
+ 				if ($(window).scrollTop() > $('#shopify-section-wiivv-row').height() - 46) {
+ 						$('.filterBar').addClass('filterBar-fixed-app');
+ 						$('#shopify-section-mobile-collection-template').css("padding-top", "46px");
+
+ 						var state = $(".filterBar").attr("state");
+ 						$(".filterCard").slideUp(100);
+ 						if (state == "open") {
+ 							$(".filterBar").attr("state", "closed");
+ 						}
+ 						//$(".negHeader").finish().fadeTo('fast',0);
+ 				}
+ 				if ($(window).scrollTop() < $('#shopify-section-wiivv-row').height()) {
+ 						$('.filterBar').removeClass('filterBar-fixed-app');
+ 						$('#shopify-section-mobile-collection-template').css("padding-top", "0");
+ 						//$(".negHeader").finish().fadeTo('fast',0);
+ 				}
+ 		});
+});
+</script>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "class": "index-section index-section--featured-collection",
+  "settings": [
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_spacing",
+      "label": "Enable image spacing"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show product vendors",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' button",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_second_button",
+      "label": "Use secondary button style",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "grid_style",
+      "label": "Grid style",
+      "default": "collage",
+      "options": [
+        {
+          "value": "collage",
+          "label": "Collage"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "products",
+      "label": "Products per row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": "Rows",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2
+    },
+	{
+      "type": "text",
+      "id": "large_blurb",
+      "label": "Large Blurb",
+      "default": "The secret to long - lasting comfort in all of your shoes? It's support that's designed for you."
+	}
+  ],
+  "presets": [
+    {
+      "name": "Featured collection",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,430 @@
+{%- assign product = all_products[section.settings.featured_product] -%}
+{%- assign best_for_shoes_caption1 = section.settings.best_for_caption1 -%}
+{%- assign best_for_shoes_caption2 = section.settings.best_for_caption2 -%}
+{%- assign best_for_shoes_caption3 = section.settings.best_for_caption3 -%}
+<style>
+
+  .highlight--{{ section.id }} .highlight__line {
+    background-color: {{ section.settings.border_color }};
+  }
+  .highlight {
+    padding: 0;
+  }
+
+  .highlight__wrapper {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .highlight-image-container {
+    flex: 0 0 900px;
+    width: 50% !important;
+    padding-top: 0 !important;
+    max-width: 800px;
+  }
+
+  .highlight-image-wrapper.left {
+    height: 400px;
+    margin-left: -60px;
+  }
+
+  .highlight-image-wrapper.left img {
+    width: 100%;
+    height: auto;
+  }
+
+  .highlight-content-container {
+    flex: 1 1 auto;
+  }
+
+  .highlight-content-wrapper.left {
+    max-width: 372px;
+  }
+
+  .best-for-images {
+    float: left;
+    width: 124px;
+    height: 124px;
+    text-align: center;
+  }
+
+  .best-for-image-captions {
+    font-size: 12px;
+    font-family: Poppins;
+    line-height: 19px;
+  }
+
+  .best-for-icons {
+    /*width: 372px;*/
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .highlight-area {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .card__name {
+  	margin-top: 20px !important;
+  }
+
+  h1 {
+    text-align: center;
+/*     width: 750px; */
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+
+  a.card__price.highlight-link {
+    text-decoration: none;
+    display: inline-block;
+    float: none;
+    margin-right: 0;
+  }
+
+  @media only screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} h1.section-heading {
+      width: 310px;
+    }
+    
+
+   .highlight-image-container {
+    float: none;
+    margin: auto;
+    width: 100% !important;
+   }
+
+   .highlight__wrapper {
+/*       padding: 0 45px; */
+    }
+
+    .highlight-image-wrapper.left {
+      width: 100%;
+      height: 150px;
+      margin: 0;
+    }
+
+    .highlight-image-wrapper.left img {
+
+    }
+
+    .highlight-image-container {
+      float: none;
+    }
+
+    .highlight-content-container {
+      /*width: 320px !important;*/
+      float: none;
+      margin: auto;
+    }
+
+    .highlight-content-wrapper.left {
+      /*max-width: 320px;*/
+      margin: auto;
+    }
+
+    .highlight-content-wrapper h2 {
+      margin-bottom: 10px;
+    }
+
+    .highlight-content-wrapper p {
+      padding: 0 !important;
+    }
+
+    .best-for-images {
+      /*width: 105px;*/
+      /*height: 105px;*/
+      width: 30%;
+    }
+
+    .best-for-image-captions {
+      font-size: 10px !important;
+    }
+
+    #shopify-section-{{ section.id }} .card__name {
+      font-size: 12px;
+    }
+
+    .highlight-area {
+      display: block !important;
+      margin: 0 auto;
+    }
+    
+    .mobile-wrapper {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    
+
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #shopify-section-{{ section.id }} h1.section-heading {
+      width: 550px;
+    }
+
+    .highlight__wrapper {
+      padding: 0 45px;
+    }
+
+    .highlight-image-wrapper.left {
+      width: 100%;
+      /*height: 310px;*/
+      margin: 0;
+    }
+
+    .highlight-image-wrapper.left img {
+
+    }
+
+    .highlight-image-container {
+      float: left;
+    }
+
+    .highlight-content-container {
+      width: 320px !important;
+      float: left;
+    }
+
+    .highlight-content-wrapper.left {
+      max-width: 320px;
+    }
+
+    .highlight-content-wrapper h2 {
+      margin-bottom: 10px;
+    }
+
+    .highlight-content-wrapper p {
+      padding: 0 !important;
+    }
+
+    .best-for-images {
+      width: 105px;
+      height: 105px;
+    }
+
+    .best-for-image-captions {
+      font-size: 10px !important;
+    }
+
+    #shopify-section-{{ section.id }} .card__name {
+      font-size: 12px;
+    }
+
+    .highlight-area {
+      display: block !important;
+      margin: 0 auto;
+    }
+  }
+</style>
+<div class="page-width text-center">
+  <h2 class="margin-top--large margin-bottom--large section-heading">Choose based on your shoe</h2>
+</div>
+<div class="highlight highlight--{{ section.id }} highlight--align-{{ section.settings.content_alignment }}" data-section-id="{{ section.id }}" data-section-type="highlight-section" style="margin-bottom: 50px;">
+  {% if collection.handle contains "mobile-app-products" %}<a href="{{ product.url }}" class="card-app-link">{% endif %}  
+  <div class="highlight__wrapper mobile-wrapper">
+    <div class="highlight-area">
+      <div class="highlight-image-container">
+        {% if section.settings.image == blank %}
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg highlight__image highlight__image--placeholder' }}
+        {% else %}
+          <div class="highlight-image-wrapper left" style="background: url({{ section.settings.image | img_url: 'master' }}); background-size: contain; background-repeat: no-repeat; background-position: center;">
+          </div>
+        {% endif %}
+      </div>
+      <div class="highlight-content-container">
+        <div class="highlight-content-wrapper left">
+          <h3 class="text-center">{{ product.title }}</h3>
+          <h5 class="text-center">{{ product.description }}</h5>
+          <div class="card__name h4 text-center">Best for:</div>
+          <div class="best-for-icons">
+            <div class="best-for-images">
+              <img class="" src="{{ section.settings.best_for1 | img_url: 'master' }}">
+              <div class="best-for-image-captions">{{best_for_shoes_caption1}}</div>
+            </div>
+            <div class="best-for-images">
+              <img class="" src="{{ section.settings.best_for2 | img_url: 'master' }}">
+              <div class="best-for-image-captions">{{best_for_shoes_caption2}}</div>
+            </div>
+            <div class="best-for-images">
+              <img class="" src="{{ section.settings.best_for3 | img_url: 'master' }}">
+              <div class="best-for-image-captions">{{best_for_shoes_caption3}}</div>
+            </div>
+          </div>
+          <!-- <a class="high-light-link" href="{{ product.url }}" class="text-center"> -->
+          {% unless collection.handle contains "mobile-app-products" %} 
+            <div class="card__info text-center">
+              <a href="{{ product.url }}" class="card__price highlight-link">
+                SHOP {{ button_text }}{{ product.price | money_without_trailing_zeros }} USD
+              </a>
+            </div>
+          {% endunless %}
+          
+          <!-- </a> -->
+        </div>
+      </div>
+    </div>
+ 
+
+<!--     <div class="highlight__border" data-animate>
+      <div class="highlight__line highlight__line--top"></div>
+      <div class="highlight__line highlight__line--right"></div>
+      <div class="highlight__line highlight__line--bottom"></div>
+      <div class="highlight__line highlight__line--left"></div>
+    </div> -->
+  </div>
+  {% if collection.handle contains "mobile-app-products" %}</a>{% endif %}  
+</div>
+
+<style>
+  .best-for-images img {
+    width: 64px;
+    height: 64px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Highlight App",
+  "class": "index-section index-section--highlight",
+  "settings": [
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Product"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#cbc8c1"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "default": "middle",
+      "options": [
+        {
+          "label": "Top",
+          "value": "top"
+        },
+        {
+          "label": "Middle",
+          "value": "middle"
+        },
+        {
+          "label": "Bottom",
+          "value": "bottom"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "default": "back",
+      "options": [
+        {
+          "label": "Front",
+          "value": "front"
+        },
+        {
+          "label": "Back",
+          "value": "back"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Best For Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "best_for1",
+      "label": "Best For1"
+    },
+    {
+      "type": "text",
+      "id": "best_for_caption1",
+      "label": "Best For Caption1",
+      "default": "View"
+    },
+    {
+      "type": "image_picker",
+      "id": "best_for2",
+      "label": "Best For2"
+    },
+    {
+      "type": "text",
+      "id": "best_for_caption2",
+      "label": "Best For Caption2",
+      "default": "View"
+    },
+    {
+      "type": "image_picker",
+      "id": "best_for3",
+      "label": "Best For3"
+    },
+    {
+      "type": "text",
+      "id": "best_for_caption3",
+      "label": "Best For Caption3",
+      "default": "View"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Gift card"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Looking for something for someone special? A gift card to our store is the perfect idea!"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_second_button",
+      "label": "Use secondary button style",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button label",
+      "default": "View"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Highlight",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,163 @@
+<style>
+  #shopify-section-{{section.id}} {
+    max-width: 100%;
+    background: {{section.settings.background_color}};
+    padding: 100px 0;
+    height: auto;
+  }
+
+  .footer-contents {
+    padding: 0;
+    height: auto;
+  }
+
+  .footer-contents .footer-contents-area {
+/*     width: 790px; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-contents .footer-contents-area .footer-content-area {
+/*     width: 33.33%; */
+/*     float: left; */
+  }
+
+  .footer-contents .footer-contents-area .footer-content {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto;
+  }
+
+  /* .footer-contents .footer-contents-area .footer-content:last-child {
+    margin-right: 0;
+  } */
+
+  .footer-contents .footer-contents-area .footer-content .footer-content-images {
+    width: 130px;
+    margin: 0 auto;
+  }
+
+  .footer-contents .footer-contents-area .footer-content .footer-content-images img {
+/*     width: 130px; */
+  }
+
+  .footer-contents .footer-contents-area .footer-content h3 {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .footer-contents .footer-contents-area {
+      width: 100%;
+      padding: 0 24px;
+    }
+
+    .footer-contents .footer-contents-area .footer-content {
+      /* margin-right: 10px; */
+    }
+  }
+  
+    @media only screen and (min-width: 200px) and (max-width: 600px) {
+      .footer-contents-area {
+        flex-direction: column;
+        align-items: center;
+ 
+      }
+      .footer-contents .footer-contents-area .footer-content .footer-content-images {
+      	width: 75px;
+      }
+      
+      #shopify-section-{{section.id}} {
+        padding: 50px 0;
+      }
+    }
+</style>
+<div class="footer-contents footer-contents--{{ section.id }}">
+  <div class="footer-contents-area clearfix">
+    <div class="footer-content-area">
+      <div class="footer-content">
+        <div class="footer-content-images">
+          <img class="" src="{{ section.settings.contentImageOne | img_url: 'master' }}">
+        </div>
+        <h3>{{ section.settings.captionOne }}</h3>
+      </div>
+    </div>
+    <div class="footer-content-area">
+      <div class="footer-content">
+        <div class="footer-content-images">
+          <img class="" src="{{ section.settings.contentImageTwo | img_url: 'master' }}">
+        </div>
+        <h3>{{ section.settings.captionTwo }}</h3>
+      </div>
+    </div>
+    <div class="footer-content-area">
+      <div class="footer-content">
+        <div class="footer-content-images">
+          <img class="" src="{{ section.settings.contentImageThree | img_url: 'master' }}">
+        </div>
+        <h3>{{ section.settings.captionThree }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer Content",
+  "class": "index-section index-section--rich-text",
+  "settings": [
+    {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Wide display"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#004a97"
+    },
+    {
+      "type": "image_picker",
+      "id": "contentImageOne",
+      "label": "Content Image1"
+    },
+    {
+      "type": "text",
+      "id": "captionOne",
+      "label": "Caption1",
+      "default": "Received in 14 days or less"
+    },
+    {
+      "type": "image_picker",
+      "id": "contentImageTwo",
+      "label": "Content Image2"
+    },
+    {
+      "type": "text",
+      "id": "captionTwo",
+      "label": "Caption2",
+      "default": "Money Back Guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "contentImageThree",
+      "label": "Content Image3"
+    },
+    {
+      "type": "text",
+      "id": "captionThree",
+      "label": "Caption3",
+      "default": "Manufacturers warrantee"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Content",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

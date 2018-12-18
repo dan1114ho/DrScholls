@@ -1,0 +1,237 @@
+<div class="about-section">
+  <h2 class="">{{ section.settings.aboutHeading }}</h2>
+  <div class="about-description-mobile" style="display: none;">
+    <div class="description-category expanded">
+      <div class="description-category-title">
+        {{ section.settings.specHeading_01 }}
+        <img class="minus-icon" src="{{ 'accordion-minus-icon.png' | asset_url }}">
+        <img class="plus-icon" src="{{ 'accordion-plus-icon.png' | asset_url }}" style="display: none;">
+      </div>
+      <div class="description-category-content">
+        <div>{{ section.settings.specBody_01 }}</div>
+      </div>
+    </div>
+
+    <div class="description-category">
+      <div class="description-category-title">
+        {{ section.settings.specHeading_02 }}
+        <img class="minus-icon" src="{{ 'accordion-minus-icon.png' | asset_url }}" style="display: none;">
+        <img class="plus-icon" src="{{ 'accordion-plus-icon.png' | asset_url }}">
+      </div>
+      <div class="description-category-content" style="display: none;">
+        <div>{{ section.settings.specBody_02 }}</div>
+      </div>
+    </div>
+
+    <div class="description-category">
+      <div class="description-category-title">
+        {{ section.settings.specHeading_03 }}
+        <img class="minus-icon" src="{{ 'accordion-minus-icon.png' | asset_url }}" style="display: none;">
+        <img class="plus-icon" src="{{ 'accordion-plus-icon.png' | asset_url }}">
+      </div>
+      <div class="description-category-content" style="display: none;">
+        <div>{{ section.settings.specBody_03 }}</div>
+    </div>
+  </div>
+</div>
+  <div class="about-description">
+    <table class="about-table">
+      <tr>
+        <td class="left-cells">{{ section.settings.specHeading_01 }}</td>
+        <td class="right-cells">
+          <div>{{ section.settings.specBody_01 }}</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="left-cells">{{ section.settings.specHeading_02 }}</td>
+        <td class="right-cells">
+          <div>{{ section.settings.specBody_02 }}</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="left-cells">{{ section.settings.specHeading_03 }}</td>
+        <td class="right-cells">
+          <div>{{ section.settings.specBody_03 }}</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<style>
+  #shopify-section-{{ section.id }} {
+    width: 100% !important;
+    max-width: 100%;
+    background: #F5F5F5;
+    padding: 100px 0;
+  }
+
+  .about-section {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
+  }
+
+  .about-section h2 {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+
+  .about-table tr td.left-cells {
+    width: 38%;
+    font-weight: bold;
+    vertical-align: top;
+    padding: 25px 0;
+    border-bottom: 1px solid #B5B5B5;
+  }
+
+  .about-table tr td.right-cells {
+    padding: 25px 0 25px 25px;
+    border-bottom: 1px solid #B5B5B5;
+    border-left: 1px solid #B5B5B5;
+  }
+
+  .about-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .about-table tr td.right-cells .bold-title {
+    font-weight: bold;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .about-section {
+      padding: 0 45px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      padding: 50px 0;
+    }
+
+    .about-section {
+/*       width: 310px; */
+      margin: 0 20px;
+      padding: 0;
+    }
+
+    .about-section h2 {
+      text-align: left;
+      padding-bottom: 20px;
+    }
+
+    .about-description {
+      display: none;
+    }
+
+    .about-description-mobile {
+      display: block !important;
+      font-family: Poppins;
+    }
+
+    .description-category .description-category-title {
+      border-bottom: 1px solid #B5B5B5;
+      border-top: 1px solid #B5B5B5;
+      padding: 20px 0;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .description-category-title img {
+      float: right;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .description-category-content {
+      padding: 20px 0;
+      font-size: 12px;
+    }
+
+    .description-category-content .bold-title {
+      font-weight: 600;
+    }
+
+    .description-category .description-category-title {
+      border-bottom: none;
+    }
+
+    .description-category.expanded .description-category-title {
+      border-bottom: 1px solid #B5B5B5;
+    }
+
+    .description-category:last-child .description-category-title {
+      border-bottom: 1px solid #B5B5B5;
+    }
+  }
+</style>
+
+<script>
+  $(document).ready(function() {
+    $('.description-category-title img').click(function() {
+      $(this).parent().parent().find('.description-category-content').slideToggle('100');
+      $(this).parent().parent().toggleClass('expanded');
+      $(this).parent().find('img').toggle();
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Full About Heading",
+  "class": "index-section index-section--image-with-text-overlay",
+  "settings": [
+    {
+      "type": "text",
+      "id": "aboutHeading",
+      "label": "Heading",
+      "default": "Talk about your brand"
+    },
+    {
+      "type": "text",
+      "id": "specHeading_01",
+      "label": "Spec 1 Heading",
+      "default": "Guarantee and Warranty"
+    },
+    {
+      "type": "html",
+      "id": "specBody_01",
+      "label": "Spec 1 Body",
+      "default": "Hey there! Put some body text here. It's HTML compatible too."
+    },
+    {
+      "type": "text",
+      "id": "specHeading_02",
+      "label": "Spec 2 Heading",
+      "default": "Shoe Types"
+    },
+    {
+      "type": "html",
+      "id": "specBody_02",
+      "label": "Spec 2 Body",
+      "default": "Hey there! Put some body text here. It's HTML compatible too."
+    },
+    {
+      "type": "text",
+      "id": "specHeading_03",
+      "label": "Spec 3 Heading",
+      "default": "Features"
+    },
+    {
+      "type": "html",
+      "id": "specBody_03",
+      "label": "Spec 3 Body",
+      "default": "Hey there! Put some body text here. It's HTML compatible too."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Full About Heading",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

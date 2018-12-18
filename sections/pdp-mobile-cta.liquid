@@ -1,0 +1,210 @@
+<footer class="nav-down">
+
+	<div class="subtext__select-insert">
+		{{ section.settings.heading_text }}
+	</div>
+
+	<button id="shop_btn" onclick="toggleDrawer();">{{ section.settings.button_text }}</button>
+</footer>
+
+<style>
+	.nav-down {
+      display: none;
+    }
+  
+  
+  @media only screen and (max-width: 767px) {
+  
+  
+	footer {
+		position: fixed;
+		bottom: 0;
+		padding: 0 0 10px 0;
+		transition: bottom 0.2s ease-in-out;
+		width: 100%;
+		background-color: #ffffff;
+		text-align: center;
+		z-index: 9999;
+      	box-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+	}
+	.nav-down {
+		background-color: #ffffff;
+    	bottom: 0;
+      	display: block;
+	}
+	#drawer {
+		display: none;
+		background-color: #ffffff;
+	}
+	.heading__select-insert {
+		padding: 12px 0 0 0;
+		margin: 0 0 10px 32px;
+		font-family: "Poppins", sans-serif;
+		color: #4A4A4A;
+		font-size: 16px;
+		line-height: 40px;
+		display: inline;
+	}
+	.heading__select-insert-text {
+		float: left;
+		margin: 0 0 0 30px;
+	}
+	.title__select-insert {
+		font-family: "Poppins", sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 68px;
+		color: #004A97;
+		text-align: left;
+    	padding: 0 0 0 30px;
+    	border-top: solid 1px #e1e1e1;
+	}
+	.product__select-insert a {
+		text-decoration: none;
+	}
+	.title__last {
+
+	}
+	.title__select-insert a {
+		text-decoration: none;
+		color: #004A97;
+	}
+	.price__select-insert {
+		font-family: "Poppins", sans-serif;
+		color: #4A4A4A;
+		font-size: 14px;
+		float: right;
+		margin: 0 30px 0 0;
+		font-weight: 100;
+	}
+	.close__select-insert {
+		font-family: Arial;
+    	float: right;
+    	margin: 0 27px 0 0;
+    	position: relative;
+	}
+	.subtext__select-insert {
+		padding: 5px 0 0 0;
+	}
+  }
+</style>
+
+
+
+<!-- <script>
+
+	function toggleDrawer() {
+		
+		//$('#drawer').slideToggle({ direction: "down"}, 290);
+		$('#drawer').toggle();
+		
+		if ($('#drawer').hasClass('closed')) {
+			$('#drawer').removeClass('closed');
+			$("#shop_btn").attr("disabled", "disabled").fadeTo( 'fast', 0.7);
+			$('.shopify-section').not('.drawer-section').fadeTo( 'slow', 0.3);
+		} else {
+			$('#drawer').addClass('closed');
+			$("#shop_btn").removeAttr("disabled").fadeTo( 'fast', 1);
+			$('.shopify-section').not('.drawer-section').fadeTo( 'slow', 1);
+		}
+	}
+
+	$('#shopify-section-wiivv-image-overlay,#shopify-section-wiivv-custom-content-fullwidth,#shopify-section-wiivv-custom-content,#shopify-section-wiivv-custom-collections,#shopify-section-wiivv-feature-03,#shopify-section-wiivv-feature-02,#shopify-section-wiivv-feature-01,#shopify-section-collection-template,#shopify-section-wiivv-row').click(function() {
+		
+		if( !$('#drawer').hasClass('closed') ) {
+			$('#drawer').toggle();
+			$('#drawer').addClass('closed');
+			$("#shop_btn").removeAttr("disabled").fadeTo( 'fast', 1);
+			$('.shopify-section').not('.drawer-section').fadeTo( 'slow', 1);
+		}
+	});
+
+	// Hide Header on on scroll down
+	var didScroll;
+	var lastScrollTop = 0;
+	var delta = 400; //larger more scrolling before nav comes up
+	var navbarHeight = $('footer').outerHeight();
+
+	$(window).scroll(function(event){
+	    didScroll = true;
+	});
+
+	setInterval(function() {
+	    if (didScroll) {
+	        hasScrolled();
+	        didScroll = false;
+	    }
+	}, 250);
+
+	function hasScrolled() {
+	    var st = $(this).scrollTop();
+	    
+	    // Make sure they scroll more than delta
+	    if(Math.abs(lastScrollTop - st) <= delta)
+	        return;
+	    
+	    // If they scrolled down and are past the navbar, add class .nav-up.
+	    // This is necessary so you never see what is "behind" the navbar.
+	    if (st > lastScrollTop && st > navbarHeight){
+	        // Scroll Down
+	        $('footer').removeClass('nav-down').addClass('nav-up');
+	    } else {
+	        // Scroll Up
+	        if(st + $(window).height() < $(document).height()) {
+	            $('footer').removeClass('nav-up').addClass('nav-down');	            
+	            $('#drawer').hide();
+	           	$('#drawer').addClass('closed');
+				$('.shopify-section').not('.drawer-section').fadeTo( 'slow', 1);
+				$("#shop_btn").removeAttr("disabled").fadeTo( 'fast', 1);
+	        }
+	    }
+	    
+	    lastScrollTop = st;
+	}
+
+</script> -->
+
+{% schema %}
+{
+  "name": "Footer CTA",
+  "class": "index-section index-section--drawer drawer-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading",
+      "default": "30-day money-back guarantee"
+    },
+    {
+    	"type": "text",
+    	"id": "button_text",
+    	"label": "Button Text",
+    	"default": "ADD TO CART"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom content",
+      "category": "Advanced layout",
+      "blocks": [
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

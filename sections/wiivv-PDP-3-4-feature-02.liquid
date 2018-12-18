@@ -1,0 +1,132 @@
+<div class="desktop-features feature-image-wrapper" style="background-image: url({{ section.settings.featureImageTwo | img_url : 'master' }})">
+  <div class="caption-area two">
+    <div>
+      <h3>{{ section.settings.captionHeadingTwo }}</h3>
+      <h5>{{ section.settings.captionBodyTwo }}</h5>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-features">
+  <div class="feature-block">
+    <div class="mobile-feature-img" style="background-image: url({{ section.settings.featureImageTwoMobile  | img_url : 'master' }}); background-position: left;"></div>
+    <div class="mobile-feature-blurb mobile-wrapper">
+      <h3>{{ section.settings.captionHeadingTwo }}</h3>
+      <h5>{{ section.settings.captionBodyTwo }}</h5>  
+    </div>
+  </div>
+</div>
+
+<style>
+  .feature-image-wrapper {
+    width: 1440px;
+    height: 800px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .caption-area.two {
+    top: 150px;
+    right: 100px;
+  }
+  
+  .mobile-features {
+    display: none;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .feature-image-wrapper {
+      width: 100%;
+      height: 430px;
+    }
+
+    #shopify-section-{{ section.id }} .caption-area.two {
+      top: 50px;
+      right: 45px;
+      max-width: 320px;
+    }
+  }
+  
+  /* Mobile layout */  
+  @media only screen and (max-width: 767px) {
+    .desktop-features {
+      display: none;
+    }
+    
+    .mobile-features {
+      display: block;
+    }
+
+    .slickslide, .slick-thumbs {
+      display: none;
+    }
+
+    .mobile-features {
+      background-color: #f3f3f3;
+    }
+
+    #shopify-section-{{ section.id }} {
+      margin-top: 0!important;
+    }
+
+    .mobile-feature-img {
+      height: 200px;
+      width: 100%;
+      background-size: cover;
+    }
+
+    .mobile-feature-blurb {
+      margin: 10px auto 0 auto;
+    }
+    
+    .mobile-feature-blurb > h5 {
+      margin-bottom: 0;
+    }
+
+    .mobile-wrapper {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .padding-bottom-mobile {
+      padding-bottom: 50px;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Feature Product Card 2",
+  "class": "index-section index-section--image-with-text-overlay",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "featureImageTwo",
+      "label": "Feature Image"
+    },
+	{
+      "type": "image_picker",
+      "id": "featureImageTwoMobile",
+      "label": "Feature Image Mobile"
+    },
+    {
+      "type": "text",
+      "id": "captionHeadingTwo",
+      "label": "Caption Heading",
+      "default": "Talk about your brand"
+    },
+    {
+      "type": "text",
+      "id": "captionBodyTwo",
+      "label": "Caption Body",
+      "default": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Product Card 2",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

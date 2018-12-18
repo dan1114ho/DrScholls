@@ -1,0 +1,71 @@
+<div class="rich-text rich-text--{{ section.id }}">
+  <div class="grid page-width">
+    <div class="grid__item text-center{% unless section.settings.full_width %} medium-up--two-thirds medium-up--push-one-sixth{% endunless %}">
+      {% if section.settings.section_title != blank %}
+        <h2 class="rich-text__heading separator
+                   {% if section.settings.text_size == 'large' %} h1{% elsif section.settings.text_size == 'small' %} h3{% endif %}"
+                   data-animate>
+          {{ section.settings.section_title | escape }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+      <div class="rich-text__body-text rich-text__body-text--{{ section.settings.text_size }} rte-setting">
+        {{ section.settings.text }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rich text",
+  "class": "index-section index-section--rich-text",
+  "settings": [
+    {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Wide display"
+    },
+    {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Talk about your brand"
+    },
+    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>"
+    },
+    {
+        "type": "select",
+        "id": "text_size",
+        "label": "Size",
+        "default": "medium",
+        "options": [
+            {
+            "label": "Small",
+            "value": "small"
+            },
+            {
+            "label": "Medium",
+            "value": "medium"
+            },
+            {
+            "label": "Large",
+            "value": "large"
+            }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich text",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

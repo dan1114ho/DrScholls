@@ -1,0 +1,775 @@
+<div class="wiivv-cart-section">
+  {% if cart.item_count > 0 %}
+  <div class="left-area">
+    <div class="wiivv-row wiivv-row-countable">
+      <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable one completed">
+        <span class="wiivv-item-countable-line one"></span>
+        <div class="progress-caption">Design</div>
+      </div>
+      <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable two active">
+        <span class="wiivv-item-countable-line two"></span>
+        <div class="progress-caption">Order</div>
+      </div>
+      <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable three ">
+        <span class="wiivv-item-countable-line three"></span>
+        <div class="progress-caption two">Measure in app</div>
+      </div>
+      <div class="wiivv-sm-4 wiivv-text-center wiivv-item-countable four ">
+        <span class="wiivv-item-countable-line four"></span>
+        <div class="progress-caption">Receive</div>
+      </div>
+    </div>
+    {% if customer %}
+    <h2 class="signup-title">Your cart is lookin' good.</h2>
+    <h5 class="signup-description">Proceed to checkout?</h5>
+    <div class="button-container">
+      <a href="/checkout" class="primary-button">Checkout</a>
+    </div>
+    {% else %}
+    <h2 class="signup-title">Create your Dr. Scholl's foot profile</h2>
+    <h5 class="signup-description">Dr.Scholl's are created custom for your feet. After checkout, get measured in the app with just a few photos.</h5>
+    <div class="button-container">
+      <a href="https://dev-drscholls-signin.wiivvpowered.com/register" class="primary-button">SIGN UP</a>
+    </div>
+    <div class="link-container">
+      <a href="https://dev-drscholls-signin.wiivvpowered.com/" class="sign-in-link">Sign in</a>
+    </div>
+
+   {% endif %}
+  </div>
+
+  {% endif %}
+
+  {% if cart.item_count > 0 %}
+    <div class="your-cart-area">
+  {% else %}
+    <div class="your-cart-area" style="width: 100%;">
+  {% endif %}
+    {% if cart.item_count > 0 %}
+    <h3 class="cart-title">Your Cart</h3>
+    <div class="product-area">
+      {% for item in cart.items %}
+        <div class="product-items" data-id="{{ item.variant_id }}">
+          <img class="product-images" src="{{ item.image | img_url: 'small' }}">
+          <div class="product-details">
+            {% if item.title contains 'Full' %}
+              <h5 class="product-title">Full Length</h5>
+            {% elsif item.title contains '3/4' %}
+              <h5 class="product-title">3/4 Length</h5>
+            {% endif %}
+
+            {% if item.variant.option1 == 'YWF' %}
+              {% assign option1 = 'Yello Fractal' %}
+            {% elsif item.variant.option1 == 'YHG' %}
+              {% assign option1 = 'Yellow Hexagon' %}
+            {% elsif item.variant.option1 == 'BLP' %}
+              {% assign option1 = 'Blue Dress' %}
+            {% elsif item.variant.option1 == 'GNO' %}
+              {% assign option1 = 'Gnomes' %}
+            {% elsif item.variant.option1 == 'FLO' %}
+              {% assign option1 = 'Floral' %}
+            {% elsif item.variant.option1 == 'BAE' %}
+              {% assign option1 = 'Bacon and Eggs' %}
+            {% elsif item.variant.option1 == 'CKG' %}
+              {% assign option1 = 'Blue Keepgoing' %}
+            {% elsif item.variant.option1 == 'TRL' %}
+              {% assign option1 = 'Trail' %}
+            {% elsif item.variant.option1 == 'BHG' %}
+              {% assign option1 = 'Blue Hexagon' %}
+            {% endif %}
+
+            {% if item.variant.option2 == 'TL' %}
+              {% assign option2 = 'Teal' %}
+            {% elsif item.variant.option2 == 'GY' %}
+              {% assign option2 = 'Grey' %}
+            {% elsif item.variant.option2 == 'CL' %}
+              {% assign option2 = 'Coral' %}
+            {% elsif item.variant.option2 == 'RD' %}
+              {% assign option2 = 'Red' %}
+            {% elsif item.variant.option2 == 'BK' %}
+              {% assign option2 = 'Black' %}
+            {% endif %}
+            <p>{{ option1 }} with {{ option2 }}</p>
+            <div class="product-quantity-box">
+              <img class="quantity-minus" src="{{ 'form-minus-icon.png' | asset_url }}">
+              <div class="quantity-amount">
+                <input type="text" value="{{ item.quantity }}" name="quantity" id="product_quantity" data-id="{{ item.variant_id }}">
+                <div class="quantity-text"> pair</div>
+              </div>
+              <img class="quantity-plus" src="{{ 'form-plus-icon.png' | asset_url }}">
+            </div>
+          </div>
+          <p class="product-price">{{ item.price | money_without_trailing_zeros }} USD</p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="total-area">
+      <div class="sub-total total-item">
+        <p>Subtotal</p>
+        <p class="">{{ cart.total_price | money_without_trailing_zeros }} USD</p>
+      </div>
+      <div class="shipping total-item">
+        <p>Shipping</p>
+        <p>Free</p>
+      </div>
+      <!-- <div class="shipping total-item">
+        <p>Taxes</p>
+        <p>$0 USD</p>
+      </div> -->
+      <!-- <div class="apply-promo-code total-item">
+        <p>Apply promo code +</p>
+      </div> -->
+    </div>
+    <div class="total-price">
+      <p>Total</p>
+      <p class="">{{ cart.total_price | money_without_trailing_zeros }} USD</p>
+    </div>
+    {% else %}
+    <div class="empty-placeholder" style="margin-bottom: 50px; margin-top: 100px;">
+      <h4 style="text-align: center;">Your cart is empty.</h4>
+      <div class="button-container">
+        <a class="primary-button" href="/">BROWSE PRODUCTS</a>
+      </div>
+    </div>
+    {% endif %}
+    <div class="outfit-closet">
+      <div class="outfit-title">Outfit your closet</div>
+      <ul class="products-carousel">
+        {% for product in collections.all.products %}
+          {% if product.title == '3/4 Length Custom 3D Inserts' or product.title == 'Full Length Custom 3D Inserts' %}
+            {% for variant in product.variants %}
+              {% if variant.sku == 'EFAGA000' or variant.sku == 'EBASA000' or variant.sku == 'FFAGA000' %}
+              <li class="products-carousel-item" data-id="{{ variant.id }}">
+                <div class="description-row">
+                  <img class="product-images" src="{{ variant.featured_image | img_url: 'small' }}">
+                  <div class="title-price-area">
+                    {% if product.title contains 'Full' %}
+                      <h5 class="product-title">Full Length</h5>
+                    {% elsif product.title contains '3/4' %}
+                      <h5 class="product-title">3/4 Length</h5>
+                    {% endif %}
+                    <p class="outfit-product-price">{{ variant.price | money_without_trailing_zeros }} USD</p>
+                    <a href="javascript:;" class="add-to-cart-outfit" data-id="{{ variant.id }}">ADD TO CART</a>
+                  </div>
+                </div>
+              </li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  #MainContent {
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} {
+    max-width: 100%;
+    height: 100vh;
+  }
+
+  .site-header__wrapper {
+    background-color: white;
+  }
+
+  .site-header__wrapper.cart-header {
+    background: white !important;
+    border-bottom: 1px solid rgb(243,243,243) !important;
+    height: 85px;
+  }
+
+  .site-header__wrapper.cart-header a .white-icon {
+    display: none !important;
+  }
+
+  .site-header__wrapper.cart-header a .blue-icon {
+    display: block !important;
+  }
+
+  .site-header__wrapper.cart-header .site-header__logo-image {
+    max-width: none;
+  }
+
+  .site-header__section--title .menu-itmes a {
+    color: #004A97 !important;
+  }
+
+  .site-header__section--title .menu-itmes a:after {
+    background: #004A97;
+  }
+
+  .wiivv-cart-section {
+    padding-top: 85px;
+    display: flex;
+    justify-content: start;
+    height: auto;
+  }
+
+  .left-area {
+    width: 58%;
+    background: white;
+  }
+
+  .wiivv-row-countable {
+    counter-reset: item;
+  }
+  .wiivv-row {
+    position: relative;
+    overflow: hidden;
+    width: 645px;
+    margin: 0 auto;
+    height: 100px;
+    padding-top: 45px;
+    margin-bottom: 100px;
+  }
+
+  .wiivv-text-center {
+    text-align: center;
+  }
+
+  .wiivv-sm-4 {
+    width: 33.33333333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+  }
+
+  .wiivv-sm-4.one, .wiivv-sm-4.four {
+    width: 25%;
+  }
+
+  .wiivv-sm-4.two, .wiivv-sm-4.three {
+    width: 25%;
+  }
+
+  .wiivv-item-countable::before {
+    color: #ea4640;
+    border-color: #ea4640;
+    background-color: #fff;
+  }
+  .wiivv-item-countable::before {
+    content: '';
+    width: 28px;
+    height: 28px;
+    display: block;
+    margin: auto;
+    border: 5px solid #BBBBBB;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .wiivv-item-countable.completed::before {
+    border-color: #FFC805;
+    background-color: #FFC805;
+  }
+
+  .wiivv-item-countable.active::before {
+    border-color: #FFC805;
+  }
+
+  .wiivv-item-countable-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 38%;
+    top: 14px;
+    border-top: 1px solid;
+    border-color: #BBBBBB;
+  }
+
+  .wiivv-item-countable-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 38%;
+    top: 14px;
+    border-top: 1px solid;
+    border-color: #BBBBBB;
+  }
+
+  .wiivv-item-countable-line.one::before {
+    content: none;
+  }
+
+  .wiivv-item-countable-line.four::after {
+    content: none;
+  }
+
+  .wiivv-item-countable-line.one::after {
+    border-color: #FFC805;
+  }
+
+  .wiivv-item-countable-line.two::before {
+    border-color: #FFC805;
+  }
+
+  .progress-caption {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .signup-title, .signup-description {
+    max-width: 370px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .signup-description {
+    margin-bottom: 20px;
+  }
+
+  .button-container {
+    text-align: center;
+  }
+
+  .button-container a.primary-button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    color: #ffffff;
+    border: none !important;
+    border-radius: 4px;
+    width: 240px;
+    height: 50px;
+    background: #004A97;
+    text-align: center;
+    font-weight: 600;
+    font-family: Poppins;
+    letter-spacing: 0px;
+    line-height: 50px;
+    transition: background .3s ease-out;
+  }
+
+  .button-container a.primary-button:hover {
+    background: #6993C1;
+  }
+
+  .your-cart-area {
+    width: 42%;
+    background: #F3F3F3;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-right: 100px;
+  }
+
+  .cart-title {
+    margin-bottom: 20px;
+  }
+
+  .product-area {
+    border-bottom: 1px solid #BBB;
+  }
+
+  .product-items {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: start;
+  }
+
+  .product-images {
+    width: 100px;
+    height: 100px;
+    background: white;
+    margin-right: 20px;
+    border: 1px solid #BBB;
+  }
+
+  .product-title {
+    margin: 0;
+  }
+
+  .product-items p {
+    margin-bottom: 10px;
+  }
+
+  .product-quantity-box {
+    width: 130px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #BBB;
+    border-radius: 4px;
+    background: white;
+  }
+
+  .quantity-minus {
+    width: 20px;
+    height: 20px;
+    float: left;
+    cursor: pointer;
+  }
+
+  .quantity-plus {
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin-top: -20px;
+    cursor: pointer;
+  }
+
+  .quantity-amount {
+    width: 70px;
+    height: 20px;
+    float: left;
+    padding-left: 15px;
+  }
+
+  .quantity-amount input[type="text"] {
+    float: left;
+    padding: 0;
+    width: 15px;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: -1px;
+  }
+
+  .quantity-amount .quantity-text {
+    float: left;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .product-price {
+    flex: 1 1 auto;
+    text-align: right;
+  }
+
+  .total-area {
+    padding-top: 20px;
+    border-bottom: 1px solid #BBB;
+  }
+
+  .total-item {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+  }
+
+  .total-item p {
+    margin: 0;
+  }
+
+  .total-item p:last-child {
+    flex: 1 1 auto;
+    text-align: right;
+  }
+
+  .total-item:last-child p {
+    /* text-align: left;
+    color: #FDCB16; */
+  }
+
+  .total-price {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: start;
+  }
+
+  .total-price p:last-child {
+    flex: 1 1 auto;
+    text-align: right;
+  }
+
+  .outfit-closet {
+    text-align: center;
+  }
+
+  .products-carousel {
+    list-style: none;
+    padding: 0;
+    max-width: 300px;
+    margin: 20px auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  .products-carousel-item {
+    width: 300px;
+    padding: 20px;
+    background: white;
+    border-radius: 4px;
+  }
+
+  .products-carousel-item .button-container a.primary-button {
+    width: 260px;
+  }
+
+  .products-carousel-item p {
+    text-align: left;
+  }
+
+  .description-row {
+    display: flex;
+    justify-content: start;
+  }
+
+  .title-price-area {
+
+  }
+
+  .product-title {
+    text-align: left;
+  }
+
+  .outfit-closet .product-title {
+    padding-bottom: 10px;
+  }
+
+  .outfit-product-price {
+    margin-bottom: 10px;
+  }
+
+  .add-to-cart-outfit {
+    text-decoration: none;
+    color: #004A97;
+    font-family: Poppins;
+    font-size: 14px;
+  }
+
+  .slick-prev {
+    left: -50px !important;
+  }
+
+  .slick-prev::before,
+  .slick-next::before {
+    content: '';
+  }
+
+  .slick-prev, .slick-prev:hover, .slick-prev:focus {
+    background: url("{{ 'arrow-prev-icon.png' | asset_url }}");
+    background-size: contain;
+    color: inherit;
+  }
+
+  .slick-next, .slick-next:hover, .slick-next:focus {
+    background: url("{{ 'arrow-next-icon.png' | asset_url }}");
+    background-size: contain;
+    color: inherit;
+  }
+
+  .slick-next {
+    right: -50px !important;
+  }
+
+  .link-container {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .link-container a {
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Poppins;
+    color: #004A97;
+    text-transform: uppercase;;
+  }
+
+  .slick-dots li {
+    margin: 0;
+  }
+
+  .slick-dots li button::before {
+    font-size: 12px;
+    color: #004A97;
+    opacity: 0.1;
+  }
+
+  .slick-dots li.slick-active button::before {
+    color: #004A97;
+    opacity: 1;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #sidebar-main-trigger img.white-icon {
+      display: none !important;
+    }
+
+    #sidebar-main-trigger img.blue-icon {
+      display: block !important;
+    }
+
+    .site-header__wrapper.cart-header .site-header__logo-image {
+      width: 75px;
+    }
+
+    .wiivv-cart-section {
+      padding-top: 60px;
+      position: absolute;
+      width: 100%;
+    }
+
+    .wiivv-row {
+      width: 236px;
+      padding-top: 20px;
+      height: auto;
+    }
+
+    .wiivv-item-countable-line::after, .wiivv-item-countable-line::before {
+      width: 30%;
+    }
+
+    .progress-caption {
+      font-size: 10px;
+    }
+
+    .signup-title, .signup-description {
+      width: 300px;
+    }
+
+    .signup-title {
+      padding-bottom: 20px;
+    }
+
+    .your-cart-area {
+      padding: 20px;
+    }
+
+    .cart-title {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media only screen and (min-width: 200px) and (max-width: 767px) {
+    .wiivv-cart-section {
+      display: block;
+    }
+
+    .left-area {
+      width: 100%;
+      padding-bottom: 50px;
+    }
+
+    #sidebar-main-trigger img.white-icon {
+      display: none !important;
+    }
+
+    #sidebar-main-trigger img.blue-icon {
+      display: block !important;
+    }
+
+    .site-header__wrapper.cart-header .site-header__logo-image {
+      width: 75px;
+    }
+
+    .wiivv-cart-section {
+      padding-top: 60px;
+    }
+
+    .wiivv-row {
+      width: 236px;
+      padding-top: 20px;
+      height: auto;
+      margin-bottom: 50px;
+    }
+
+    .wiivv-item-countable-line::after, .wiivv-item-countable-line::before {
+      width: 30%;
+    }
+
+    .progress-caption {
+      font-size: 10px;
+    }
+
+    .signup-title, .signup-description {
+      width: 300px;
+    }
+
+    .signup-title {
+      padding-bottom: 20px;
+    }
+
+    .your-cart-area {
+      width: 100%;
+      padding: 30px;
+    }
+  }
+</style>
+
+<script>
+  var cart = {{ cart | json }};
+  console.log(cart);
+  $(document).ready(function() {
+    $('.site-header__wrapper').addClass('cart-header');
+    $('.products-carousel').slick({
+      dots: false,
+      arrows: true,
+      infinite: true,
+      slidesToShow: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            arrows: false,
+            dots: true
+          }
+        }
+      ]
+    });
+
+    if ($('.your-cart-area').height() > $(window).height() - 85) {
+      $('.your-cart-area').css('height', '100%');
+    }
+    else {
+      $('.your-cart-area').css('height', ($(window).height() - 85));
+    }
+
+    $('.quantity-minus').click(function() {
+      var current_quantity = $(this).parent().find('#product_quantity').val();
+      current_quantity --;
+      if (current_quantity == 1) {
+        $(this).parent().find('.quantity-text').text('pair');
+      }
+      if (current_quantity < 1) {
+        current_quantity = 0;
+        $(this).parent().find('#product_quantity').val(1);
+      }
+      else {
+        $(this).parent().find('#product_quantity').val(current_quantity);
+      }
+      var variant_id = $(this).parent().find('#product_quantity').data('id');
+      update_quantities(variant_id, current_quantity);
+    });
+
+    $('.quantity-plus').click(function() {
+      var current_quantity = $(this).parent().find('#product_quantity').val();
+      current_quantity ++;
+      $(this).parent().find('#product_quantity').val(current_quantity);
+      $(this).parent().find('.quantity-text').text('pairs');
+      var variant_id = $(this).parent().find('#product_quantity').data('id');
+      update_quantities(variant_id, current_quantity);
+    });
+
+    $('.add-to-cart-outfit').click(function() {
+      var variant_id = $(this).data('id');
+      $.post('/cart/add.js', {quantity: 1, id: variant_id}, function() {
+        location.reload();
+      });
+    });
+  });
+
+  function update_quantities(variant_id, quantity) {
+
+    $.post('/cart/update.js', "updates[" + variant_id + "]=" + quantity, function() {
+      location.reload();
+    });
+  }
+</script>
+{% schema %}
+{
+  "name": "Cart page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "cart_notes_enable",
+      "label": "Enable cart notes",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

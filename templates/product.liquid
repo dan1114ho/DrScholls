@@ -1,0 +1,90 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template/
+{% endcomment %}
+
+{% comment %}
+  Original
+{% section 'wiivv-PDP-slideshow' %}
+{% section 'wiivv-PDP-guarantee' %}
+{% endcomment %}
+
+{% comment %}
+  Original
+  {% if product.title contains 'Full' %}
+    {% section 'wiivv-feature-01' %}
+    {% section 'wiivv-feature-02' %}
+    {% section 'wiivv-feature-03' %}
+  {% elsif product.title contains '3/4' %}
+    {% section 'wiivv-3-4-feature-01' %}
+    {% section 'wiivv-3-4-feature-02' %}
+    {% section 'wiivv-3-4-feature-03' %}
+  {% endif %}
+  {% section 'DRS-pdp-slider' %}
+  {% section 'wiivv-custom-content' %}
+  {% section 'wiivv-PDP-footer' %}
+  {% if product.title contains 'Full' %}
+    {% section 'full-length-specs' %}
+  {% elsif product.title contains '3/4' %}
+    {% section '3-4-length-specs' %}
+  {% endif %}
+{% endcomment %}
+
+
+{% for tag in product.tags %}
+  {% if tag contains 'web-storefront' %}
+    {% section 'header' %}
+    {% section 'wiivv-PDP-3-4-product' %}
+    {% if product.title contains 'Full' %}
+      {% section 'wiivv-PDP-full-custom-guarantee' %}
+    {% elsif product.title contains '3/4' %}
+      {% section 'wiivv-PDP-3-4-custom-guarantee' %}
+    {% endif %}
+
+    {% section 'wiivv-PDP-3-4-feature-01' %}
+    {% section 'wiivv-PDP-3-4-feature-02' %}
+    {% if product.title contains 'Full' %}
+    {% section 'wiivv-PDP-3-4-feature-03' %}
+    {% elsif product.title contains '3/4' %}
+    {% section 'wiivv-PDP-3-4-feature-04' %}
+    {% endif %}
+    {% section 'video' %}
+    {% section 'hero' %}
+    {% section 'custom-heading1' %}
+    {% section 'wiivv-PDP-technology' %}
+
+
+    {% if product.title contains 'Full' %}
+      {% section 'about-full' %}
+    {% elsif product.title contains '3/4' %}
+      {% section 'about-3-4' %}
+    {% endif %}
+    {% section 'footer-content' %}
+    {% section 'custom-footer' %}
+
+	{% section 'pdp-mobile-cta' %}
+  {% endif %}
+{% endfor %}
+
+{% for tag in product.tags %}
+  {% if tag contains 'mobile-storefront' %}
+	{% section 'wiivv-PDP-slideshow' %}
+	{% section 'wiivv-PDP-guarantee' %}
+	{% section 'wiivv-PDP-3-4-feature-01' %}
+    {% section 'wiivv-PDP-3-4-feature-02' %}
+	{% if product.title contains 'Full' %}
+		{% section 'wiivv-PDP-3-4-feature-03' %}
+	{% elsif product.title contains '3/4' %}
+		{% section 'wiivv-PDP-3-4-feature-04' %}
+	{% endif %}
+	{% section 'process-app' %}
+	{% section 'hero' %}
+    {% section 'custom-heading1' %}
+    {% section 'wiivv-PDP-technology' %}
+	{% if product.title contains 'Full' %}
+      {% section 'about-full' %}
+    {% elsif product.title contains '3/4' %}
+      {% section 'about-3-4' %}
+    {% endif %}
+	{% section 'footer-content' %}
+  {% endif %}
+{% endfor %}

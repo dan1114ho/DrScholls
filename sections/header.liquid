@@ -1,0 +1,549 @@
+{% if section.settings.enable_transparent and template.name == 'index' %}
+  <style>
+    html:not(.supports-no-js) body:not(.navigation-open) .site-header--transparent:not(.site-header--fixed) .burger-icon {
+      background-color: {{ section.settings.transparent_text_color }};
+    }
+
+    html:not(.supports-no-js) body:not(.navigation-open) .site-header--transparent:not(.site-header--fixed) .site-header__cart .icon,
+    html:not(.supports-no-js) body:not(.navigation-open) .site-header--transparent:not(.site-header--fixed) .site-header__bag .icon {
+      fill: {{ section.settings.transparent_text_color }};
+    }
+
+    html:not(.supports-no-js) body:not(.navigation-open) .site-header--transparent:not(.site-header--fixed) a.site-header__logo {
+      color: {{ section.settings.transparent_text_color }};
+    }
+
+    html:not(.supports-no-js) body:not(.navigation-open) .site-header--transparent:not(.site-header--fixed) .site-header__navigation::after,
+    html:not(.supports-no-js) body:not(.navigation-open) .site-header--transparent:not(.site-header--fixed) .site-header__cart::after {
+      border-color: {{ section.settings.transparent_text_color }};
+    }
+  </style>
+{% endif %}
+
+<style>
+  .site-header__logo-image {
+      max-height: none !important;
+  }
+
+  .hamburger-icon, .cart-icon {
+  	margin-top: 5px;
+  }
+
+  .site-header__section.site-header__section--button img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .site-header__wrapper h1 {
+    width: 200px;
+  }
+
+  .site-header__wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: transparent;
+    z-index: $z-index-header;
+    transition: background-color 0.25s ease-out;
+    padding: 8px 0;
+    max-height: 85px;
+    z-index: 999999;
+
+    .site-header--transparent & {
+      background-color: $site-header-wrapper-color;
+    }
+
+    .navigation-open &,
+    html.supports-no-js & {
+  /*     background-color: $color-header; */
+    }
+
+    .site-header--fixed & {
+      background-color: $color-header;
+    }
+
+    svg {
+      fill: $color-header-links;
+    }
+  }
+
+  .site-header-sections {
+    max-width: 1440px;
+    padding: 0 100px;
+    margin: 0 auto;
+  }
+
+  .site-header__wrapper--transitioning {
+    transition: background-color 0.25s ease-out, margin-top 0.25s ease-out;
+  }
+
+  @media only screen and (min-width: 100px) and (max-width: 1024px) {
+    .site-header__wrapper {
+      max-height: 60px;
+      padding: 13px 30px;
+    }
+
+    .site-header-sections {
+      display: none;
+    }
+
+    .site-mobile-header-section {
+      display: block !important;
+      text-align: center;
+    }
+
+    #sidebar-main-trigger img {
+      width: 25px;
+      height: 25px;
+    }
+
+    #sidebar-main-trigger {
+      float: left;
+    }
+
+    .site-logo-center {
+      width: 200px;
+      margin: 0 auto;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .site-logo-center a {
+      margin: 0 auto;
+      display: inline-block;
+    }
+
+    .cart-icon {
+      float: right;
+      width: 25px;
+      height: 25px;
+    }
+
+    #sidebar-main {
+      background: white;
+    }
+
+    #sidebar-main ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #sidebar-main ul li {
+      border-bottom: 1px solid #D7D7D7;
+      padding: 20px;
+    }
+
+    #sidebar-main ul li.top-section {
+      padding-right: 20px;
+      border-bottom: none;
+    }
+
+    #sidebar-main ul li.top-section .close-icon {
+      float: right;
+      width: 20px;
+      height: 20px;
+      font-size: 22px;
+    }
+
+    #sidebar-main ul li a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: Poppins;
+      color: #004A97 !important;
+    }
+  }
+
+/*   @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .site-header__logo-image {
+      width: 75px;
+    }
+  } */
+</style>
+
+<div class="site-header{% if section.settings.enable_transparent and template.name == 'index' %} site-header--transparent{% endif %}{% if template.name == 'index' %} site-header--homepage{% endif %}" data-section-id="{{ section.id }}" data-section-type="header-section" data-drawer-push>
+  <header class="site-header__wrapper">
+    {% if section.settings.show_announcement %}
+      {% if section.settings.home_page_only == false or template.name == 'index' %}
+        <style>
+          .announcement-bar {
+            background-color: {{ section.settings.announcement_color_bg }};
+          }
+
+          .announcement-bar--link:hover {
+            {% assign brightness = section.settings.announcement_color_bg | color_brightness %}
+
+            {% if brightness <= 192 %}
+              {% assign lightenAmount = 255 | minus: brightness | divided_by: 255 | times: 16 %}
+              background-color: {{ section.settings.announcement_color_bg | color_lighten: lightenAmount }};
+            {% else %}
+              {% assign darkenAmount = 255 | divided_by: brightness | times: 8 %}
+              background-color: {{ section.settings.announcement_color_bg | color_darken: darkenAmount }};
+            {% endif %}
+          }
+
+          .announcement-bar__message,
+          .announcement-bar__close {
+            color: {{ section.settings.announcement_color_text }};
+          }
+        </style>
+
+        {% if section.settings.announcement_link == blank %}
+          <div class="announcement-bar">
+        {% else %}
+          <a href="{{ section.settings.announcement_link }}" class="announcement-bar announcement-bar--link">
+        {% endif %}
+
+          <p class="announcement-bar__message page-width">
+            {% if section.settings.announcement_icon != 'none' %}
+              {%- assign icon = 'icon-' | append: section.settings.announcement_icon -%}
+              {% include icon %}
+            {% endif %}
+            {{ section.settings.announcement_text | escape }}
+          </p>
+          <button class="announcement-bar__close btn btn--clear" aria-expanded="true">{% include 'icon-close' %}</button>
+
+        {% if section.settings.announcement_link == blank %}
+          </div>
+        {% else %}
+          </a>
+        {% endif %}
+
+      {% endif %}
+    {% endif %}
+
+    <div class="site-header-sections">
+      <div class="site-header__section site-header__section--title">
+        {% comment %}
+        Use the uploaded logo from theme settings if enabled.
+        Site name gets precedence with `h1` tag on homepage, div on other pages.
+        {% endcomment %}
+        {% if template.name == 'index' %}
+          <h1 class="site-header__logo-wrapper h4" itemscope itemtype="http://schema.org/Organization">
+        {% else %}
+          <div class="site-header__logo-wrapper h4" itemscope itemtype="http://schema.org/Organization">
+        {% endif %}
+
+        <a href="/" itemprop="url" class="site-header__logo">
+          {%- capture image_size %}x{{ section.settings.logo_max_height }}{% endcapture -%}
+
+          {% if section.settings.logo %}
+            <style>
+              .site-header__logo-image {
+                width: 100px;
+              }
+
+              @media only screen and (min-width: 320px) and (max-width: 767px) {
+                .site-header__logo-image {
+                  width: 75px;
+                }
+              }
+            </style>
+
+            <img class="site-header__logo-image" src="{{ section.settings.logo | img_url: image_size }}" srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x" alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo">
+
+            {% if template.name == 'index' and section.settings.enable_transparent %}
+              {% if section.settings.transparent_logo == blank %}
+                {%- assign transparent_logo = section.settings.logo -%}
+              {% else %}
+                {%- assign transparent_logo = section.settings.transparent_logo -%}
+              {% endif %}
+
+              <img class="site-header__logo-image site-header__logo-image--transparent" src="{{ transparent_logo | img_url: image_size }}" srcset="{{ transparent_logo | img_url: image_size }} 1x, {{ transparent_logo | img_url: image_size, scale: 2 }} 2x" alt="{{ section.settings.logo.alt | default: shop.name }}"
+                      itemprop="logo">
+            {% endif %}
+          {% else %}
+            {{ shop.name }}
+          {% endif %}
+        </a>
+
+        {% if template.name == 'index' %}
+          </h1>
+        {% else %}
+          </div>
+        {% endif %}
+
+        <div class="menu-itmes">
+          {% for link in linklists[section.settings.primary_navigation].links %}
+            <a class="menu-item" href="{{link.url}}">{{link.title}}</a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="site-header__section site-header__section--button">
+        <a href="/cart" class="white-icon">
+          <img class="white-icon" src="{{ section.settings.shopping_cart_icon | img_url: 'master' }}">
+          <img class="blue-icon" style="display: none" src="{{ section.settings.shopping_cart_icon_blue | img_url: 'master' }}">
+        </a>
+      </div>
+    </div>
+
+    <div class="site-mobile-header-section" style="display: none;">
+      <div id="sidebar-main-trigger" class="hamburger-icon">
+        <img class="white-icon" src="{{ 'hamburger-white-icon.png' | asset_url }}" alt="Menu Icon" />
+        <img class="blue-icon" src="{{ 'hamburger-blue-icon.png' | asset_url }}" alt="Menu Icon" style="display: none;" />
+      </div>
+      <div class="site-logo-center">
+        <a href="/" itemprop="url" class="site-header__logo">
+          <img class="site-header__logo-image" src="{{ section.settings.logo | img_url: 'master' }}">
+        </a>
+      </div>
+      <a href="/cart" class="cart-icon">
+        {% assign shopping_cart_icon = section.settings.shopping_cart_icon | img_url: '25x25' %}
+        <img class="white-icon"src="{{ section.settings.shopping_cart_icon | img_url: 'master' }}">
+        {% assign shopping_cart_icon_blue = section.settings.shopping_cart_icon_blue | img_url: '25x25' %}
+        <img class="blue-icon" style="display: none" src="{{ section.settings.shopping_cart_icon_blue | img_url: 'master' }}">
+      </a>
+    </div>
+  </header>
+</div>
+
+<div class="side-bar" id="sidebar-main" style="position: fixed; top: 0px; bottom: 0px; width: 200px; z-index: 3000; left: -200px;">
+  <div class="wrapper">
+    <nav>
+      <ul>
+      <li class="top-section">
+        <div class="close-icon close-sidebar">
+          <img src="{{ 'sidebar-close-icon.png' | asset_url }}">
+        </div>
+      </li>
+      {% for link in linklists[section.settings.primary_navigation].links %}
+        <li><a class="menu-item" href="{{link.url}}">{{link.title}}</a></li>
+      {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+
+<script>
+  $(document).ready(function() {
+    var $mainSidebar = $("#sidebar-main");
+
+    $mainSidebar.simplerSidebar({
+      align: "left",
+      attr: "sidebar-main",
+      selectors: {
+        trigger: "#sidebar-main-trigger",
+        quitter: ".close-sidebar"
+      },
+      sidebar: {
+        width: 200
+      },
+      animation: {
+        easing: "easeOutQuint"
+      }
+    });
+
+    $(window).scroll(function() {
+      var header_top = $('.site-header__wrapper').offset().top;
+      if (header_top > 0) {
+        $('.site-header__wrapper').css({
+          background: 'white',
+          'border-bottom': '1px solid #fdfdfd'
+        });
+        $('.menu-item').addClass('scrolled');
+        $('.menu-item').css('color', '#004A97');
+        $('img.white-icon').hide();
+        $('img.blue-icon').show();
+
+        $('#sidebar-main-trigger img.white-icon').hide();
+        $('.cart-icon img.white-icon').hide();
+        $('#sidebar-main-trigger img.blue-icon').show();
+        $('.cart-icon img.blue-icon').show();
+      }
+      else {
+        $('.site-header__wrapper').css({
+          background: 'transparent',
+          'border-bottom': 'none'
+        });
+        $('.menu-item').removeClass('scrolled');
+        $('.menu-item').css('color', 'white');
+        $('img.white-icon').show();
+        $('img.blue-icon').hide();
+
+        $('#sidebar-main-trigger img.white-icon').show();
+        $('.cart-icon img.white-icon').show();
+        $('#sidebar-main-trigger img.blue-icon').hide();
+        $('.cart-icon img.blue-icon').hide();
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "shopping_cart_icon",
+      "label": "Shopping cart icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "shopping_cart_icon_blue",
+      "label": "Shopping cart scroll icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "id": "logo_max_height",
+      "type": "text",
+      "label": "Custom logo height (in pixels)",
+      "default": "60"
+    },
+    {
+      "type": "header",
+      "content": "Transparent header"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_transparent",
+      "label": "Enable transparent header on the home page",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "transparent_logo",
+      "label": "Tranparent logo image",
+      "info": "This logo will be used on the home page if the transparent header setting is selected"
+    },
+    {
+      "type": "color",
+      "id": "transparent_text_color",
+      "label": "Transparent header icons color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "primary_navigation",
+      "label": "Primary navigation",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "secondary_navigation",
+      "label": "Secondary navigation",
+      "default": "footer",
+      "info": "This menu won't show dropdown items"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_icons",
+      "label": "Show social icons",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Announcement"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": "Home page only",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "Announce something here"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Announcement link",
+      "info": "Optional"
+    },
+    {
+      "type": "select",
+      "id": "announcement_icon",
+      "label": "Icon",
+      "default": "checkmark",
+      "options": [
+        {
+          "label": "None",
+          "value": "none"
+        },
+        {
+          "label": "Box",
+          "value": "box"
+        },
+        {
+          "label": "Card",
+          "value": "card"
+        },
+        {
+          "label": "Cart",
+          "value": "cart"
+        },
+        {
+          "label": "Checkmark",
+          "value": "checkmark"
+        },
+        {
+          "label": "Clock",
+          "value": "clock"
+        },
+        {
+          "label": "Envelope",
+          "value": "envelope"
+        },
+        {
+          "label": "Globe",
+          "value": "globe"
+        },
+        {
+          "label": "Leaf",
+          "value": "leaf"
+        },
+        {
+          "label": "Padlock",
+          "value": "padlock"
+        },
+        {
+          "label": "Price Tag",
+          "value": "pricetag"
+        },
+        {
+          "label": "Silhouette",
+          "value": "silhouette"
+        },
+        {
+          "label": "Trophy",
+          "value": "trophy"
+        },
+        {
+          "label": "Truck",
+          "value": "truck"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "announcement_color_bg",
+      "label": "Bar",
+      "default": "#7796A8"
+    },
+    {
+      "type": "color",
+      "id": "announcement_color_text",
+      "label": "Text",
+      "default": "#fff"
+    }
+  ]
+}
+{% endschema %}

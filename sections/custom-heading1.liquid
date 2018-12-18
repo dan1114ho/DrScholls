@@ -1,0 +1,30 @@
+<div class="page-width text-center margin-top--large margin-bottom--large">
+<h2>{{ section.settings.customHeadingOne }}</h2>
+</div>
+<style>
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #shopify-section-{{ section.id }} h1 {
+      padding: 100px 45px 50px 45px !important;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Custom Heading1",
+  "class": "index-section index-section--image-with-text-overlay",
+  "settings": [
+    {
+      "type": "text",
+      "id": "customHeadingOne",
+      "label": "Caption Heading",
+      "default": "Talk about your brand"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Heading1",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

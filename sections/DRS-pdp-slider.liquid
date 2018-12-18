@@ -1,0 +1,453 @@
+<style>
+  #shopify-section-DRS-pdp-slider {
+  	margin-top: 150px;
+  }
+  
+.mobile-features {
+	display: none;
+}
+
+ul.slickslide {
+    padding-left:0;
+    max-width:100%;
+    height: 660px;
+}
+
+ul.slickslide li {
+  position: relative;
+}
+
+.slick-slider .slick-track {
+    min-width:100%;
+}
+.slick-dots button img {
+    width: 100%;
+    height: 740px;
+}
+
+ul.slickslide li div.carousel-images {
+  width: 1440px;
+  height: 600px;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.slick-dots {
+    bottom:0;
+    top: 520px;
+    left:auto;
+    right:auto;
+    position:absolute;
+    line-height:0;
+    height: 140px;
+}
+
+
+.slick-dots li {
+    display: inline-block;
+    /* width: 166px;
+    height: 140px; */
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.slick-dots li.slick-active button {
+  border: 4px solid #F7C10A;
+}
+.slick-slider .slick-track {
+    min-width:100%;
+}
+.slick-dots li button {
+    margin:0;
+    height:auto;
+    width:100%;
+    padding:0;
+
+}
+
+.slick-dots li button.tab { clear:both;   display:block;}
+.slick-dots li button img {
+  width: 166px;
+  height: 140px;
+}
+.slick-dots li button:before {
+    content: '';
+    display: block;
+    width:100%;
+    max-width:150px;
+    overflow:hidden;
+    float:none;
+    position:absolute;
+    width:100%;
+    height:100%}
+
+.slick-thumbs {
+    position:absolute;
+    left: -9999px;
+}
+
+#shopify-section-{{section.id}} {
+  margin-top: 100px;
+}
+
+#shopify-section-{{section.id}} .sliderText {
+  margin: 0;
+  padding-top: 50px;
+  padding-right: 130px;
+}
+
+#shopify-section-{{section.id}} .sliderText h3 {
+  margin-bottom: 10px;
+}
+#shopify-section-{{section.id}} .sliderText p {
+
+}
+
+.slick-prev {
+  left: 25px;
+  width: 45px;
+  height: 45px;
+}
+
+.slick-next {
+  right: 25px;
+  width: 45px;
+  height: 45px;
+}
+
+.slick-prev, .slick-next {
+  top: 35%;
+}
+
+.slick-prev:before {
+  font-size: 45px;
+}
+
+.slick-next:before {
+  font-size: 45px;
+}
+
+.thumb-captions {
+  margin-top: 15px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.sliderText div {
+  position: absolute;
+  top: 50px;
+  right: 80px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  #shopify-section-{{ section.id }} {
+    margin-top: 0;
+    height: 460px;
+  }
+
+  ul.slickslide {
+    margin-top: 0;
+  }
+
+  ul.slickslide li div.carousel-images {
+    width: 100%;
+    height: 397px;
+  }
+
+  .slick-prev, .slick-next {
+    top: 25%;
+  }
+
+  .slick-dots {
+    top: 315px;
+  }
+
+  #shopify-section-{{ section.id }} .sliderText {
+    padding-top: 20px;
+    padding-right: 25px;
+  }
+}
+  
+/* Mobile layout */  
+@media only screen and (max-width: 767px) {
+  .mobile-features {
+  	display: block;
+  }
+  
+  .slickslide, .slick-thumbs {
+  	display: none;
+  }
+  
+  .mobile-features {
+  	background-color: #f3f3f3;
+  }
+  
+  #shopify-section-{{ section.id }} {
+  	margin-top: 0!important;
+  }
+  
+  .mobile-feature-img {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+  }
+  
+  .mobile-feature-blurb {
+    margin: 10px auto 20px auto;
+  }
+  
+  .mobile-wrapper {
+  	margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .padding-bottom-mobile {
+  	padding-bottom: 50px;
+  }
+}
+</style>
+
+<ul class="slickslide">
+  <li data-id="one">
+    <div class="carousel-images" style="background-image: url({{ section.settings.cardOneBackground | img_url : 'master' }})">
+      <div class="sliderText one">
+        <div>
+          <h3>{{ section.settings.cardOneHeader }}</h3>
+          <h5>{{ section.settings.cardOneBody }}</h5>
+        </div>
+      </div>
+    </div>
+    <!-- <img src="{{ section.settings.cardOneBackground | img_url : 'master' }}"> -->
+  </li>
+  <li data-id="two">
+    <div class="carousel-images" style="background-image: url({{ section.settings.cardTwoBackground | img_url : 'master' }})">
+      <div class="sliderText two">
+        <div>
+          <h3>{{ section.settings.cardTwoHeader }}</h3>
+          <h5>{{ section.settings.cardTwoBody }}</h5>
+        </div>
+      </div>
+    </div>
+    <!-- <img src="{{ section.settings.cardTwoBackground | img_url : 'master' }}"> -->
+  </li>
+  <li data-id="three">
+    <div class="carousel-images" style="background-image: url({{ section.settings.cardThreeBackground | img_url : 'master' }})">
+      <div class="sliderText three">
+        <div>
+          <h3>{{ section.settings.cardThreeHeader }}</h3>
+          <h5>{{ section.settings.cardThreeBody }}</h5>
+        </div>
+      </div>
+    </div>
+    <!-- <img src="{{ section.settings.cardThreeBackground | img_url : 'master' }}"> -->
+  </li>
+</ul>
+<div class="slick-thumbs">
+  <ul>
+     <li data-id="one">
+        <img src="{{ section.settings.cardOneIcon | img_url : 'master' }}" />
+    </li>
+    <li data-id="two">
+        <img src="{{ section.settings.cardTwoIcon | img_url : 'master'}}" />
+    </li>
+    <li data-id="three">
+        <img src="{{ section.settings.cardThreeIcon | img_url : 'master' }}" />
+    </li>
+  </ul>
+</div>
+
+<div class="mobile-features">
+  <div class="feature-block">
+    <div class="mobile-feature-img" style="background-image: url({{ section.settings.mobile_cardOneBackground | img_url : 'master' }}); background-position: right;"></div>
+    <div class="mobile-feature-blurb mobile-wrapper">
+      <h3>{{ section.settings.cardOneHeader }}</h3>
+      <h5>{{ section.settings.cardOneBody }}</h5>  
+    </div>
+  </div>
+  <div class="feature-block">
+    <div class="mobile-feature-img" style="background-image: url({{ section.settings.mobile_cardTwoBackground | img_url : 'master' }}); background-position: left;"></div>
+    <div class="mobile-feature-blurb mobile-wrapper">
+      <h3>{{ section.settings.cardTwoHeader }}</h3>
+      <h5>{{ section.settings.cardTwoBody }}</h5>  
+    </div>
+  </div>
+  <div class="feature-block padding-bottom-mobile">
+    <div class="mobile-feature-img" style="background-image: url({{ section.settings.mobile_cardThreeBackground | img_url : 'master' }}); background-position: right;"></div>
+    <div class="mobile-feature-blurb mobile-wrapper">
+      <h3>{{ section.settings.cardThreeHeader }}</h3>
+      <h5>{{ section.settings.cardThreeBody }}</h5>  
+    </div>
+  </div>
+</div>
+
+<script>
+  var captionOne = '{{ section.settings.cardOneHeader }}';
+  var captionTwo = '{{ section.settings.cardTwoHeader }}';
+  var captionThree = '{{ section.settings.cardThreeHeader }}';
+  var captions = [captionOne, captionTwo, captionThree];
+  $(document).ready(function() {
+    $('.slickslide').slick({
+       dots: true,
+       infinite: true,
+       speed: 500,
+       fade: false,
+       slide: 'li',
+       cssEase: 'linear',
+       centerMode: true,
+       slidesToShow: 1,
+       variableWidth: true,
+       swipe: false,
+       fade: true,
+       // autoplay: true,
+       // autoplaySpeed: 4000,
+       responsive: [{
+           breakpoint: 800,
+           settings: {
+               arrows: false,
+               centerMode: false,
+               centerPadding: '40px',
+               variableWidth: false,
+               slidesToShow: 1,
+               dots: true
+           },
+           breakpoint: 1200,
+           settings: {
+               arrows: true,
+               centerMode: false,
+               centerPadding: '40px',
+               variableWidth: false,
+               slidesToShow: 1,
+               dots: true
+
+           },
+           breakpoint: 1400,
+           settings: {
+               arrows: true,
+               centerMode: false,
+               centerPadding: '40px',
+               variableWidth: false,
+               slidesToShow: 1,
+               dots: true
+
+           }
+       }],
+       customPaging: function (slider, i) {
+           return '<button class="tab">' + $('.slick-thumbs li:nth-child(' + (i + 1) + ')').html() + '</button>';
+       }
+     });
+
+     $('.slick-dots li button').each(function(index) {
+       $(this).after('<div class="thumb-captions">' + captions[index] + '</div>');
+     });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Slider PDP",
+    "settings": [
+      {
+      "type": "image_picker",
+      "id": "cardOneBackground",
+      "label": "Card One Background"
+      },
+	  {
+      "type": "image_picker",
+      "id": "mobile_cardOneBackground",
+      "label": "Mobile Card One Background"
+      },
+      {
+      "type": "image_picker",
+      "id": "cardOneIcon",
+      "label": "Card One Icon"
+      },
+      {
+      "type": "text",
+      "id": "cardOneHeader",
+      "label": "Card One Header",
+      "default": "Type a header in here"
+      },
+      {
+      "type": "html",
+      "id": "cardOneBody",
+      "label": "Card One Body",
+      "default": "<p>Type body copy here.</p>"
+      },
+      {
+      "type": "image_picker",
+      "id": "cardTwoBackground",
+      "label": "Card Two Background"
+      },
+	  {
+      "type": "image_picker",
+      "id": "mobile_cardTwoBackground",
+      "label": "Mobile Card Two Background"
+      },
+      {
+      "type": "image_picker",
+      "id": "cardTwoIcon",
+      "label": "Card Two Icon"
+      },
+      {
+      "type": "text",
+      "id": "cardTwoHeader",
+      "label": "Card Two Header",
+      "default": "Type a header in here"
+      },
+      {
+      "type": "html",
+      "id": "cardTwoBody",
+      "label": "Card Two Body",
+      "default": "<p>Type body copy here.</p>"
+      },
+      {
+      "type": "image_picker",
+      "id": "cardThreeBackground",
+      "label": "Card Three Background"
+      },
+	  {
+      "type": "image_picker",
+      "id": "mobile_cardThreeBackground",
+      "label": "Mobile Card Three Background"
+      },
+      {
+      "type": "image_picker",
+      "id": "cardThreeIcon",
+      "label": "Card Three Icon"
+      },
+      {
+      "type": "text",
+      "id": "cardThreeHeader",
+      "label": "Card Three Header",
+      "default": "Type a header in here"
+      },
+      {
+      "type": "html",
+      "id": "cardThreeBody",
+      "label": "Card Three Body",
+      "default": "<p>Type body copy here.</p>"
+      },
+      {
+      "type": "image_picker",
+      "id": "arrowLeft",
+      "label": "Arrow Left Icon"
+      },
+      {
+      "type": "image_picker",
+      "id": "arrowRight",
+      "label": "Arrow Right Icon"
+      }
+  ],
+  "presets": [{
+    "name": "Slider PDP",
+    "category": "Text"
+  }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

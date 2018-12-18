@@ -1,0 +1,107 @@
+<div class="right-image-section">
+  <div class="image-area" style="background: url({{ section.settings.image | img_url: 'master' }}); background-size: cover;">
+
+  </div>
+  <div class="description-area left">
+    <div class="description-inner">
+      <h3 class="description-heading">{{ section.settings.title }}</h3>
+      <h5 class="description-text">{{ section.settings.description }}</h5>
+    </div>
+  </div>
+</div>
+
+<style>
+#shopify-section-{{ section.id }} {
+  margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  #shopify-section-{{ section.id }} {
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+  #shopify-section-{{ section.id }} {
+    margin-bottom: 20px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Left image",
+  "class": "index-section index-section--image-with-text-overlay",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Image alignment",
+      "default": "center center",
+      "options": [
+        {
+          "label": "Top left",
+          "value": "top left"
+        },
+        {
+          "label": "Top center",
+          "value": "top center"
+        },
+        {
+          "label": "Top right",
+          "value": "top right"
+        },
+        {
+          "label": "Middle left",
+          "value": "center left"
+        },
+        {
+          "label": "Middle center",
+          "value": "center center"
+        },
+        {
+          "label": "Middle right",
+          "value": "center right"
+        },
+        {
+          "label": "Bottom left",
+          "value": "bottom left"
+        },
+        {
+          "label": "Bottom center",
+          "value": "bottom center"
+        },
+        {
+          "label": "Bottom right",
+          "value": "bottom right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Left image",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
